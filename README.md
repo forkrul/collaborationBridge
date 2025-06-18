@@ -186,6 +186,28 @@ The API documentation is automatically generated and available at:
 - Rate limiting
 - Input validation with Pydantic
 
+## Documentation
+
+The project includes comprehensive documentation built with Sphinx:
+
+- **Local Documentation**: `make docs` then `make docs-serve`
+- **GitHub Pages**: Automatically deployed at https://forkrul.github.io/project-template-mvp/
+
+### GitHub Pages Setup
+
+GitHub Pages is automatically configured and can be managed via API:
+
+```bash
+# Enable GitHub Pages via script
+./scripts/setup-github-pages.sh
+
+# Or manually via API
+curl -X POST \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  https://api.github.com/repos/OWNER/REPO/pages \
+  -d '{"source": {"branch": "master", "path": "/"}, "build_type": "workflow"}'
+```
+
 ## Deployment
 
 ### Production Docker

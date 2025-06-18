@@ -47,6 +47,9 @@ docs: ## Build documentation
 docs-serve: ## Serve documentation locally
 	cd docs && $(POETRY) run python -m http.server -d build/html 8080
 
+setup-github-pages: ## Setup GitHub Pages via API
+	./scripts/setup-github-pages.sh
+
 clean: ## Clean build artifacts
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete

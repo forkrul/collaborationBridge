@@ -31,6 +31,7 @@ Quick Start
 
    architecture/index
    api/index
+   deployment/index
 
 Indices and tables
 ==================
