@@ -252,6 +252,19 @@ local/
 .gcp/
 .azure/
 
+# Nix
+.nix-postgres/
+.nix-redis-data/
+.nix-redis.conf
+.nix-postgres.log
+.nix-redis.log
+.poetry-cache/
+result
+result-*
+
+# Direnv
+.envrc.local
+
 # Project specific
 initial-seed.md
 Python\ MVP\ Template\ Improvements_.pdf

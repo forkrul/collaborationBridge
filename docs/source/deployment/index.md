@@ -2,15 +2,26 @@
 
 ## GitHub Pages Setup
 
-This project includes automatic documentation deployment to GitHub Pages using GitHub Actions.
+This project includes local documentation building and deployment to GitHub Pages.
 
-### Automatic Setup via GitHub Actions
+### Local Documentation Build and Deploy
 
-The repository is configured with a GitHub Actions workflow (`.github/workflows/docs.yml`) that automatically:
+The repository is configured for local documentation building with deployment scripts:
 
-1. Builds Sphinx documentation on every push to `master`
-2. Deploys the built documentation to GitHub Pages
-3. Makes documentation available at: `https://forkrul.github.io/project-template-mvp/`
+1. **Build documentation locally**: `make docs`
+2. **Deploy to GitHub Pages**: `make docs-deploy` or `./scripts/deploy-docs.sh`
+3. **Documentation available at**: `https://forkrul.github.io/project-template-mvp/`
+
+### Quick Setup
+
+```bash
+# 1. Setup GitHub Pages (one-time)
+make setup-github-pages
+
+# 2. Build and deploy documentation
+make docs
+make docs-deploy
+```
 
 ### Manual GitHub Pages Setup via API
 
@@ -33,7 +44,7 @@ curl -X POST \
   }'
 ```
 
-#### Enable GitHub Pages with gh-pages branch
+#### Enable GitHub Pages with gh-pages branch (Recommended)
 
 ```bash
 curl -X POST \
@@ -48,6 +59,8 @@ curl -X POST \
     }
   }'
 ```
+
+This is the recommended approach as it allows for local documentation building and deployment.
 
 #### Check GitHub Pages Status
 
@@ -111,14 +124,70 @@ export GITHUB_TOKEN="your_token_here"
 export GITHUB_OWNER="forkrul"
 export GITHUB_REPO="project-template-mvp"
 
-# Enable Pages
+# Enable Pages with gh-pages branch
 curl -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPO/pages \
-  -d '{"source": {"branch": "master", "path": "/"}, "build_type": "workflow"}'
+  -d '{"source": {"branch": "gh-pages", "path": "/"}}'
 ```
+
+### Local Documentation Workflow
+
+The local documentation workflow provides several advantages:
+
+- **Full Control**: Build documentation with your exact environment
+- **Faster Iteration**: No waiting for CI/CD pipelines
+- **Custom Processing**: Add custom build steps or preprocessing
+- **Offline Capability**: Build documentation without internet connection
+
+#### Documentation Build Process
+
+1. **Install Dependencies**:
+   ```bash
+   poetry install --with docs
+   ```
+
+2. **Build Documentation**:
+   ```bash
+   make docs
+   # or manually:
+   cd docs && poetry run make html
+   ```
+
+3. **Preview Locally**:
+   ```bash
+   make docs-serve
+   # Opens server at http://localhost:8080
+   ```
+
+4. **Deploy to GitHub Pages**:
+   ```bash
+   make docs-deploy
+   # or manually:
+   ./scripts/deploy-docs.sh
+   ```
+
+#### Automated Deployment Script
+
+The `deploy-docs.sh` script handles:
+
+- ✅ Building documentation locally
+- ✅ Creating/switching to gh-pages branch
+- ✅ Copying built files to gh-pages
+- ✅ Adding `.nojekyll` file (prevents Jekyll processing)
+- ✅ Committing and pushing changes
+- ✅ Switching back to original branch
+- ✅ Cleanup of temporary files
+
+#### Continuous Integration
+
+The GitHub Actions workflow (`.github/workflows/docs.yml`) now only:
+
+- ✅ Checks that documentation builds successfully
+- ✅ Validates links (optional)
+- ❌ Does NOT auto-deploy (manual control)
 
 ## Docker Deployment
 

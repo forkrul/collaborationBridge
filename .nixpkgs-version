@@ -1,0 +1,14 @@
+# Nixpkgs version for reproducible builds
+# This project is tested with nixpkgs-unstable
+# You can pin to a specific commit for maximum reproducibility
+
+# Current recommended version (update as needed)
+# nixpkgs-unstable as of 2024-01-15
+# Commit: https://github.com/NixOS/nixpkgs/commit/...
+
+# To use a specific version, modify shell.nix:
+# { pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/COMMIT.tar.gz") {} }
+
+# Or use nix-channel:
+# nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+# nix-channel --update

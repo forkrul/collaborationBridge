@@ -21,11 +21,56 @@ A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices 
 
 ### Prerequisites
 
+**Option 1: Nix (Recommended)**
+- [Nix package manager](https://nixos.org/download.html)
+- [direnv](https://direnv.net/) (optional but recommended)
+
+**Option 2: Manual Setup**
 - Python 3.11+
 - Poetry
+- PostgreSQL 16+
+- Redis
 - Docker & Docker Compose (optional)
 
 ### Installation
+
+#### Using Nix (Recommended)
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd mvp-template
+   ```
+
+2. **Enter Nix development environment**
+   ```bash
+   # With Nix flakes
+   nix develop
+
+   # Or with traditional nix-shell
+   nix-shell
+
+   # Or with direnv (automatic)
+   direnv allow
+   ```
+
+3. **Install Python dependencies**
+   ```bash
+   make install
+   ```
+
+4. **Start services and run migrations**
+   ```bash
+   services_start  # Start PostgreSQL and Redis
+   make db-upgrade
+   ```
+
+5. **Start the development server**
+   ```bash
+   make dev
+   ```
+
+#### Manual Setup
 
 1. **Clone the repository**
    ```bash
@@ -57,6 +102,57 @@ A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices 
 6. **Visit the API documentation**
    - Swagger UI: http://localhost:8000/docs
    - ReDoc: http://localhost:8000/redoc
+
+## Nix Development Environment
+
+This project includes comprehensive Nix support for reproducible development environments:
+
+### Nix Quick Start
+
+```bash
+# Clone project
+git clone <repository-url>
+cd mvp-template
+
+# Install Nix and direnv (one-time setup)
+make install-nix
+
+# Enter development environment
+nix develop  # or nix-shell
+
+# Install dependencies and start services
+make install
+services_start
+make dev
+```
+
+**Alternative manual Nix installation:**
+```bash
+# Install Nix manually
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+
+### Nix Features
+
+- **🔒 Reproducible**: Exact same environment for all developers
+- **🚀 Fast Setup**: One command gets everything working
+- **🗄️ Integrated Services**: PostgreSQL and Redis included
+- **🛠️ Complete Toolchain**: Python, databases, docs, testing tools
+- **🔄 Automatic**: Works with direnv for seamless development
+
+### Nix Commands
+
+```bash
+# Service management (in nix-shell)
+services_start     # Start PostgreSQL and Redis
+services_stop      # Stop all services
+services_status    # Check service status
+
+# Or via scripts
+make nix-services-start
+make nix-services-stop
+make nix-services-status
+```
 
 ## Development
 
@@ -191,11 +287,28 @@ The API documentation is automatically generated and available at:
 The project includes comprehensive documentation built with Sphinx:
 
 - **Local Documentation**: `make docs` then `make docs-serve`
-- **GitHub Pages**: Automatically deployed at https://forkrul.github.io/project-template-mvp/
+- **GitHub Pages**: Deploy with `make docs-deploy`
+- **Live Documentation**: https://forkrul.github.io/project-template-mvp/
 
-### GitHub Pages Setup
+### Documentation Workflow
 
-GitHub Pages is automatically configured and can be managed via API:
+```bash
+# 1. Setup GitHub Pages (one-time)
+make setup-github-pages
+
+# 2. Build documentation locally
+make docs
+
+# 3. Preview documentation
+make docs-serve
+
+# 4. Deploy to GitHub Pages
+make docs-deploy
+```
+
+### GitHub Pages API Management
+
+GitHub Pages can be configured programmatically:
 
 ```bash
 # Enable GitHub Pages via script
@@ -205,7 +318,7 @@ GitHub Pages is automatically configured and can be managed via API:
 curl -X POST \
   -H "Authorization: Bearer YOUR_TOKEN" \
   https://api.github.com/repos/OWNER/REPO/pages \
-  -d '{"source": {"branch": "master", "path": "/"}, "build_type": "workflow"}'
+  -d '{"source": {"branch": "gh-pages", "path": "/"}}'
 ```
 
 ## Deployment

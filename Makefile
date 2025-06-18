@@ -47,8 +47,30 @@ docs: ## Build documentation
 docs-serve: ## Serve documentation locally
 	cd docs && $(POETRY) run python -m http.server -d build/html 8080
 
+docs-dev: ## Start development documentation server
+	./scripts/dev-docs.sh
+
+docs-deploy: ## Deploy documentation to GitHub Pages
+	./scripts/deploy-docs.sh
+
 setup-github-pages: ## Setup GitHub Pages via API
 	./scripts/setup-github-pages.sh
+
+# Nix-specific commands
+install-nix: ## Install Nix package manager and direnv
+	./scripts/install-nix.sh
+
+nix-shell: ## Enter Nix development shell
+	nix-shell
+
+nix-services-start: ## Start PostgreSQL and Redis (Nix)
+	./scripts/nix-services.sh start
+
+nix-services-stop: ## Stop PostgreSQL and Redis (Nix)
+	./scripts/nix-services.sh stop
+
+nix-services-status: ## Check service status (Nix)
+	./scripts/nix-services.sh status
 
 clean: ## Clean build artifacts
 	find . -type d -name "__pycache__" -exec rm -rf {} +

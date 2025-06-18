@@ -29,6 +29,7 @@ Quick Start
    :maxdepth: 2
    :caption: Contents:
 
+   nix/index
    architecture/index
    api/index
    deployment/index
