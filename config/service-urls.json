@@ -1,0 +1,178 @@
+{
+  "environments": {
+    "development": {
+      "domain": "localhost",
+      "protocol": "http",
+      "services": {
+        "api": {
+          "subdomain": null,
+          "port": 8000,
+          "path": "",
+          "health_endpoint": "/api/v1/health"
+        },
+        "frontend": {
+          "subdomain": null,
+          "port": 3000,
+          "path": "",
+          "health_endpoint": "/health"
+        },
+        "database": {
+          "subdomain": null,
+          "port": 5432,
+          "path": "",
+          "health_endpoint": null
+        },
+        "redis": {
+          "subdomain": null,
+          "port": 6379,
+          "path": "",
+          "health_endpoint": "/ping"
+        },
+        "docs": {
+          "subdomain": null,
+          "port": 8080,
+          "path": "",
+          "health_endpoint": null
+        }
+      }
+    },
+    "staging": {
+      "domain": "staging.example.com",
+      "protocol": "https",
+      "services": {
+        "api": {
+          "subdomain": "api",
+          "port": null,
+          "path": "",
+          "health_endpoint": "/api/v1/health"
+        },
+        "frontend": {
+          "subdomain": "app",
+          "port": null,
+          "path": "",
+          "health_endpoint": "/health"
+        },
+        "database": {
+          "subdomain": "db",
+          "port": 5432,
+          "path": "",
+          "health_endpoint": null
+        },
+        "redis": {
+          "subdomain": "cache",
+          "port": 6379,
+          "path": "",
+          "health_endpoint": "/ping"
+        },
+        "docs": {
+          "subdomain": "docs",
+          "port": null,
+          "path": "",
+          "health_endpoint": null
+        }
+      }
+    },
+    "production": {
+      "domain": "example.com",
+      "protocol": "https",
+      "services": {
+        "api": {
+          "subdomain": "api",
+          "port": null,
+          "path": "",
+          "health_endpoint": "/api/v1/health"
+        },
+        "frontend": {
+          "subdomain": "app",
+          "port": null,
+          "path": "",
+          "health_endpoint": "/health"
+        },
+        "database": {
+          "subdomain": "db",
+          "port": 5432,
+          "path": "",
+          "health_endpoint": null
+        },
+        "redis": {
+          "subdomain": "cache",
+          "port": 6379,
+          "path": "",
+          "health_endpoint": "/ping"
+        },
+        "docs": {
+          "subdomain": "docs",
+          "port": null,
+          "path": "",
+          "health_endpoint": null
+        }
+      }
+    },
+    "local": {
+      "domain": "localhost",
+      "protocol": "http",
+      "services": {
+        "api": {
+          "subdomain": null,
+          "port": 8000,
+          "path": "",
+          "health_endpoint": "/api/v1/health"
+        },
+        "frontend": {
+          "subdomain": null,
+          "port": 3000,
+          "path": "",
+          "health_endpoint": "/health"
+        },
+        "database": {
+          "subdomain": null,
+          "port": 5432,
+          "path": "",
+          "health_endpoint": null
+        },
+        "redis": {
+          "subdomain": null,
+          "port": 6379,
+          "path": "",
+          "health_endpoint": "/ping"
+        }
+      }
+    }
+  },
+  "api_endpoints": {
+    "auth": {
+      "login": "/api/v1/auth/login",
+      "logout": "/api/v1/auth/logout",
+      "register": "/api/v1/auth/register",
+      "refresh": "/api/v1/auth/refresh",
+      "profile": "/api/v1/auth/profile"
+    },
+    "users": {
+      "list": "/api/v1/users",
+      "create": "/api/v1/users",
+      "detail": "/api/v1/users/{user_id}",
+      "update": "/api/v1/users/{user_id}",
+      "delete": "/api/v1/users/{user_id}",
+      "profile": "/api/v1/users/{user_id}/profile"
+    },
+    "files": {
+      "upload": "/api/v1/files/upload",
+      "download": "/api/v1/files/{file_id}/download",
+      "list": "/api/v1/files",
+      "delete": "/api/v1/files/{file_id}",
+      "metadata": "/api/v1/files/{file_id}/metadata"
+    },
+    "health": {
+      "api": "/api/v1/health",
+      "database": "/api/v1/health/database",
+      "redis": "/api/v1/health/redis",
+      "detailed": "/api/v1/health/detailed"
+    },
+    "admin": {
+      "stats": "/api/v1/admin/stats",
+      "users": "/api/v1/admin/users",
+      "logs": "/api/v1/admin/logs",
+      "config": "/api/v1/admin/config"
+    }
+  }
+}

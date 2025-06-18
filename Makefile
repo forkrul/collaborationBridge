@@ -72,6 +72,16 @@ nix-services-stop: ## Stop PostgreSQL and Redis (Nix)
 nix-services-status: ## Check service status (Nix)
 	./scripts/nix-services.sh status
 
+# Service URL Management
+service-urls-list: ## List all service URLs
+	$(POETRY) run python scripts/service-urls.py list-services
+
+service-urls-health: ## Check health of all services
+	$(POETRY) run python scripts/service-urls.py health-check
+
+service-urls-test: ## Test connectivity to all services
+	$(POETRY) run python scripts/service-urls.py test-endpoints
+
 clean: ## Clean build artifacts
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete

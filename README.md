@@ -1,6 +1,82 @@
-# Python MVP Template
+# <PROJECT_NAME>
 
-A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices for rapid development.
+<!-- TEMPLATE: Replace <PROJECT_NAME> with your actual project name -->
+<!-- TEMPLATE: Replace <GITHUB_USERNAME> and <REPOSITORY_NAME> with your GitHub details -->
+<!-- TEMPLATE: Replace <PROJECT_DESCRIPTION> with your project description -->
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/python-v3.11+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-00a393.svg)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-red.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+[![CI](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/workflows/CI/badge.svg)](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/actions/workflows/ci.yml)
+[![Documentation](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/workflows/Documentation%20Check/badge.svg)](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/actions/workflows/docs.yml)
+[![codecov](https://codecov.io/gh/<GITHUB_USERNAME>/<REPOSITORY_NAME>/branch/master/graph/badge.svg)](https://codecov.io/gh/<GITHUB_USERNAME>/<REPOSITORY_NAME>)
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+
+[![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker)](https://www.docker.com/)
+[![Nix](https://img.shields.io/badge/nix-supported-blue?logo=nixos)](https://nixos.org/)
+[![Poetry](https://img.shields.io/badge/dependency-poetry-blue)](https://python-poetry.org/)
+
+[![Security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Pydantic v2](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pydantic/pydantic/main/docs/badge/v2.json)](https://pydantic.dev)
+
+<!-- TEMPLATE: Add project-specific badges below -->
+<!-- Example: Deployment status, API status, etc. -->
+<!-- [![Deployment](https://img.shields.io/badge/deployment-active-green)](https://your-app.com) -->
+<!-- [![API Status](https://img.shields.io/badge/API-online-green)](https://your-api.com/health) -->
+
+</div>
+
+**<PROJECT_DESCRIPTION>**
+
+<!-- TEMPLATE: Replace the description above with your project's description -->
+
+> 🚀 **Built with the [Python MVP Template](https://github.com/forkrul/project-template-mvp)** - A modern Python web application template with FastAPI, SQLAlchemy, and best practices for rapid development.
+
+## 📝 Template Customization Guide
+
+<!-- TEMPLATE: Remove this section after customizing your project -->
+
+<details>
+<summary><strong>🔧 Click to expand customization checklist</strong></summary>
+
+### Required Replacements
+- [ ] Replace `<PROJECT_NAME>` with your project name
+- [ ] Replace `<GITHUB_USERNAME>` with your GitHub username
+- [ ] Replace `<REPOSITORY_NAME>` with your repository name
+- [ ] Replace `<PROJECT_DESCRIPTION>` with your project description
+- [ ] Replace `<PROJECT_PACKAGE>` with your Python package name
+
+### Files to Update
+- [ ] `README.md` - Update all template placeholders
+- [ ] `pyproject.toml` - Update project name, description, authors
+- [ ] `src/project_name/` - Rename directory to your package name
+- [ ] `.env.example` - Update project-specific environment variables
+- [ ] `docker/docker-compose.yml` - Update service names and project references
+- [ ] `docs/source/conf.py` - Update project name and author information
+
+### Optional Customizations
+- [ ] Update badges with your repository URLs
+- [ ] Customize the feature list for your specific project
+- [ ] Add project-specific documentation sections
+- [ ] Update the license if different from MIT
+- [ ] Add project-specific environment variables
+- [ ] Customize Docker configurations for your needs
+
+### After Customization
+- [ ] Remove this customization guide section
+- [ ] Test the setup with `make install` and `make dev`
+- [ ] Update documentation with project-specific information
+- [ ] Set up GitHub Pages with `make setup-github-pages`
+
+</details>
 
 ## Features
 
@@ -13,6 +89,7 @@ A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices 
 - **Pre-commit**: Code quality hooks
 - **Structured Logging**: JSON logging with structlog
 - **Security**: JWT authentication and password hashing
+- **Service URL Manager**: Centralized URL management across environments
 - **Soft Delete**: Built-in soft delete functionality for all models
 - **Comprehensive Testing**: Unit, integration, and E2E tests
 - **Documentation**: Auto-generated API docs with Sphinx
@@ -38,8 +115,9 @@ A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd mvp-template
+   # TEMPLATE: Replace with your repository URL
+   git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+   cd <REPOSITORY_NAME>
    ```
 
 2. **Enter Nix development environment**
@@ -74,8 +152,9 @@ A modern Python MVP template built with FastAPI, SQLAlchemy, and best practices 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd mvp-template
+   # TEMPLATE: Replace with your repository URL
+   git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+   cd <REPOSITORY_NAME>
    ```
 
 2. **Install dependencies**
@@ -111,8 +190,9 @@ This project includes comprehensive Nix support for reproducible development env
 
 ```bash
 # Clone project
-git clone <repository-url>
-cd mvp-template
+# TEMPLATE: Replace with your repository URL
+git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+cd <REPOSITORY_NAME>
 
 # Install Nix and direnv (one-time setup)
 make install-nix
@@ -205,9 +285,9 @@ docker-compose -f docker/docker-compose.yml down
 ## Project Structure
 
 ```
-project-name/
+<REPOSITORY_NAME>/              <!-- TEMPLATE: Replace with your repository name -->
 ├── .github/workflows/          # GitHub Actions CI/CD
-├── src/project_name/           # Main application code
+├── src/<PROJECT_PACKAGE>/      # Main application code (TEMPLATE: Replace with your package name)
 │   ├── api/                    # API routes and endpoints
 │   ├── core/                   # Core configuration and utilities
 │   ├── models/                 # SQLAlchemy models
@@ -288,7 +368,8 @@ The project includes comprehensive documentation built with Sphinx:
 
 - **Local Documentation**: `make docs` then `make docs-serve`
 - **GitHub Pages**: Deploy with `make docs-deploy`
-- **Live Documentation**: https://forkrul.github.io/project-template-mvp/
+- **Live Documentation**: https://<GITHUB_USERNAME>.github.io/<REPOSITORY_NAME>/
+  <!-- TEMPLATE: Replace with your GitHub Pages URL -->
 
 ### Documentation Workflow
 
@@ -327,10 +408,11 @@ curl -X POST \
 
 ```bash
 # Build production image
-docker build -f docker/Dockerfile -t project-name:latest .
+# TEMPLATE: Replace <PROJECT_NAME> with your project name
+docker build -f docker/Dockerfile -t <PROJECT_NAME>:latest .
 
 # Run production container
-docker run -p 8000:8000 project-name:latest
+docker run -p 8000:8000 <PROJECT_NAME>:latest
 ```
 
 ### Environment Variables

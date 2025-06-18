@@ -6,6 +6,7 @@ This module sets up the main API router and includes all endpoint routers.
 from fastapi import APIRouter
 
 from src.project_name.core.config import settings
+from src.project_name.utils.service_url_manager import get_url_manager
 
 # Create main API router
 api_router = APIRouter(prefix=settings.API_PREFIX)
@@ -14,11 +15,33 @@ api_router = APIRouter(prefix=settings.API_PREFIX)
 @api_router.get("/health", tags=["health"])
 async def health_check():
     """Health check endpoint."""
+    try:
+        url_manager = get_url_manager()
+        service_urls = url_manager.get_all_service_urls()
+    except Exception:
+        service_urls = {}
+
     return {
         "status": "healthy",
         "version": settings.API_VERSION,
-        "environment": settings.ENVIRONMENT
+        "environment": settings.ENVIRONMENT,
+        "services": service_urls
     }
+
+# Service discovery endpoint
+@api_router.get("/services", tags=["services"])
+async def get_services():
+    """Get all service URLs for current environment."""
+    try:
+        url_manager = get_url_manager()
+        return {
+            "environment": url_manager.environment,
+            "services": url_manager.get_all_service_urls(),
+            "health_checks": url_manager.health_check_urls(),
+            "available_environments": url_manager.list_environments()
+        }
+    except Exception as e:
+        return {"error": str(e), "services": {}}
 
 # Include other routers here as they are created
 # Example:

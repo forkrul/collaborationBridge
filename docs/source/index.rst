@@ -30,6 +30,7 @@ Quick Start
    :caption: Contents:
 
    nix/index
+   service-url-manager/index
    architecture/index
    api/index
    deployment/index
