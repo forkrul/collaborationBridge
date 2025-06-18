@@ -35,3 +35,13 @@ repos:
       - id: poetry-check
       - id: poetry-lock
         args: [--no-update]
+
+  # Work hours policy check
+  - repo: local
+    hooks:
+      - id: work-hours-check
+        name: Work Hours Policy Check
+        entry: python scripts/check-work-hours.py
+        language: system
+        stages: [pre-push]
+        always_run: true

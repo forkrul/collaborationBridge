@@ -26,6 +26,7 @@ let
     email-validator
     structlog
     sentry-sdk
+    pytz
     
     # Development dependencies
     ruff

@@ -131,3 +131,7 @@ db-reset: ## Reset database (drop all tables and re-run migrations)
 
 pre-commit: ## Run pre-commit hooks
 	$(POETRY) run pre-commit run --all-files
+
+install-hooks: ## Install git hooks (including work hours policy)
+	$(POETRY) run pre-commit install
+	./scripts/install-pre-push-hook.sh

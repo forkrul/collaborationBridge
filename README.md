@@ -86,13 +86,24 @@
 - **Alembic**: Database migration tool
 - **Pytest**: Testing framework with async support
 - **Docker**: Containerization for development and production
-- **Pre-commit**: Code quality hooks
+- **Pre-commit**: Code quality hooks with work hours policy
 - **Structured Logging**: JSON logging with structlog
 - **Security**: JWT authentication and password hashing
 - **Service URL Manager**: Centralized URL management across environments
 - **Soft Delete**: Built-in soft delete functionality for all models
 - **Comprehensive Testing**: Unit, integration, and E2E tests
 - **Documentation**: Auto-generated API docs with Sphinx
+
+## ⏰ Work Hours Policy
+
+This template includes a work-life balance policy that blocks remote pushes outside of work hours:
+
+- **Work Hours**: 07:30 - 17:00 CET
+- **Policy**: Remote pushes blocked outside work hours
+- **Local commits**: Always allowed
+- **Bypass**: Use `git push --no-verify` (not recommended)
+
+Install the policy with: `make install-hooks`
 
 ## Quick Start
 
