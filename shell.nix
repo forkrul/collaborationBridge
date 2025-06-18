@@ -32,7 +32,6 @@ let
     black
     isort
     mypy
-    pre-commit
     ipython
     rich
     
@@ -53,7 +52,6 @@ let
     pip
     setuptools
     wheel
-    poetry
   ]);
 
 in pkgs.mkShell {
@@ -73,6 +71,9 @@ in pkgs.mkShell {
     curl
     wget
     jq
+    pre-commit
+    poetry
+    gnumake
     
     # Docker and containerization
     docker
@@ -115,7 +116,7 @@ in pkgs.mkShell {
     # Archive tools
     unzip
     zip
-    tar
+    gnutar
     gzip
   ];
   
