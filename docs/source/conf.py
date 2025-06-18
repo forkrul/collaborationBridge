@@ -8,9 +8,9 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath("../../src"))
 
 # Project information
-project = "Project Name"
-copyright = f"{datetime.now().year}, Your Name"
-author = "Your Name"
+project = "8760"
+copyright = f"{datetime.now().year}, forkrul"
+author = "forkrul"
 release = "0.1.0"
 
 # Extensions

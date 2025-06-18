@@ -256,7 +256,7 @@ EOF
   POETRY_CACHE_DIR = "./.poetry-cache";
   
   # Database URLs for development
-  DATABASE_URL = "postgresql://localhost:5432/project_dev";
-  TEST_DATABASE_URL = "postgresql://localhost:5432/project_test";
+  DATABASE_URL = "postgresql://localhost:5432/8760_dev";
+  TEST_DATABASE_URL = "postgresql://localhost:5432/8760_test";
   REDIS_URL = "redis://localhost:6379/0";
 }

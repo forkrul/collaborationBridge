@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "project-name"
+name = "8760"
 version = "0.1.0"
-description = "MVP project template with best practices"
-authors = ["Your Name <email@example.com>"]
+description = "A modern Python web application built with FastAPI, SQLAlchemy, and best practices"
+authors = ["forkrul <190788+forkrul@users.noreply.github.com>"]
 readme = "README.md"
 packages = [{include = "project_name", from = "src"}]
 

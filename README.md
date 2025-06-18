@@ -1,8 +1,8 @@
-# <PROJECT_NAME>
+# 8760
 
-<!-- TEMPLATE: Replace <PROJECT_NAME> with your actual project name -->
-<!-- TEMPLATE: Replace <GITHUB_USERNAME> and <REPOSITORY_NAME> with your GitHub details -->
-<!-- TEMPLATE: Replace <PROJECT_DESCRIPTION> with your project description -->
+**A modern Python web application built with FastAPI, SQLAlchemy, and best practices for rapid development.**
+
+🚀 **Production-ready application** with comprehensive tooling, testing, and deployment configurations.
 
 <div align="center">
 
@@ -11,9 +11,9 @@
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-[![CI](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/workflows/CI/badge.svg)](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/actions/workflows/ci.yml)
-[![Documentation](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/workflows/Documentation%20Check/badge.svg)](https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/gh/<GITHUB_USERNAME>/<REPOSITORY_NAME>/branch/master/graph/badge.svg)](https://codecov.io/gh/<GITHUB_USERNAME>/<REPOSITORY_NAME>)
+[![CI](https://github.com/forkrul/8760/workflows/CI/badge.svg)](https://github.com/forkrul/8760/actions/workflows/ci.yml)
+[![Documentation](https://github.com/forkrul/8760/workflows/Documentation%20Check/badge.svg)](https://github.com/forkrul/8760/actions/workflows/docs.yml)
+[![codecov](https://codecov.io/gh/forkrul/8760/branch/master/graph/badge.svg)](https://codecov.io/gh/forkrul/8760)
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -36,47 +36,7 @@
 
 **<PROJECT_DESCRIPTION>**
 
-<!-- TEMPLATE: Replace the description above with your project's description -->
-
-> 🚀 **Built with the [Python MVP Template](https://github.com/forkrul/project-template-mvp)** - A modern Python web application template with FastAPI, SQLAlchemy, and best practices for rapid development.
-
-## 📝 Template Customization Guide
-
-<!-- TEMPLATE: Remove this section after customizing your project -->
-
-<details>
-<summary><strong>🔧 Click to expand customization checklist</strong></summary>
-
-### Required Replacements
-- [ ] Replace `<PROJECT_NAME>` with your project name
-- [ ] Replace `<GITHUB_USERNAME>` with your GitHub username
-- [ ] Replace `<REPOSITORY_NAME>` with your repository name
-- [ ] Replace `<PROJECT_DESCRIPTION>` with your project description
-- [ ] Replace `<PROJECT_PACKAGE>` with your Python package name
-
-### Files to Update
-- [ ] `README.md` - Update all template placeholders
-- [ ] `pyproject.toml` - Update project name, description, authors
-- [ ] `src/project_name/` - Rename directory to your package name
-- [ ] `.env.example` - Update project-specific environment variables
-- [ ] `docker/docker-compose.yml` - Update service names and project references
-- [ ] `docs/source/conf.py` - Update project name and author information
-
-### Optional Customizations
-- [ ] Update badges with your repository URLs
-- [ ] Customize the feature list for your specific project
-- [ ] Add project-specific documentation sections
-- [ ] Update the license if different from MIT
-- [ ] Add project-specific environment variables
-- [ ] Customize Docker configurations for your needs
-
-### After Customization
-- [ ] Remove this customization guide section
-- [ ] Test the setup with `make install` and `make dev`
-- [ ] Update documentation with project-specific information
-- [ ] Set up GitHub Pages with `make setup-github-pages`
-
-</details>
+🚀 **Built with the [Python MVP Template](https://github.com/forkrul/project-template-mvp)** - A modern Python web application template with FastAPI, SQLAlchemy, and best practices for rapid development.
 
 ## Features
 
@@ -126,9 +86,8 @@ Install the policy with: `make install-hooks`
 
 1. **Clone the repository**
    ```bash
-   # TEMPLATE: Replace with your repository URL
-   git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
-   cd <REPOSITORY_NAME>
+   git clone https://github.com/forkrul/8760.git
+   cd 8760
    ```
 
 2. **Enter Nix development environment**
@@ -163,9 +122,8 @@ Install the policy with: `make install-hooks`
 
 1. **Clone the repository**
    ```bash
-   # TEMPLATE: Replace with your repository URL
-   git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
-   cd <REPOSITORY_NAME>
+   git clone https://github.com/forkrul/8760.git
+   cd 8760
    ```
 
 2. **Install dependencies**
@@ -201,9 +159,8 @@ This project includes comprehensive Nix support for reproducible development env
 
 ```bash
 # Clone project
-# TEMPLATE: Replace with your repository URL
-git clone https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
-cd <REPOSITORY_NAME>
+git clone https://github.com/forkrul/8760.git
+cd 8760
 
 # Install Nix and direnv (one-time setup)
 make install-nix
@@ -296,9 +253,9 @@ docker-compose -f docker/docker-compose.yml down
 ## Project Structure
 
 ```
-<REPOSITORY_NAME>/              <!-- TEMPLATE: Replace with your repository name -->
+8760/                           # Project root
 ├── .github/workflows/          # GitHub Actions CI/CD
-├── src/<PROJECT_PACKAGE>/      # Main application code (TEMPLATE: Replace with your package name)
+├── src/project_name/           # Main application code
 │   ├── api/                    # API routes and endpoints
 │   ├── core/                   # Core configuration and utilities
 │   ├── models/                 # SQLAlchemy models
@@ -379,8 +336,7 @@ The project includes comprehensive documentation built with Sphinx:
 
 - **Local Documentation**: `make docs` then `make docs-serve`
 - **GitHub Pages**: Deploy with `make docs-deploy`
-- **Live Documentation**: https://<GITHUB_USERNAME>.github.io/<REPOSITORY_NAME>/
-  <!-- TEMPLATE: Replace with your GitHub Pages URL -->
+- **Live Documentation**: https://forkrul.github.io/8760/
 
 ### Documentation Workflow
 
@@ -419,11 +375,10 @@ curl -X POST \
 
 ```bash
 # Build production image
-# TEMPLATE: Replace <PROJECT_NAME> with your project name
-docker build -f docker/Dockerfile -t <PROJECT_NAME>:latest .
+docker build -f docker/Dockerfile -t 8760:latest .
 
 # Run production container
-docker run -p 8000:8000 <PROJECT_NAME>:latest
+docker run -p 8000:8000 8760:latest
 ```
 
 ### Environment Variables
