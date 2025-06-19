@@ -1,6 +1,6 @@
 // Utility functions
 export { cn } from './cn'
 export { formatBytes } from './formatBytes'
-export { generateId } from './generateId'
-export { debounce } from './debounce'
-export { throttle } from './throttle'
+export { generateId, generateUUID } from './generateId'
+export { debounce, debounceWithCancel } from './debounce'
+export { throttle, throttleWithOptions } from './throttle'
