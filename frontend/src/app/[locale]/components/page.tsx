@@ -60,6 +60,10 @@ import {
 } from '@/components/ui/breadcrumb';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { LanguageSwitcher } from '@/components/i18n/LanguageSwitcher';
+import { FileUpload } from '@/components/ui/file-upload';
+import { Chart, StatCard } from '@/components/ui/chart';
+import { SearchWithFilters } from '@/components/ui/search';
+import { Badge } from '@/components/ui/badge';
 
 export default function ComponentsPage() {
   const t = useTranslations('common');
@@ -250,7 +254,7 @@ export default function ComponentsPage() {
             <Progress value={33} className="w-full" />
             <p className="text-sm text-muted-foreground">33% complete</p>
           </div>
-          
+
           <div className="space-y-2">
             <Label>Processing</Label>
             <Progress value={75} className="w-full" />
@@ -276,6 +280,129 @@ export default function ComponentsPage() {
           </Dialog>
         </CardContent>
       </Card>
+
+      {/* Advanced Components */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Advanced Components</CardTitle>
+          <CardDescription>File uploads, search, and data visualization</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-8">
+          {/* File Upload */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">File Upload</h4>
+            <FileUpload
+              accept="image/*,.pdf,.doc,.docx"
+              multiple={true}
+              maxSize={5 * 1024 * 1024} // 5MB
+              maxFiles={3}
+              onFilesChange={(files) => console.log('Files:', files)}
+            />
+          </div>
+
+          {/* Search with Filters */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Search with Filters</h4>
+            <SearchWithFilters
+              placeholder="Search users..."
+              filters={[
+                {
+                  id: 'role',
+                  label: 'Role',
+                  type: 'select',
+                  options: [
+                    { value: 'admin', label: 'Admin' },
+                    { value: 'user', label: 'User' },
+                    { value: 'editor', label: 'Editor' }
+                  ]
+                },
+                {
+                  id: 'status',
+                  label: 'Status',
+                  type: 'checkbox',
+                  options: [
+                    { value: 'active', label: 'Active' },
+                    { value: 'inactive', label: 'Inactive' },
+                    { value: 'pending', label: 'Pending' }
+                  ]
+                }
+              ]}
+              onSearch={(query, filters) => console.log('Search:', query, filters)}
+            />
+          </div>
+
+          {/* Badges */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Badges</h4>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Default</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="destructive">Destructive</Badge>
+              <Badge variant="outline">Outline</Badge>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Data Visualization */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Chart
+          title="Monthly Revenue"
+          description="Revenue trends over the last 6 months"
+          type="bar"
+          data={[
+            { label: 'Jan', value: 12000 },
+            { label: 'Feb', value: 15000 },
+            { label: 'Mar', value: 18000 },
+            { label: 'Apr', value: 14000 },
+            { label: 'May', value: 22000 },
+            { label: 'Jun', value: 25000 }
+          ]}
+        />
+
+        <Chart
+          title="User Distribution"
+          description="Users by role"
+          type="pie"
+          data={[
+            { label: 'Admin', value: 5, color: '#3b82f6' },
+            { label: 'Editor', value: 15, color: '#10b981' },
+            { label: 'User', value: 80, color: '#f59e0b' }
+          ]}
+        />
+      </div>
+
+      {/* Stat Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard
+          title="Total Users"
+          value={2543}
+          change={12}
+          changeLabel="from last month"
+          icon={<User className="h-5 w-5 text-blue-600" />}
+        />
+        <StatCard
+          title="Revenue"
+          value="€45,231"
+          change={8}
+          changeLabel="from last month"
+          icon={<div className="h-5 w-5 text-green-600">€</div>}
+        />
+        <StatCard
+          title="Orders"
+          value={1234}
+          change={-3}
+          changeLabel="from last month"
+          icon={<div className="h-5 w-5 text-orange-600">📦</div>}
+        />
+        <StatCard
+          title="Growth Rate"
+          value="12.5%"
+          change={2}
+          changeLabel="from last month"
+          icon={<div className="h-5 w-5 text-purple-600">📈</div>}
+        />
+      </div>
     </div>
   );
 }
