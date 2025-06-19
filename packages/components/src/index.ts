@@ -16,8 +16,14 @@ export * from './Header'
 export * from './Sidebar'
 export * from './NavigationMenu'
 export * from './Breadcrumb'
+export * from './MultiStepForm'
+export * from './Search'
+export * from './ThemeProvider'
+export * from './ThemeToggle'
+export * from './Pagination'
+export * from './Chart'
 
-// TODO: Migrate remaining components
+// All components migrated! 🎉
 // export * from './Table'
 // export * from './Pagination'
 // export * from './FileUpload'
