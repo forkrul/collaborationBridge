@@ -117,10 +117,11 @@ const Checkbox = React.forwardRef<
           className={cn(checkboxVariants({ variant: effectiveVariant, size }), className)}
           disabled={disabled}
           required={required}
+          checked={indeterminate ? 'indeterminate' : undefined}
           aria-invalid={hasError}
           aria-describedby={cn(
             error && `${internalId}-error`,
-            helperText && `${internalId}-helper`,
+            helperText && !error && `${internalId}-helper`,
             description && `${internalId}-description`
           )}
           data-testid={testId}

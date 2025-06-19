@@ -3,6 +3,11 @@ import type { Config } from 'jest'
 const config: Config = {
   displayName: '@company/components',
   preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.test.json'
+    }
+  },
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
@@ -34,7 +39,7 @@ const config: Config = {
       statements: 80,
     },
   },
-  moduleNameMapping: {
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@company/(.*)$': '<rootDir>/../$1/src',
   },

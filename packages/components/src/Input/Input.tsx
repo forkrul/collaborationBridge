@@ -131,7 +131,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             aria-invalid={hasError}
             aria-describedby={cn(
               error && `${internalId}-error`,
-              helperText && `${internalId}-helper`,
+              helperText && !error && `${internalId}-helper`,
               showCount && `${internalId}-count`
             )}
             data-testid={testId}
