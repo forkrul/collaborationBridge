@@ -1,6 +1,6 @@
 {
   "name": "@company/core",
-  "version": "1.0.0",
+  "version": "0.0.0002",
   "description": "Core utilities, hooks, and types for the component library",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

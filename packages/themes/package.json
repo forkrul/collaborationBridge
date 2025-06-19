@@ -1,6 +1,6 @@
 {
   "name": "@company/themes",
-  "version": "1.0.0",
+  "version": "0.0.0002",
   "description": "Theme configurations for the component library",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
