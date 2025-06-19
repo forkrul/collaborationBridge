@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "Acasă",
+    "dashboard": "Tablou de bord",
+    "login": "Conectare",
+    "logout": "Deconectare",
+    "profile": "Profil",
+    "settings": "Setări"
+  },
+  "auth": {
+    "login": {
+      "title": "Conectare",
+      "email": "Adresa de email",
+      "password": "Parolă",
+      "submit": "Conectare",
+      "forgotPassword": "Ați uitat parola?",
+      "noAccount": "Nu aveți un cont?",
+      "signUp": "Înregistrare"
+    },
+    "register": {
+      "title": "Creați un cont",
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "email": "Adresa de email",
+      "password": "Parolă",
+      "confirmPassword": "Confirmați parola",
+      "submit": "Creați contul",
+      "hasAccount": "Aveți deja un cont?",
+      "signIn": "Conectare"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bun venit înapoi, {name}!",
+    "stats": {
+      "users": "Utilizatori",
+      "revenue": "Venituri",
+      "orders": "Comenzi",
+      "growth": "Creștere"
+    }
+  },
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "A apărut o eroare",
+    "retry": "Încercați din nou",
+    "cancel": "Anulare",
+    "save": "Salvare",
+    "delete": "Ștergere",
+    "edit": "Editare",
+    "close": "Închidere",
+    "confirm": "Confirmare"
+  },
+  "validation": {
+    "required": "Acest câmp este obligatoriu",
+    "email": "Vă rugăm să introduceți o adresă de email validă",
+    "minLength": "Trebuie să aibă cel puțin {min} caractere",
+    "maxLength": "Nu trebuie să aibă mai mult de {max} caractere",
+    "passwordMatch": "Parolele trebuie să coincidă"
+  },
+  "errors": {
+    "network": "Eroare de rețea. Vă rugăm să verificați conexiunea.",
+    "unauthorized": "Nu sunteți autorizat să efectuați această acțiune.",
+    "notFound": "Resursa solicitată nu a fost găsită.",
+    "serverError": "Eroare internă de server. Vă rugăm să încercați din nou mai târziu."
+  }
+}

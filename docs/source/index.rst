@@ -86,6 +86,7 @@ The Python MVP Template provides a complete foundation for building modern web a
    service-url-manager/index
    database/index
    security/index
+   i18n/index
 
 .. toctree::
    :maxdepth: 2

@@ -1,0 +1,83 @@
+# English (UK) translations for project_name.
+# Copyright (C) 2024 project_name
+# This file is distributed under the same license as the project_name project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: project_name 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: 2024-01-01 12:00+0000\n"
+"Last-Translator: \n"
+"Language: en_GB\n"
+"Language-Team: English (UK)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.0\n"
+
+# Authentication messages
+msgid "login_successful"
+msgstr "Login successful"
+
+msgid "login_failed"
+msgstr "Login failed"
+
+msgid "logout_successful"
+msgstr "Logout successful"
+
+msgid "invalid_credentials"
+msgstr "Invalid credentials"
+
+msgid "account_created"
+msgstr "Account created successfully"
+
+# Validation messages
+msgid "field_required"
+msgstr "This field is required"
+
+msgid "invalid_email"
+msgstr "Please enter a valid email address"
+
+msgid "password_too_short"
+msgstr "Password must be at least 8 characters long"
+
+msgid "passwords_dont_match"
+msgstr "Passwords do not match"
+
+# Error messages
+msgid "server_error"
+msgstr "Internal server error"
+
+msgid "not_found"
+msgstr "Resource not found"
+
+msgid "unauthorized"
+msgstr "Unauthorized access"
+
+msgid "forbidden"
+msgstr "Access forbidden"
+
+# Success messages
+msgid "operation_successful"
+msgstr "Operation completed successfully"
+
+msgid "data_saved"
+msgstr "Data saved successfully"
+
+msgid "data_updated"
+msgstr "Data updated successfully"
+
+msgid "data_deleted"
+msgstr "Data deleted successfully"
+
+# API messages
+msgid "welcome_message"
+msgstr "Welcome to {project_name}"
+
+msgid "user_count"
+msgstr "Total users: {count}"
+
+msgid "health_check_ok"
+msgstr "System is healthy"

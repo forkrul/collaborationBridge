@@ -77,7 +77,20 @@ class Settings(BaseSettings):
     RATE_LIMIT_PER_MINUTE: int = 60
     ENABLE_DOCS: bool = True
     ENABLE_REDOC: bool = True
-    
+
+    # Internationalization Settings
+    DEFAULT_LOCALE: str = "en_GB"
+    SUPPORTED_LOCALES: List[str] = ["af", "en_GB", "de", "ro", "zu", "gsw_CH"]
+    LOCALE_DETECTION_SOURCES: List[str] = ["path", "query", "header", "accept_language"]
+    TRANSLATION_CACHE_TTL: int = 3600  # 1 hour
+    ENABLE_LOCALE_FALLBACK: bool = True
+    LOCALE_COOKIE_NAME: str = "locale"
+    LOCALE_COOKIE_MAX_AGE: int = 31536000  # 1 year
+
+    # Translation file paths
+    TRANSLATION_DIR: str = "src/project_name/i18n/locales"
+    TRANSLATION_DOMAIN: str = "messages"
+
     # CORS Settings
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
     
