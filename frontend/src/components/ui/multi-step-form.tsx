@@ -42,7 +42,7 @@ export function MultiStepForm({
   showProgress = true,
   allowSkip = false,
 }: MultiStepFormProps) {
-  const t = useTranslations('common')
+  const t = useTranslations('common.components.multiStepForm')
   const [currentStepIndex, setCurrentStepIndex] = React.useState(0)
   const [completedSteps, setCompletedSteps] = React.useState<Set<number>>(new Set())
   const [formData, setFormData] = React.useState<any>({})
@@ -105,8 +105,8 @@ export function MultiStepForm({
       {showProgress && (
         <div className="space-y-2">
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span>Step {currentStepIndex + 1} of {steps.length}</span>
-            <span>{Math.round(progress)}% complete</span>
+            <span>{t('step', { current: currentStepIndex + 1, total: steps.length })}</span>
+            <span>{t('progress', { percent: Math.round(progress) })}</span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
@@ -179,7 +179,7 @@ export function MultiStepForm({
               disabled={isValidating}
             >
               <ChevronLeft className="h-4 w-4 mr-2" />
-              {t('previous') || 'Previous'}
+              {t('previous')}
             </Button>
           )}
         </div>
@@ -204,7 +204,7 @@ export function MultiStepForm({
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
             ) : (
               <>
-                {isLast ? (t('complete') || 'Complete') : (t('next') || 'Next')}
+                {isLast ? t('finish') : t('next')}
                 {!isLast && <ChevronRight className="h-4 w-4 ml-2" />}
               </>
             )}

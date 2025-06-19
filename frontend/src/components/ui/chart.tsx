@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { TrendingUp, TrendingDown, Minus } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -47,6 +47,7 @@ export function Chart({
   formatValue,
 }: ChartProps) {
   const locale = useLocale()
+  const t = useTranslations('common.components.chart')
   
   const formatNumber = React.useCallback((value: number) => {
     if (formatValue) return formatValue(value)
@@ -189,7 +190,7 @@ export function Chart({
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className="text-2xl font-bold">{formatNumber(total)}</div>
-              <div className="text-xs text-muted-foreground">Total</div>
+              <div className="text-xs text-muted-foreground">{t('total')}</div>
             </div>
           </div>
         </div>
@@ -257,6 +258,7 @@ export function StatCard({
   formatValue,
 }: StatCardProps) {
   const locale = useLocale()
+  const t = useTranslations('common.components.statCard')
   
   const formatNumber = React.useCallback((val: number) => {
     if (formatValue) return formatValue(val)
@@ -294,7 +296,9 @@ export function StatCard({
               <div className={cn("flex items-center space-x-1 text-xs", getTrendColor())}>
                 {getTrendIcon()}
                 <span>
-                  {Math.abs(change)}% {changeLabel || 'from last period'}
+                  {change > 0 ? t('increase', { percent: Math.abs(change) }) :
+                   change < 0 ? t('decrease', { percent: Math.abs(change) }) :
+                   t('noChange')} {changeLabel || t('fromLastMonth')}
                 </span>
               </div>
             )}

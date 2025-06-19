@@ -35,7 +35,7 @@ export function FileUpload({
   className,
   disabled = false,
 }: FileUploadProps) {
-  const t = useTranslations('common')
+  const t = useTranslations('common.components.fileUpload')
   const [files, setFiles] = React.useState<UploadedFile[]>([])
   const [isDragOver, setIsDragOver] = React.useState(false)
   const fileInputRef = React.useRef<HTMLInputElement>(null)
@@ -59,9 +59,9 @@ export function FileUpload({
 
   const validateFile = (file: File): string | null => {
     if (file.size > maxSize) {
-      return `File size must be less than ${formatFileSize(maxSize)}`
+      return t('maxSize', { size: formatFileSize(maxSize) })
     }
-    
+
     if (accept) {
       const acceptedTypes = accept.split(',').map(type => type.trim())
       const isAccepted = acceptedTypes.some(type => {
@@ -70,12 +70,12 @@ export function FileUpload({
         }
         return file.type.match(type.replace('*', '.*'))
       })
-      
+
       if (!isAccepted) {
-        return `File type not accepted. Accepted types: ${accept}`
+        return t('invalidType', { types: accept })
       }
     }
-    
+
     return null
   }
 
@@ -188,7 +188,7 @@ export function FileUpload({
         <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
         <div className="space-y-2">
           <p className="text-sm font-medium">
-            {isDragOver ? 'Drop files here' : 'Click to upload or drag and drop'}
+            {isDragOver ? t('dragActive') : t('dropzone')}
           </p>
           <p className="text-xs text-muted-foreground">
             {accept && `Accepted formats: ${accept}`}
@@ -251,6 +251,7 @@ export function FileUpload({
                   size="sm"
                   onClick={() => removeFile(uploadedFile.id)}
                   className="h-6 w-6 p-0 ml-2"
+                  aria-label={t('removeFile')}
                 >
                   <X className="h-3 w-3" />
                 </Button>

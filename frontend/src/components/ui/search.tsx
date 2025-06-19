@@ -51,7 +51,7 @@ export function SearchWithFilters({
   className,
   debounceMs = 300,
 }: SearchProps) {
-  const t = useTranslations('common')
+  const t = useTranslations('common.components.search')
   const [searchValue, setSearchValue] = React.useState(value)
   const [filterValues, setFilterValues] = React.useState<Record<string, any>>({})
   const [isFilterOpen, setIsFilterOpen] = React.useState(false)
@@ -123,7 +123,7 @@ export function SearchWithFilters({
               onValueChange={(newValue) => handleFilterChange(filter.id, newValue)}
             >
               <SelectTrigger>
-                <SelectValue placeholder={`Select ${filter.label.toLowerCase()}`} />
+                <SelectValue placeholder={t('selectOption')} />
               </SelectTrigger>
               <SelectContent>
                 {filter.options?.map((option) => (
@@ -184,7 +184,7 @@ export function SearchWithFilters({
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder={placeholder || t('search') || 'Search...'}
+          placeholder={placeholder || t('placeholder')}
           value={searchValue}
           onChange={(e) => handleSearchChange(e.target.value)}
           className="pl-10 pr-20"
@@ -222,7 +222,7 @@ export function SearchWithFilters({
               <PopoverContent className="w-80" align="end">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-medium">Filters</h4>
+                    <h4 className="font-medium">{t('filters')}</h4>
                     {activeFiltersCount > 0 && (
                       <Button
                         variant="ghost"
@@ -230,7 +230,7 @@ export function SearchWithFilters({
                         onClick={clearAllFilters}
                         className="h-auto p-1 text-xs"
                       >
-                        Clear all
+                        {t('clearFilters')}
                       </Button>
                     )}
                   </div>
