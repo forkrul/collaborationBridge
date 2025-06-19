@@ -111,7 +111,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="flex h-16 items-center px-4">
           <div className="flex items-center space-x-2">
             <Zap className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold">8760</span>
+            <span className="text-lg font-semibold">App</span>
           </div>
         </div>
         <nav className="mt-8 px-4">

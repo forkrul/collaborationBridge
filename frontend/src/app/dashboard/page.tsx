@@ -62,7 +62,7 @@ export default function DashboardPage() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
             <p className="text-muted-foreground">
-              Welcome to your 8760 application dashboard
+              Welcome to your application dashboard
             </p>
           </div>
           <Button onClick={handleTestNotifications}>

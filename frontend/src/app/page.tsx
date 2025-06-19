@@ -23,7 +23,7 @@ export default function HomePage() {
           <div className="mr-4 flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <Zap className="h-6 w-6" />
-              <span className="font-bold">8760</span>
+              <span className="font-bold">App</span>
             </Link>
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -57,12 +57,12 @@ export default function HomePage() {
             Modern Python Web Application
           </Badge>
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Built with
-            <span className="gradient-text block">FastAPI & React</span>
+            Modern Web
+            <span className="gradient-text block">Application</span>
           </h1>
           <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            A comprehensive web application template featuring FastAPI backend, React frontend, 
-            and modern development practices for rapid, scalable development.
+            A comprehensive web application template featuring modern React frontend
+            and development practices for rapid, scalable development.
           </p>
         </div>
         <div className="flex flex-col gap-4 sm:flex-row">
@@ -105,9 +105,9 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Zap className="h-8 w-8 text-primary" />
-              <CardTitle>FastAPI Backend</CardTitle>
+              <CardTitle>Modern Backend</CardTitle>
               <CardDescription>
-                High-performance Python API with automatic OpenAPI documentation, 
+                High-performance API with automatic documentation,
                 async support, and type safety.
               </CardDescription>
             </CardHeader>
@@ -125,10 +125,10 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Database className="h-8 w-8 text-primary" />
-              <CardTitle>Database Management</CardTitle>
+              <CardTitle>Data Management</CardTitle>
               <CardDescription>
-                SQLAlchemy 2.0 with async support, Alembic migrations, 
-                and soft delete functionality.
+                Modern database integration with migrations,
+                and comprehensive data management features.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -137,7 +137,7 @@ export default function HomePage() {
               <Shield className="h-8 w-8 text-primary" />
               <CardTitle>Security First</CardTitle>
               <CardDescription>
-                JWT authentication, password hashing, CORS configuration, 
+                Authentication, authorization, secure communication,
                 and security best practices built-in.
               </CardDescription>
             </CardHeader>
@@ -174,7 +174,7 @@ export default function HomePage() {
                 Ready to Build Something Amazing?
               </h2>
               <p className="max-w-[600px] text-lg text-muted-foreground">
-                Start building your next web application with our comprehensive 
+                Start building your next web application with this comprehensive
                 template and modern development stack.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -200,10 +200,10 @@ export default function HomePage() {
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center space-x-2">
             <Zap className="h-5 w-5" />
-            <span className="font-semibold">8760</span>
+            <span className="font-semibold">App</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2024 8760. Built with modern web technologies.
+            © 2024 App. Built with modern web technologies.
           </p>
           <div className="flex items-center space-x-4 text-sm">
             <Link href="/docs" className="hover:underline">
@@ -212,7 +212,7 @@ export default function HomePage() {
             <Link href="/api" className="hover:underline">
               API Reference
             </Link>
-            <Link href="https://github.com/forkrul/8760" className="hover:underline">
+            <Link href="https://github.com/yourusername/yourapp" className="hover:underline">
               GitHub
             </Link>
           </div>

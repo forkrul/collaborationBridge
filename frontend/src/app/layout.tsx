@@ -12,14 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: '8760 - Modern Python Web Application',
-    template: '%s | 8760',
+    default: 'Modern Web Application',
+    template: '%s | App',
   },
-  description: 'Modern Python web application built with FastAPI and React',
-  keywords: ['Python', 'FastAPI', 'React', 'TypeScript', 'Web Application'],
-  authors: [{ name: '8760 Team' }],
-  creator: '8760 Team',
-  publisher: '8760',
+  description: 'Modern web application built with React and TypeScript',
+  keywords: ['React', 'TypeScript', 'Web Application', 'Next.js'],
+  authors: [{ name: 'Development Team' }],
+  creator: 'Development Team',
+  publisher: 'App',
   formatDetection: {
     email: false,
     address: false,
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
-    title: '8760 - Modern Python Web Application',
-    description: 'Modern Python web application built with FastAPI and React',
-    siteName: '8760',
+    title: 'Modern Web Application',
+    description: 'Modern web application built with React and TypeScript',
+    siteName: 'App',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '8760 - Modern Python Web Application',
-    description: 'Modern Python web application built with FastAPI and React',
-    creator: '@8760app',
+    title: 'Modern Web Application',
+    description: 'Modern web application built with React and TypeScript',
+    creator: '@yourapp',
   },
   robots: {
     index: true,

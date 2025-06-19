@@ -1,6 +1,6 @@
-# 8760 Frontend
+# Frontend
 
-Modern React frontend for the 8760 application built with Next.js, TypeScript, and Tailwind CSS.
+Modern React frontend built with Next.js, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -71,8 +71,8 @@ NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # App Configuration
-NEXT_PUBLIC_APP_NAME="8760"
-NEXT_PUBLIC_APP_DESCRIPTION="Modern Python web application"
+NEXT_PUBLIC_APP_NAME="Your App Name"
+NEXT_PUBLIC_APP_DESCRIPTION="Modern web application"
 
 # Theme
 NEXT_PUBLIC_DEFAULT_THEME=dark
@@ -290,10 +290,10 @@ vercel
 
 ```bash
 # Build Docker image
-docker build -t 8760-frontend .
+docker build -t app-frontend .
 
 # Run container
-docker run -p 3000:3000 8760-frontend
+docker run -p 3000:3000 app-frontend
 ```
 
 ### Static Export
@@ -341,4 +341,4 @@ class ApiService {
 
 ## 📄 License
 
-This project is part of the 8760 application template.
+This project is part of the application template.
