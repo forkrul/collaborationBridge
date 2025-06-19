@@ -867,4 +867,44 @@ async def detailed_health_check(db: AsyncSession = Depends(get_db)):
     return health_status
 ```
 
+## Frontend Development
+
+### UX Development Process
+
+For frontend/UX development, follow the comprehensive [UX Development PRD](../ux-development-prd.md) which includes:
+
+- **React Interface Development**: Modern React 18 with TypeScript
+- **Design System**: Dark-mode-first Tailwind CSS implementation
+- **Testing Strategy**: Comprehensive coverage with Playwright + Behave
+- **Accessibility**: WCAG 2.1 AA compliance requirements
+- **Performance**: Core Web Vitals optimization
+
+### Frontend Architecture
+
+```
+frontend/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Route-based page components
+│   ├── hooks/              # Custom React hooks
+│   ├── services/           # API integration layer
+│   ├── stores/             # State management (Zustand)
+│   ├── utils/              # Utility functions
+│   └── types/              # TypeScript type definitions
+├── tests/
+│   ├── unit/               # Jest + React Testing Library
+│   ├── integration/        # Playwright integration tests
+│   └── e2e/               # Playwright + Behave E2E tests
+└── docs/
+    └── storybook/          # Component documentation
+```
+
+### Development Workflow
+
+1. **Follow the PRD**: All frontend development should align with the [UX Development PRD](../ux-development-prd.md)
+2. **API-First Development**: Implement API endpoints with TDD before UI components
+3. **Component-Driven Development**: Build components in isolation with Storybook
+4. **Test-Driven Development**: Write tests before implementation
+5. **Accessibility-First**: Ensure WCAG compliance from the start
+
 Ready to start developing? Check out the [Quick Start Guide](../quickstart/index.md) to set up your development environment! 🚀

@@ -400,4 +400,52 @@ const profileResponse = await fetch('/api/v1/auth/profile', {
 const userData = await profileResponse.json();
 ```
 
-Ready to start using 8760? Check out the interactive API documentation at `/docs` to explore all available endpoints! 🚀
+## React Interface
+
+### Modern Web Interface
+
+8760 includes a modern React-based web interface that provides:
+
+- **🌙 Dark-Mode-First Design**: Beautiful, accessible interface optimized for dark mode
+- **📱 Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
+- **⚡ Real-Time Updates**: Live data updates and notifications
+- **🔐 Secure Authentication**: JWT-based authentication with session management
+- **♿ Accessibility**: WCAG 2.1 AA compliant with keyboard navigation and screen reader support
+
+### Interface Features
+
+#### Dashboard
+- System health and status overview
+- Real-time metrics and monitoring
+- Quick access to common tasks
+- Customizable widgets and layouts
+
+#### User Management
+- User account creation and management
+- Role and permission assignment
+- Bulk operations and data export
+- Advanced search and filtering
+
+#### API Browser
+- Interactive API documentation
+- Real-time API testing interface
+- Code generation examples
+- Request/response inspection
+
+### Getting Started with the Interface
+
+1. **Access the Application**: Navigate to `http://localhost:3000` (development) or your deployed URL
+2. **Login**: Use your credentials to access the interface
+3. **Explore**: Navigate through the dashboard and available features
+4. **Customize**: Adjust settings and preferences to your needs
+
+### Interface Development
+
+The React interface is built following the [UX Development PRD](../ux-development-prd.md) with:
+
+- **Modern Stack**: React 18, TypeScript, Tailwind CSS
+- **Comprehensive Testing**: 90%+ coverage with Playwright and Behave
+- **Performance Optimized**: Core Web Vitals compliance
+- **Accessibility First**: WCAG 2.1 AA compliance
+
+Ready to start using 8760? Check out the interactive API documentation at `/docs` to explore all available endpoints, or access the modern React interface for a complete user experience! 🚀

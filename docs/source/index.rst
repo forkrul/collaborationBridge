@@ -96,6 +96,12 @@ The Python MVP Template provides a complete foundation for building modern web a
 
 .. toctree::
    :maxdepth: 2
+   :caption: Frontend Development:
+
+   ux-development-prd
+
+.. toctree::
+   :maxdepth: 2
    :caption: Deployment & Operations:
 
    deployment/index
