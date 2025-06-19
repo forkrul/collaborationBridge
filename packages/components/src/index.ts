@@ -9,9 +9,11 @@ export * from './Progress'
 export * from './Dialog'
 export * from './Select'
 export * from './Textarea'
+export * from './Table'
+export * from './Popover'
+export * from './FileUpload'
 
 // TODO: Migrate remaining components
-// export * from './Popover'
 // export * from './Table'
 // export * from './Pagination'
 // export * from './FileUpload'
