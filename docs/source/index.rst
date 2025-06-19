@@ -68,6 +68,13 @@ The Python MVP Template provides a complete foundation for building modern web a
    :caption: Getting Started:
 
    quickstart/index
+   user-guide/index
+   developer-guide/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+
    development/index
    testing/index
 
