@@ -12,6 +12,10 @@ export * from './Textarea'
 export * from './Table'
 export * from './Popover'
 export * from './FileUpload'
+export * from './Header'
+export * from './Sidebar'
+export * from './NavigationMenu'
+export * from './Breadcrumb'
 
 // TODO: Migrate remaining components
 // export * from './Table'
