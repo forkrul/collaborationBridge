@@ -112,6 +112,52 @@ Configure service URLs in `config/service-urls.json`:
 }
 ```
 
+## 📁 Project Structure
+
+```
+project-template-mvp/
+├── 📁 alembic/                 # Database migrations
+├── 📁 config/                  # Configuration files
+├── 📁 docker/                  # Docker configuration
+├── 📁 docs/                    # Sphinx documentation
+│   └── 📁 source/
+│       ├── 📁 i18n/           # Internationalization docs
+│       └── ...
+├── 📁 frontend/                # React frontend application
+│   ├── 📁 src/
+│   │   ├── 📁 app/
+│   │   │   └── 📁 [locale]/   # Locale-based routing
+│   │   ├── 📁 components/
+│   │   │   └── 📁 i18n/       # i18n components
+│   │   ├── 📁 i18n/           # Frontend i18n configuration
+│   │   │   ├── 📁 locales/    # Translation files
+│   │   │   └── 📄 config.ts   # i18n configuration
+│   │   └── 📄 middleware.ts   # Next.js i18n middleware
+│   └── ...
+├── 📁 requirements/            # Python dependencies
+├── 📁 scripts/                 # Utility scripts
+├── 📁 src/                     # Python source code
+│   └── 📁 project_name/
+│       ├── 📁 api/v1/endpoints/
+│       │   └── 📄 i18n.py     # i18n API endpoints
+│       ├── 📁 i18n/           # Backend i18n system
+│       │   ├── 📁 locales/    # Backend translation files
+│       │   ├── 📄 config.py   # i18n configuration
+│       │   └── 📄 manager.py  # Translation manager
+│       └── ...
+├── 📁 tests/                   # Test files
+│   ├── 📁 unit/
+│   │   └── 📄 test_i18n_manager.py
+│   └── ...
+├── 📄 .env.example            # Environment variables template
+├── 📄 .gitignore              # Git ignore rules
+├── 📄 alembic.ini             # Alembic configuration
+├── 📄 Makefile                # Build automation
+├── 📄 pyproject.toml          # Python project configuration
+├── 📄 README.md               # Project documentation
+└── 📄 shell.nix               # Nix development environment
+```
+
 ## Development Workflow
 
 ### Daily Development

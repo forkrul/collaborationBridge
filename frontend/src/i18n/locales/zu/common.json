@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "Ikhaya",
+    "dashboard": "Ibhodi",
+    "login": "Ngena",
+    "logout": "Phuma",
+    "profile": "Iphrofayela",
+    "settings": "Izilungiselelo"
+  },
+  "auth": {
+    "login": {
+      "title": "Ngena",
+      "email": "Ikheli le-imeyili",
+      "password": "Iphasiwedi",
+      "submit": "Ngena",
+      "forgotPassword": "Ukhohlwe iphasiwedi?",
+      "noAccount": "Awunayo i-akhawunti?",
+      "signUp": "Bhalisa"
+    },
+    "register": {
+      "title": "Dala i-akhawunti",
+      "firstName": "Igama lokuqala",
+      "lastName": "Isibongo",
+      "email": "Ikheli le-imeyili",
+      "password": "Iphasiwedi",
+      "confirmPassword": "Qinisekisa iphasiwedi",
+      "submit": "Dala i-akhawunti",
+      "hasAccount": "Usunayo i-akhawunti?",
+      "signIn": "Ngena"
+    }
+  },
+  "dashboard": {
+    "welcome": "Sawubona futhi, {name}!",
+    "stats": {
+      "users": "Abasebenzisi",
+      "revenue": "Imali engenayo",
+      "orders": "Ama-oda",
+      "growth": "Ukukhula"
+    }
+  },
+  "common": {
+    "loading": "Iyalayisha...",
+    "error": "Kukhona iphutha",
+    "retry": "Zama futhi",
+    "cancel": "Khansela",
+    "save": "Gcina",
+    "delete": "Susa",
+    "edit": "Hlela",
+    "close": "Vala",
+    "confirm": "Qinisekisa"
+  },
+  "validation": {
+    "required": "Leli nsimu liyadingeka",
+    "email": "Sicela ufake ikheli le-imeyili elivumelekile",
+    "minLength": "Kumele libe nobuningi obu-{min} ubuncane",
+    "maxLength": "Akumele libe nobuningi obu-{max} obukhulu",
+    "passwordMatch": "Amaphasiwedi kumele afane"
+  },
+  "errors": {
+    "network": "Iphutha lenethiwekhi. Sicela uhlole ukuxhumana kwakho.",
+    "unauthorized": "Awugunyaziwe ukwenza lesi senzo.",
+    "notFound": "Umthombo ocelwayo awutholakali.",
+    "serverError": "Iphutha leseva sangaphakathi. Sicela uzame futhi kamuva."
+  }
+}

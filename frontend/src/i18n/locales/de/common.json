@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "dashboard": "Dashboard",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "settings": "Einstellungen"
+  },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "forgotPassword": "Passwort vergessen?",
+      "noAccount": "Noch kein Konto?",
+      "signUp": "Registrieren"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "submit": "Konto erstellen",
+      "hasAccount": "Bereits ein Konto?",
+      "signIn": "Anmelden"
+    }
+  },
+  "dashboard": {
+    "welcome": "Willkommen zurück, {name}!",
+    "stats": {
+      "users": "Benutzer",
+      "revenue": "Umsatz",
+      "orders": "Bestellungen",
+      "growth": "Wachstum"
+    }
+  },
+  "common": {
+    "loading": "Lädt...",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Erneut versuchen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "confirm": "Bestätigen"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "minLength": "Muss mindestens {min} Zeichen lang sein",
+    "maxLength": "Darf höchstens {max} Zeichen lang sein",
+    "passwordMatch": "Passwörter müssen übereinstimmen"
+  },
+  "errors": {
+    "network": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.",
+    "unauthorized": "Sie sind nicht berechtigt, diese Aktion auszuführen.",
+    "notFound": "Die angeforderte Ressource wurde nicht gefunden.",
+    "serverError": "Interner Serverfehler. Bitte versuchen Sie es später erneut."
+  }
+}

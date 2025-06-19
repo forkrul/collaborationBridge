@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "home": "Hei",
+    "dashboard": "Dashboard",
+    "login": "Aamelde",
+    "logout": "Abmelde",
+    "profile": "Profil",
+    "settings": "Iistellige"
+  },
+  "auth": {
+    "login": {
+      "title": "Aamelde",
+      "email": "E-Mail Adrässe",
+      "password": "Passwort",
+      "submit": "Aamelde",
+      "forgotPassword": "Passwort vergässe?",
+      "noAccount": "Häsch no kei Account?",
+      "signUp": "Registriere"
+    },
+    "register": {
+      "title": "Account erstelle",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail Adrässe",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätige",
+      "submit": "Account erstelle",
+      "hasAccount": "Häsch scho en Account?",
+      "signIn": "Aamelde"
+    }
+  },
+  "dashboard": {
+    "welcome": "Willkomme zrugg, {name}!",
+    "stats": {
+      "users": "Benutzer",
+      "revenue": "Umsatz",
+      "orders": "Bestellige",
+      "growth": "Wachstum"
+    }
+  },
+  "common": {
+    "loading": "Ladet...",
+    "error": "Es isch en Fähler ufträte",
+    "retry": "Nomol probiere",
+    "cancel": "Abbräche",
+    "save": "Speichere",
+    "delete": "Lösche",
+    "edit": "Bearbeite",
+    "close": "Zuemache",
+    "confirm": "Bestätige"
+  },
+  "validation": {
+    "required": "Das Fäld isch obligatorisch",
+    "email": "Bitte gib e gültigi E-Mail Adrässe ii",
+    "minLength": "Muess mindestens {min} Zeiche lang sii",
+    "maxLength": "Darf höchstens {max} Zeiche lang sii",
+    "passwordMatch": "Passwörter müend überiistimme"
+  },
+  "errors": {
+    "network": "Netzwärk Fähler. Bitte prüef dini Verbindig.",
+    "unauthorized": "Du bisch nöd berechtigt, die Aktion uuszfüehre.",
+    "notFound": "Die aagfragti Ressource isch nöd gfunde worde.",
+    "serverError": "Interne Server Fähler. Bitte probier spöter nomol."
+  }
+}

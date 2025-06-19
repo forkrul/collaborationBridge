@@ -16,7 +16,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Security headers
+  // Security and i18n headers
   async headers() {
     return [
       {
@@ -38,7 +38,28 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          {
+            key: 'Vary',
+            value: 'Accept-Language',
+          },
         ],
+      },
+    ];
+  },
+  // Redirects for locale handling
+  async redirects() {
+    return [
+      {
+        source: '/dashboard',
+        destination: '/en-GB/dashboard',
+        permanent: false,
+        locale: false,
+      },
+      {
+        source: '/login',
+        destination: '/en-GB/login',
+        permanent: false,
+        locale: false,
       },
     ];
   },

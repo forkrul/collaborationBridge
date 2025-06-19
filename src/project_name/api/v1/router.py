@@ -43,6 +43,10 @@ async def get_services():
     except Exception as e:
         return {"error": str(e), "services": {}}
 
+# Include i18n router
+from src.project_name.api.v1.endpoints import i18n
+api_router.include_router(i18n.router, prefix="/i18n", tags=["i18n"])
+
 # Include other routers here as they are created
 # Example:
 # from src.project_name.api.v1.endpoints import users
