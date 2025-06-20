@@ -14,17 +14,24 @@ import { cn } from '@/lib/utils';
 
 const NotificationIcon: React.FC<{ type: Notification['type'] }> = ({ type }) => {
   const iconClass = 'h-5 w-5';
-  
+
+  const iconStyles = {
+    success: 'text-success',
+    error: 'text-destructive',
+    warning: 'text-warning',
+    info: 'text-info',
+  };
+
   switch (type) {
     case 'success':
-      return <CheckCircle className={cn(iconClass, 'text-green-500')} />;
+      return <CheckCircle className={cn(iconClass, iconStyles.success)} />;
     case 'error':
-      return <AlertCircle className={cn(iconClass, 'text-red-500')} />;
+      return <AlertCircle className={cn(iconClass, iconStyles.error)} />;
     case 'warning':
-      return <AlertTriangle className={cn(iconClass, 'text-yellow-500')} />;
+      return <AlertTriangle className={cn(iconClass, iconStyles.warning)} />;
     case 'info':
     default:
-      return <Info className={cn(iconClass, 'text-blue-500')} />;
+      return <Info className={cn(iconClass, iconStyles.info)} />;
   }
 };
 
@@ -35,18 +42,27 @@ const NotificationItem: React.FC<{ notification: Notification }> = ({ notificati
     removeNotification(notification.id);
   };
 
-  const bgColorClass = {
-    success: 'bg-green-50 border-green-200 dark:bg-green-950 dark:border-green-800',
-    error: 'bg-red-50 border-red-200 dark:bg-red-950 dark:border-red-800',
-    warning: 'bg-yellow-50 border-yellow-200 dark:bg-yellow-950 dark:border-yellow-800',
-    info: 'bg-blue-50 border-blue-200 dark:bg-blue-950 dark:border-blue-800',
-  }[notification.type];
-
-  const textColorClass = {
-    success: 'text-green-800 dark:text-green-200',
-    error: 'text-red-800 dark:text-red-200',
-    warning: 'text-yellow-800 dark:text-yellow-200',
-    info: 'text-blue-800 dark:text-blue-200',
+  const notificationStyles = {
+    success: {
+      bg: 'bg-success/10 border-success/20',
+      text: 'text-success-foreground',
+      icon: 'text-success',
+    },
+    error: {
+      bg: 'bg-destructive/10 border-destructive/20',
+      text: 'text-destructive-foreground',
+      icon: 'text-destructive',
+    },
+    warning: {
+      bg: 'bg-warning/10 border-warning/20',
+      text: 'text-warning-foreground',
+      icon: 'text-warning',
+    },
+    info: {
+      bg: 'bg-info/10 border-info/20',
+      text: 'text-info-foreground',
+      icon: 'text-info',
+    },
   }[notification.type];
 
   return (
@@ -56,7 +72,7 @@ const NotificationItem: React.FC<{ notification: Notification }> = ({ notificati
       exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
       className={cn(
         'max-w-sm w-full shadow-lg rounded-lg pointer-events-auto border',
-        bgColorClass
+        notificationStyles.bg
       )}
     >
       <div className="p-4">
@@ -65,11 +81,11 @@ const NotificationItem: React.FC<{ notification: Notification }> = ({ notificati
             <NotificationIcon type={notification.type} />
           </div>
           <div className="ml-3 w-0 flex-1 pt-0.5">
-            <p className={cn('text-sm font-medium', textColorClass)}>
+            <p className={cn('text-sm font-medium', notificationStyles.text)}>
               {notification.title}
             </p>
             {notification.message && (
-              <p className={cn('mt-1 text-sm', textColorClass, 'opacity-90')}>
+              <p className={cn('mt-1 text-sm', notificationStyles.text, 'opacity-90')}>
                 {notification.message}
               </p>
             )}
@@ -95,7 +111,7 @@ const NotificationItem: React.FC<{ notification: Notification }> = ({ notificati
               onClick={handleDismiss}
               className={cn(
                 'rounded-md inline-flex hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
-                textColorClass
+                notificationStyles.text
               )}
               aria-label="Dismiss notification"
             >

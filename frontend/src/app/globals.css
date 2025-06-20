@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Base theme variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -20,10 +21,53 @@
     --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+    --success: 142 76% 36%;
+    --success-foreground: 355 100% 97%;
+    --info: 221.2 83.2% 53.3%;
+    --info-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+
+    /* Component specific variables */
+    --sidebar-background: var(--card);
+    --sidebar-foreground: var(--card-foreground);
+    --sidebar-border: var(--border);
+    --header-background: var(--background);
+    --header-foreground: var(--foreground);
+    --header-border: var(--border);
+    --navigation-active: var(--primary);
+    --navigation-active-foreground: var(--primary-foreground);
+    --navigation-hover: var(--accent);
+    --navigation-hover-foreground: var(--accent-foreground);
+
+    /* Form variables */
+    --form-background: var(--background);
+    --form-border: var(--border);
+    --form-focus: var(--ring);
+    --form-error: var(--destructive);
+    --form-success: var(--success);
+
+    /* Button variables */
+    --button-primary: var(--primary);
+    --button-primary-foreground: var(--primary-foreground);
+    --button-secondary: var(--secondary);
+    --button-secondary-foreground: var(--secondary-foreground);
+    --button-destructive: var(--destructive);
+    --button-destructive-foreground: var(--destructive-foreground);
+
+    /* Notification variables */
+    --notification-success: var(--success);
+    --notification-success-foreground: var(--success-foreground);
+    --notification-error: var(--destructive);
+    --notification-error-foreground: var(--destructive-foreground);
+    --notification-warning: var(--warning);
+    --notification-warning-foreground: var(--warning-foreground);
+    --notification-info: var(--info);
+    --notification-info-foreground: var(--info-foreground);
   }
 
   .dark {
@@ -43,9 +87,131 @@
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
+    --warning: 48 96% 89%;
+    --warning-foreground: 38 92% 50%;
+    --success: 142 69% 58%;
+    --success-foreground: 355 100% 97%;
+    --info: 217.2 91.2% 59.8%;
+    --info-foreground: 222.2 84% 4.9%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
+  }
+
+  /* Blue theme */
+  .theme-blue {
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+  }
+
+  .dark.theme-blue {
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+  }
+
+  /* Green theme */
+  .theme-green {
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 100% 97%;
+    --accent: 138 76% 97%;
+    --accent-foreground: 142 76% 36%;
+  }
+
+  .dark.theme-green {
+    --primary: 142 69% 58%;
+    --primary-foreground: 355 100% 97%;
+    --accent: 143 64% 24%;
+    --accent-foreground: 144 61% 82%;
+  }
+
+  /* Purple theme */
+  .theme-purple {
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 270 95.2% 97.4%;
+    --accent-foreground: 262.1 83.3% 57.8%;
+  }
+
+  .dark.theme-purple {
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 264 45% 20%;
+    --accent-foreground: 263 91% 77%;
+  }
+
+  /* Orange theme */
+  .theme-orange {
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+  }
+
+  .dark.theme-orange {
+    --primary: 20.5 90.2% 48.2%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 24 5.4% 63.9%;
+  }
+
+  /* Red theme */
+  .theme-red {
+    --primary: 0 84.2% 60.2%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 0 85.7% 97.3%;
+    --accent-foreground: 0 84.2% 60.2%;
+  }
+
+  .dark.theme-red {
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 0 33% 20%;
+    --accent-foreground: 0 91% 71%;
+  }
+
+  /* High contrast theme */
+  .theme-high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+  }
+
+  .dark.theme-high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
   }
 }
 

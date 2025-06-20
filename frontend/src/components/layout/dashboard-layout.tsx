@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useNotifications } from '@/hooks/use-notifications';
 
 interface NavigationItem {
@@ -155,6 +156,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex flex-1" />
             <div className="flex items-center gap-x-4 lg:gap-x-6">
+              {/* Theme toggle */}
+              <ThemeToggle />
+
               {/* User menu */}
               <div className="flex items-center space-x-4">
                 <div className="hidden sm:block">

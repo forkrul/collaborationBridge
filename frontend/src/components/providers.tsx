@@ -2,8 +2,8 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { ThemeProvider } from 'next-themes';
 import { useState } from 'react';
+import { ThemeProvider } from '@/components/ui/theme-provider';
 import { NotificationSystem } from '@/components/ui/notification-system';
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -33,12 +33,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem
-        disableTransitionOnChange
-      >
+      <ThemeProvider>
         {children}
         <NotificationSystem />
       </ThemeProvider>
