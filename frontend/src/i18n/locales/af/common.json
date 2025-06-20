@@ -1,0 +1,205 @@
+{
+  "navigation": {
+    "home": "Tuis",
+    "dashboard": "Dashboard",
+    "login": "Aanmeld",
+    "logout": "Afmeld",
+    "profile": "Profiel",
+    "settings": "Instellings"
+  },
+  "auth": {
+    "login": {
+      "title": "Teken In",
+      "email": "E-pos Adres",
+      "password": "Wagwoord",
+      "submit": "Teken In",
+      "forgotPassword": "Wagwoord Vergeet?",
+      "noAccount": "Het jy nie 'n rekening nie?",
+      "signUp": "Registreer"
+    },
+    "register": {
+      "title": "Skep Rekening",
+      "firstName": "Voornaam",
+      "lastName": "Van",
+      "email": "E-pos Adres",
+      "password": "Wagwoord",
+      "confirmPassword": "Bevestig Wagwoord",
+      "submit": "Skep Rekening",
+      "hasAccount": "Het jy reeds 'n rekening?",
+      "signIn": "Teken In"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welkom terug, {name}!",
+    "stats": {
+      "users": "Gebruikers",
+      "revenue": "Inkomste",
+      "orders": "Bestellings",
+      "growth": "Groei"
+    }
+  },
+  "common": {
+    "loading": "Laai...",
+    "error": "'n Fout het voorgekom",
+    "retry": "Probeer Weer",
+    "cancel": "Kanselleer",
+    "save": "Stoor",
+    "delete": "Verwyder",
+    "edit": "Wysig",
+    "close": "Sluit",
+    "confirm": "Bevestig"
+  },
+  "validation": {
+    "required": "Hierdie veld is verplig",
+    "email": "Voer asseblief 'n geldige e-pos adres in",
+    "minLength": "Moet ten minste {min} karakters wees",
+    "maxLength": "Mag nie meer as {max} karakters wees nie",
+    "passwordMatch": "Wagwoorde moet ooreenstem"
+  },
+  "errors": {
+    "network": "Netwerk fout. Gaan jou verbinding na.",
+    "unauthorized": "Jy is nie gemagtig om hierdie aksie uit te voer nie.",
+    "notFound": "Die aangevraagde hulpbron is nie gevind nie.",
+    "serverError": "Interne bediener fout. Probeer asseblief later weer."
+  },
+  "components": {
+    "fileUpload": {
+      "dropzone": "Sleep lêers hier of klik om te blaai",
+      "browse": "Blaai Lêers",
+      "uploading": "Laai op...",
+      "uploadComplete": "Oplaai Voltooi",
+      "uploadFailed": "Oplaai Misluk",
+      "removeFile": "Verwyder lêer",
+      "maxFiles": "Maksimum {max} lêers toegelaat",
+      "maxSize": "Lêergrootte moet kleiner as {size} wees",
+      "invalidType": "Ongeldige lêertipe. Toegelate tipes: {types}",
+      "dragActive": "Sleep lêers hier",
+      "selectFiles": "Kies lêers om op te laai",
+      "noFilesSelected": "Geen lêers gekies nie",
+      "filesSelected": "{count} lêer(s) gekies",
+      "retry": "Probeer oplaai weer"
+    },
+    "multiStepForm": {
+      "step": "Stap {current} van {total}",
+      "next": "Volgende",
+      "previous": "Vorige",
+      "finish": "Voltooi",
+      "cancel": "Kanselleer",
+      "stepComplete": "Stap voltooi",
+      "stepIncomplete": "Stap onvoltooi",
+      "progress": "Vordering: {percent}%",
+      "skipStep": "Slaan hierdie stap oor",
+      "requiredStep": "Hierdie stap is verplig"
+    },
+    "chart": {
+      "noData": "Geen data beskikbaar nie",
+      "loading": "Laai grafiek data...",
+      "error": "Kon nie grafiek data laai nie",
+      "legend": "Legende",
+      "xAxis": "X-As",
+      "yAxis": "Y-As",
+      "dataPoint": "Data punt",
+      "total": "Totaal",
+      "average": "Gemiddeld",
+      "minimum": "Minimum",
+      "maximum": "Maksimum"
+    },
+    "search": {
+      "placeholder": "Soek...",
+      "noResults": "Geen resultate gevind nie",
+      "resultsFound": "{count} resultaat/resultate gevind",
+      "searchFor": "Soek vir '{query}'",
+      "clearSearch": "Maak soektog skoon",
+      "filters": "Filters",
+      "showFilters": "Wys filters",
+      "hideFilters": "Versteek filters",
+      "applyFilters": "Pas filters toe",
+      "clearFilters": "Maak alle filters skoon",
+      "activeFilters": "Aktiewe filters",
+      "filterBy": "Filter volgens {field}",
+      "allCategories": "Alle kategorieë",
+      "selectOption": "Kies 'n opsie",
+      "searchResults": "Soekresultate"
+    },
+    "table": {
+      "sortBy": "Sorteer volgens {column}",
+      "sortAscending": "Sorteer oplopend",
+      "sortDescending": "Sorteer aflopend",
+      "noData": "Geen data beskikbaar nie",
+      "loading": "Laai data...",
+      "rowsPerPage": "Rye per bladsy",
+      "page": "Bladsy",
+      "of": "van",
+      "firstPage": "Eerste bladsy",
+      "previousPage": "Vorige bladsy",
+      "nextPage": "Volgende bladsy",
+      "lastPage": "Laaste bladsy",
+      "selectRow": "Kies ry",
+      "selectAllRows": "Kies alle rye",
+      "selectedRows": "{count} ry(e) gekies",
+      "actions": "Aksies"
+    },
+    "pagination": {
+      "previous": "Vorige",
+      "next": "Volgende",
+      "page": "Bladsy {page}",
+      "goToPage": "Gaan na bladsy {page}",
+      "currentPage": "Huidige bladsy, bladsy {page}",
+      "totalPages": "Totale bladsye: {total}",
+      "showingResults": "Wys {start} tot {end} van {total} resultate",
+      "firstPage": "Gaan na eerste bladsy",
+      "lastPage": "Gaan na laaste bladsy"
+    },
+    "dialog": {
+      "close": "Sluit",
+      "confirm": "Bevestig",
+      "cancel": "Kanselleer",
+      "save": "Stoor",
+      "delete": "Verwyder",
+      "edit": "Wysig",
+      "view": "Bekyk",
+      "confirmDelete": "Is jy seker jy wil hierdie item verwyder?",
+      "confirmAction": "Is jy seker jy wil voortgaan?",
+      "unsavedChanges": "Jy het ongestoorde veranderinge. Is jy seker jy wil verlaat?",
+      "deleteTitle": "Bevestig Verwydering",
+      "deleteMessage": "Hierdie aksie kan nie ongedaan gemaak word nie."
+    },
+    "badge": {
+      "new": "Nuut",
+      "updated": "Opgedateer",
+      "active": "Aktief",
+      "inactive": "Onaktief",
+      "pending": "Hangende",
+      "approved": "Goedgekeur",
+      "rejected": "Verwerp",
+      "draft": "Konsep",
+      "published": "Gepubliseer",
+      "archived": "Geargiveer",
+      "featured": "Uitgelig",
+      "popular": "Gewild",
+      "trending": "Neigend"
+    },
+    "statCard": {
+      "increase": "Toename van {percent}%",
+      "decrease": "Afname van {percent}%",
+      "noChange": "Geen verandering",
+      "fromLastMonth": "van verlede maand",
+      "fromLastWeek": "van verlede week",
+      "fromYesterday": "van gister",
+      "trend": "Neiging",
+      "viewDetails": "Bekyk besonderhede"
+    },
+    "theme": {
+      "light": "Lig",
+      "dark": "Donker",
+      "system": "Stelsel",
+      "toggleTheme": "Wissel tema",
+      "currentTheme": "Huidige tema: {theme}"
+    },
+    "language": {
+      "switchLanguage": "Wissel taal",
+      "currentLanguage": "Huidige taal: {language}",
+      "selectLanguage": "Kies taal"
+    }
+  }
+}

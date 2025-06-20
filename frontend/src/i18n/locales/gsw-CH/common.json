@@ -1,0 +1,205 @@
+{
+  "navigation": {
+    "home": "Hei",
+    "dashboard": "Dashboard",
+    "login": "Aamelde",
+    "logout": "Abmelde",
+    "profile": "Profil",
+    "settings": "Iistellige"
+  },
+  "auth": {
+    "login": {
+      "title": "Aamelde",
+      "email": "E-Mail Adrässe",
+      "password": "Passwort",
+      "submit": "Aamelde",
+      "forgotPassword": "Passwort vergässe?",
+      "noAccount": "Häsch no kei Account?",
+      "signUp": "Registriere"
+    },
+    "register": {
+      "title": "Account erstelle",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail Adrässe",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätige",
+      "submit": "Account erstelle",
+      "hasAccount": "Häsch scho en Account?",
+      "signIn": "Aamelde"
+    }
+  },
+  "dashboard": {
+    "welcome": "Willkomme zrugg, {name}!",
+    "stats": {
+      "users": "Benutzer",
+      "revenue": "Umsatz",
+      "orders": "Bestellige",
+      "growth": "Wachstum"
+    }
+  },
+  "common": {
+    "loading": "Ladet...",
+    "error": "Es isch en Fähler ufträte",
+    "retry": "Nomol probiere",
+    "cancel": "Abbräche",
+    "save": "Speichere",
+    "delete": "Lösche",
+    "edit": "Bearbeite",
+    "close": "Zuemache",
+    "confirm": "Bestätige"
+  },
+  "validation": {
+    "required": "Das Fäld isch obligatorisch",
+    "email": "Bitte gib e gültigi E-Mail Adrässe ii",
+    "minLength": "Muess mindestens {min} Zeiche lang sii",
+    "maxLength": "Darf höchstens {max} Zeiche lang sii",
+    "passwordMatch": "Passwörter müend überiistimme"
+  },
+  "errors": {
+    "network": "Netzwärk Fähler. Bitte prüef dini Verbindig.",
+    "unauthorized": "Du bisch nöd berechtigt, die Aktion uuszfüehre.",
+    "notFound": "Die aagfragti Ressource isch nöd gfunde worde.",
+    "serverError": "Interne Server Fähler. Bitte probier spöter nomol."
+  },
+  "components": {
+    "fileUpload": {
+      "dropzone": "Dateie da abelege oder klicke zum Dureluege",
+      "browse": "Dateie dureluege",
+      "uploading": "Ladet ufe...",
+      "uploadComplete": "Upload fertig",
+      "uploadFailed": "Upload fählgschlage",
+      "removeFile": "Datei entferne",
+      "maxFiles": "Maximal {max} Dateie erlaubt",
+      "maxSize": "Dateigrösse muess chliiner als {size} sii",
+      "invalidType": "Ungültigi Dateiart. Erlaubti Arte: {types}",
+      "dragActive": "Dateie da abelege",
+      "selectFiles": "Dateie zum Uflade uuswähle",
+      "noFilesSelected": "Kei Dateie uusgwählt",
+      "filesSelected": "{count} Datei(e) uusgwählt",
+      "retry": "Upload nomol probiere"
+    },
+    "multiStepForm": {
+      "step": "Schritt {current} vo {total}",
+      "next": "Wiiter",
+      "previous": "Zrugg",
+      "finish": "Abschliesse",
+      "cancel": "Abbräche",
+      "stepComplete": "Schritt abgschlosse",
+      "stepIncomplete": "Schritt nöd vollständig",
+      "progress": "Fortschritt: {percent}%",
+      "skipStep": "Schritt übersprige",
+      "requiredStep": "De Schritt isch obligatorisch"
+    },
+    "chart": {
+      "noData": "Kei Date verfüegbar",
+      "loading": "Ladet Diagramm Date...",
+      "error": "Fähler bim Lade vo de Diagramm Date",
+      "legend": "Legände",
+      "xAxis": "X-Achse",
+      "yAxis": "Y-Achse",
+      "dataPoint": "Datepunkt",
+      "total": "Total",
+      "average": "Durchschnitt",
+      "minimum": "Minimum",
+      "maximum": "Maximum"
+    },
+    "search": {
+      "placeholder": "Sueche...",
+      "noResults": "Kei Resultat gfunde",
+      "resultsFound": "{count} Resultat(e) gfunde",
+      "searchFor": "Sueche nach '{query}'",
+      "clearSearch": "Suechi lösche",
+      "filters": "Filter",
+      "showFilters": "Filter aazeige",
+      "hideFilters": "Filter verstecke",
+      "applyFilters": "Filter aawände",
+      "clearFilters": "Alli Filter lösche",
+      "activeFilters": "Aktivi Filter",
+      "filterBy": "Filtere nach {field}",
+      "allCategories": "Alli Kategorie",
+      "selectOption": "Option uuswähle",
+      "searchResults": "Suchresultat"
+    },
+    "table": {
+      "sortBy": "Sortiere nach {column}",
+      "sortAscending": "Uufsteigend sortiere",
+      "sortDescending": "Absteigend sortiere",
+      "noData": "Kei Date verfüegbar",
+      "loading": "Ladet Date...",
+      "rowsPerPage": "Ziile pro Siite",
+      "page": "Siite",
+      "of": "vo",
+      "firstPage": "Erschti Siite",
+      "previousPage": "Vorherigi Siite",
+      "nextPage": "Nächsti Siite",
+      "lastPage": "Letzti Siite",
+      "selectRow": "Ziili uuswähle",
+      "selectAllRows": "Alli Ziile uuswähle",
+      "selectedRows": "{count} Ziili uusgwählt",
+      "actions": "Aktione"
+    },
+    "pagination": {
+      "previous": "Zrugg",
+      "next": "Wiiter",
+      "page": "Siite {page}",
+      "goToPage": "Zu Siite {page} gah",
+      "currentPage": "Aktuelli Siite, Siite {page}",
+      "totalPages": "Total Siite: {total}",
+      "showingResults": "Zeigt {start} bis {end} vo {total} Resultat",
+      "firstPage": "Zur erschte Siite",
+      "lastPage": "Zur letzte Siite"
+    },
+    "dialog": {
+      "close": "Zuemache",
+      "confirm": "Bestätige",
+      "cancel": "Abbräche",
+      "save": "Speichere",
+      "delete": "Lösche",
+      "edit": "Bearbeite",
+      "view": "Aaluege",
+      "confirmDelete": "Bisch sicher, dass du das Element lösche wotsch?",
+      "confirmAction": "Bisch sicher, dass du wotsch wiitermache?",
+      "unsavedChanges": "Du häsch nöd gspeicherti Änderige. Bisch sicher, dass du wotsch verlah?",
+      "deleteTitle": "Löschig bestätige",
+      "deleteMessage": "Die Aktion cha nöd rückgängig gmacht wärde."
+    },
+    "badge": {
+      "new": "Neu",
+      "updated": "Aktualisiert",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "pending": "Wartend",
+      "approved": "Gnehmigt",
+      "rejected": "Abglehnt",
+      "draft": "Entwurf",
+      "published": "Veröffentlicht",
+      "archived": "Archiviert",
+      "featured": "Uusegstellt",
+      "popular": "Beliebt",
+      "trending": "Im Trend"
+    },
+    "statCard": {
+      "increase": "Zunahm vo {percent}%",
+      "decrease": "Abnahm vo {percent}%",
+      "noChange": "Kei Änderig",
+      "fromLastMonth": "vom letzte Monet",
+      "fromLastWeek": "vo de letzte Wuche",
+      "fromYesterday": "vo geschter",
+      "trend": "Trend",
+      "viewDetails": "Details aaluege"
+    },
+    "theme": {
+      "light": "Hell",
+      "dark": "Dunkel",
+      "system": "System",
+      "toggleTheme": "Design wächsle",
+      "currentTheme": "Aktuells Design: {theme}"
+    },
+    "language": {
+      "switchLanguage": "Sprach wächsle",
+      "currentLanguage": "Aktuelli Sprach: {language}",
+      "selectLanguage": "Sprach uuswähle"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "@company/themes",
+  "version": "0.0.0002",
+  "description": "Theme configurations for the component library",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./base": {
+      "import": "./dist/base.esm.js",
+      "require": "./dist/base.js",
+      "types": "./dist/base.d.ts"
+    },
+    "./dark": {
+      "import": "./dist/dark.esm.js",
+      "require": "./dist/dark.js",
+      "types": "./dist/dark.d.ts"
+    },
+    "./corporate": {
+      "import": "./dist/corporate.esm.js",
+      "require": "./dist/corporate.js",
+      "types": "./dist/corporate.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@company/tokens": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "keywords": [
+    "themes",
+    "design-system",
+    "react",
+    "typescript"
+  ],
+  "author": "Company Design System Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/company/project-template-mvp",
+    "directory": "packages/themes"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "navigation": {
+    "home": "Acasă",
+    "dashboard": "Tablou de bord",
+    "login": "Conectare",
+    "logout": "Deconectare",
+    "profile": "Profil",
+    "settings": "Setări"
+  },
+  "auth": {
+    "login": {
+      "title": "Conectare",
+      "email": "Adresa de email",
+      "password": "Parolă",
+      "submit": "Conectare",
+      "forgotPassword": "Ați uitat parola?",
+      "noAccount": "Nu aveți un cont?",
+      "signUp": "Înregistrare"
+    },
+    "register": {
+      "title": "Creați un cont",
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "email": "Adresa de email",
+      "password": "Parolă",
+      "confirmPassword": "Confirmați parola",
+      "submit": "Creați contul",
+      "hasAccount": "Aveți deja un cont?",
+      "signIn": "Conectare"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bun venit înapoi, {name}!",
+    "stats": {
+      "users": "Utilizatori",
+      "revenue": "Venituri",
+      "orders": "Comenzi",
+      "growth": "Creștere"
+    }
+  },
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "A apărut o eroare",
+    "retry": "Încercați din nou",
+    "cancel": "Anulare",
+    "save": "Salvare",
+    "delete": "Ștergere",
+    "edit": "Editare",
+    "close": "Închidere",
+    "confirm": "Confirmare"
+  },
+  "validation": {
+    "required": "Acest câmp este obligatoriu",
+    "email": "Vă rugăm să introduceți o adresă de email validă",
+    "minLength": "Trebuie să aibă cel puțin {min} caractere",
+    "maxLength": "Nu trebuie să aibă mai mult de {max} caractere",
+    "passwordMatch": "Parolele trebuie să coincidă"
+  },
+  "errors": {
+    "network": "Eroare de rețea. Vă rugăm să verificați conexiunea.",
+    "unauthorized": "Nu sunteți autorizat să efectuați această acțiune.",
+    "notFound": "Resursa solicitată nu a fost găsită.",
+    "serverError": "Eroare internă de server. Vă rugăm să încercați din nou mai târziu."
+  },
+  "components": {
+    "fileUpload": {
+      "dropzone": "Trageți fișierele aici sau faceți clic pentru a naviga",
+      "browse": "Navigați fișierele",
+      "uploading": "Se încarcă...",
+      "uploadComplete": "Încărcare completă",
+      "uploadFailed": "Încărcare eșuată",
+      "removeFile": "Eliminați fișierul",
+      "maxFiles": "Maxim {max} fișiere permise",
+      "maxSize": "Dimensiunea fișierului trebuie să fie mai mică de {size}",
+      "invalidType": "Tip de fișier invalid. Tipuri permise: {types}",
+      "dragActive": "Trageți fișierele aici",
+      "selectFiles": "Selectați fișierele pentru încărcare",
+      "noFilesSelected": "Niciun fișier selectat",
+      "filesSelected": "{count} fișier(e) selectat(e)",
+      "retry": "Reîncercați încărcarea"
+    },
+    "multiStepForm": {
+      "step": "Pasul {current} din {total}",
+      "next": "Următorul",
+      "previous": "Anterior",
+      "finish": "Finalizare",
+      "cancel": "Anulare",
+      "stepComplete": "Pas completat",
+      "stepIncomplete": "Pas incomplet",
+      "progress": "Progres: {percent}%",
+      "skipStep": "Omiteți acest pas",
+      "requiredStep": "Acest pas este obligatoriu"
+    },
+    "chart": {
+      "noData": "Nu sunt date disponibile",
+      "loading": "Se încarcă datele graficului...",
+      "error": "Eroare la încărcarea datelor graficului",
+      "legend": "Legendă",
+      "xAxis": "Axa X",
+      "yAxis": "Axa Y",
+      "dataPoint": "Punct de date",
+      "total": "Total",
+      "average": "Medie",
+      "minimum": "Minim",
+      "maximum": "Maxim"
+    },
+    "search": {
+      "placeholder": "Căutare...",
+      "noResults": "Nu s-au găsit rezultate",
+      "resultsFound": "{count} rezultat(e) găsit(e)",
+      "searchFor": "Căutare pentru '{query}'",
+      "clearSearch": "Ștergeți căutarea",
+      "filters": "Filtre",
+      "showFilters": "Afișați filtrele",
+      "hideFilters": "Ascundeți filtrele",
+      "applyFilters": "Aplicați filtrele",
+      "clearFilters": "Ștergeți toate filtrele",
+      "activeFilters": "Filtre active",
+      "filterBy": "Filtrați după {field}",
+      "allCategories": "Toate categoriile",
+      "selectOption": "Selectați o opțiune",
+      "searchResults": "Rezultatele căutării"
+    },
+    "table": {
+      "sortBy": "Sortați după {column}",
+      "sortAscending": "Sortare ascendentă",
+      "sortDescending": "Sortare descendentă",
+      "noData": "Nu sunt date disponibile",
+      "loading": "Se încarcă datele...",
+      "rowsPerPage": "Rânduri pe pagină",
+      "page": "Pagina",
+      "of": "din",
+      "firstPage": "Prima pagină",
+      "previousPage": "Pagina anterioară",
+      "nextPage": "Pagina următoare",
+      "lastPage": "Ultima pagină",
+      "selectRow": "Selectați rândul",
+      "selectAllRows": "Selectați toate rândurile",
+      "selectedRows": "{count} rând(uri) selectat(e)",
+      "actions": "Acțiuni"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Următorul",
+      "page": "Pagina {page}",
+      "goToPage": "Mergeți la pagina {page}",
+      "currentPage": "Pagina curentă, pagina {page}",
+      "totalPages": "Total pagini: {total}",
+      "showingResults": "Se afișează {start} până la {end} din {total} rezultate",
+      "firstPage": "Mergeți la prima pagină",
+      "lastPage": "Mergeți la ultima pagină"
+    },
+    "dialog": {
+      "close": "Închidere",
+      "confirm": "Confirmare",
+      "cancel": "Anulare",
+      "save": "Salvare",
+      "delete": "Ștergere",
+      "edit": "Editare",
+      "view": "Vizualizare",
+      "confirmDelete": "Sunteți sigur că doriți să ștergeți acest element?",
+      "confirmAction": "Sunteți sigur că doriți să continuați?",
+      "unsavedChanges": "Aveți modificări nesalvate. Sunteți sigur că doriți să părăsiți?",
+      "deleteTitle": "Confirmați ștergerea",
+      "deleteMessage": "Această acțiune nu poate fi anulată."
+    },
+    "badge": {
+      "new": "Nou",
+      "updated": "Actualizat",
+      "active": "Activ",
+      "inactive": "Inactiv",
+      "pending": "În așteptare",
+      "approved": "Aprobat",
+      "rejected": "Respins",
+      "draft": "Ciornă",
+      "published": "Publicat",
+      "archived": "Arhivat",
+      "featured": "Recomandat",
+      "popular": "Popular",
+      "trending": "În tendință"
+    },
+    "statCard": {
+      "increase": "Creștere de {percent}%",
+      "decrease": "Scădere de {percent}%",
+      "noChange": "Fără modificări",
+      "fromLastMonth": "față de luna trecută",
+      "fromLastWeek": "față de săptămâna trecută",
+      "fromYesterday": "față de ieri",
+      "trend": "Tendință",
+      "viewDetails": "Vizualizați detaliile"
+    },
+    "theme": {
+      "light": "Luminos",
+      "dark": "Întunecat",
+      "system": "Sistem",
+      "toggleTheme": "Comutați tema",
+      "currentTheme": "Tema curentă: {theme}"
+    },
+    "language": {
+      "switchLanguage": "Schimbați limba",
+      "currentLanguage": "Limba curentă: {language}",
+      "selectLanguage": "Selectați limba"
+    }
+  }
+}

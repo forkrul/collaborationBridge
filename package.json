@@ -1,0 +1,47 @@
+{
+  "name": "project-template-mvp",
+  "version": "0.0.0002",
+  "private": true,
+  "description": "Frontend Component Library with comprehensive design system",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "build:packages": "nx run-many --target=build --projects=core,tokens,themes,components,cli",
+    "dev": "nx run frontend:dev",
+    "dev:storybook": "nx run storybook:storybook",
+    "test": "nx run-many --target=test --all",
+    "test:watch": "nx run-many --target=test --all --watch",
+    "lint": "nx run-many --target=lint --all",
+    "type-check": "nx run-many --target=type-check --all",
+    "clean": "nx reset && rm -rf node_modules packages/*/node_modules packages/*/dist apps/*/node_modules apps/*/.next",
+    "release": "changeset publish",
+    "version": "changeset version",
+    "changeset": "changeset",
+    "affected:build": "nx affected --target=build",
+    "affected:test": "nx affected --target=test",
+    "affected:lint": "nx affected --target=lint"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@nx/eslint-plugin": "^16.0.0",
+    "@nx/jest": "^16.0.0",
+    "@nx/js": "^16.0.0",
+    "@nx/next": "^16.0.0",
+    "@nx/react": "^16.0.0",
+    "@nx/storybook": "^16.0.0",
+    "@nx/vite": "^16.0.0",
+    "@nx/workspace": "^16.0.0",
+    "eslint": "^8.47.0",
+    "nx": "^16.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

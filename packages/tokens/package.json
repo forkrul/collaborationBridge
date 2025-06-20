@@ -1,0 +1,59 @@
+{
+  "name": "@company/tokens",
+  "version": "0.0.0002",
+  "description": "Design tokens for the component library",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./colors": {
+      "import": "./dist/colors.esm.js",
+      "require": "./dist/colors.js",
+      "types": "./dist/colors.d.ts"
+    },
+    "./spacing": {
+      "import": "./dist/spacing.esm.js",
+      "require": "./dist/spacing.js",
+      "types": "./dist/spacing.d.ts"
+    },
+    "./typography": {
+      "import": "./dist/typography.esm.js",
+      "require": "./dist/typography.js",
+      "types": "./dist/typography.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "eslint": "^8.0.0"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "colors",
+    "typography",
+    "spacing"
+  ],
+  "author": "Company Design System Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/company/project-template-mvp",
+    "directory": "packages/tokens"
+  }
+}
