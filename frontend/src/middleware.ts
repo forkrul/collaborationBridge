@@ -29,5 +29,15 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/', '/(af|en-GB|de|ro|zu|gsw-CH)/:path*']
+  matcher: [
+    // Enable a redirect to a matching locale at the root
+    '/',
+
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    '/(af|en-GB|de|ro|zu|gsw-CH|es|fr|ja|zh)/:path*',
+
+    // Enable redirects that add missing locales
+    '/((?!_next|_vercel|.*\\..*).*)'
+  ]
 };

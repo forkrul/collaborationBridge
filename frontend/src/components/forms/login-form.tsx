@@ -5,25 +5,31 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Mail, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
-const loginSchema = z.object({
+// Create schema factory to use translations
+const createLoginSchema = (t: any) => z.object({
   email: z
     .string()
-    .email('Please enter a valid email address')
-    .min(1, 'Email is required'),
+    .email(t('validation.email'))
+    .min(1, t('validation.required')),
   password: z
     .string()
-    .min(8, 'Password must be at least 8 characters')
-    .min(1, 'Password is required'),
+    .min(8, t('validation.minLength', { min: 8 }))
+    .min(1, t('validation.required')),
   rememberMe: z.boolean().default(false),
 });
 
-type LoginFormData = z.infer<typeof loginSchema>;
+type LoginFormData = {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+};
 
 export interface LoginFormProps {
   onSubmit: (data: LoginFormData) => void | Promise<void>;
@@ -38,6 +44,9 @@ export function LoginForm({
   error,
   className,
 }: LoginFormProps) {
+  const t = useTranslations();
+  const loginSchema = React.useMemo(() => createLoginSchema(t), [t]);
+
   const {
     register,
     handleSubmit,
@@ -74,10 +83,10 @@ export function LoginForm({
     <div className={className}>
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold tracking-tight">
-          Sign in to your account
+          {t('components.forms.loginForm.title')}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Enter your credentials to access your dashboard
+          {t('components.forms.loginForm.subtitle')}
         </p>
       </div>
 
@@ -95,8 +104,8 @@ export function LoginForm({
         <Input
           {...register('email')}
           type="email"
-          label="Email address"
-          placeholder="Enter your email"
+          label={t('components.forms.loginForm.email')}
+          placeholder={t('components.forms.loginForm.emailPlaceholder')}
           leftIcon={<Mail className="h-4 w-4" />}
           error={errors.email?.message}
           onChange={(e) => {
@@ -111,8 +120,8 @@ export function LoginForm({
         <Input
           {...register('password')}
           type="password"
-          label="Password"
-          placeholder="Enter your password"
+          label={t('components.forms.loginForm.password')}
+          placeholder={t('components.forms.loginForm.passwordPlaceholder')}
           leftIcon={<Lock className="h-4 w-4" />}
           error={errors.password?.message}
           onChange={(e) => {
@@ -136,7 +145,7 @@ export function LoginForm({
               htmlFor="remember-me"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              Remember me
+              {t('components.forms.loginForm.rememberMe')}
             </Label>
           </div>
 
@@ -145,7 +154,7 @@ export function LoginForm({
             className="text-sm text-primary hover:text-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
             data-testid="forgot-password-link"
           >
-            Forgot your password?
+            {t('components.forms.loginForm.forgotPassword')}
           </Link>
         </div>
 
@@ -157,17 +166,17 @@ export function LoginForm({
           disabled={!isValid || loading}
           data-testid="login-button"
         >
-          {loading ? 'Signing in...' : 'Sign in'}
+          {loading ? t('components.forms.loginForm.signingIn') : t('components.forms.loginForm.signIn')}
         </Button>
 
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
-            Don&apos;t have an account?{' '}
+            {t('components.forms.loginForm.noAccount')}{' '}
             <Link
               href="/register"
               className="text-primary hover:text-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
             >
-              Sign up here
+              {t('components.forms.loginForm.signUpHere')}
             </Link>
           </p>
         </div>

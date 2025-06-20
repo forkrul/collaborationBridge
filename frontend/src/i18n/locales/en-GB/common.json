@@ -194,12 +194,213 @@
       "dark": "Dark",
       "system": "System",
       "toggleTheme": "Toggle theme",
-      "currentTheme": "Current theme: {theme}"
+      "currentTheme": "Current theme: {theme}",
+      "appearance": "Appearance",
+      "colorTheme": "Color Theme",
+      "themes": {
+        "blue": "Blue",
+        "green": "Green",
+        "purple": "Purple",
+        "orange": "Orange",
+        "red": "Red",
+        "highContrast": "High Contrast"
+      },
+      "themeChanged": "Theme Changed",
+      "switchedTo": "Switched to {theme} theme"
     },
     "language": {
       "switchLanguage": "Switch language",
       "currentLanguage": "Current language: {language}",
       "selectLanguage": "Select language"
+    },
+    "notifications": {
+      "success": "Success!",
+      "error": "Error!",
+      "warning": "Warning!",
+      "info": "Info!",
+      "dismiss": "Dismiss notification",
+      "testNotifications": "Test All Notifications",
+      "loginSuccess": "Login successful",
+      "loginFailed": "Login failed",
+      "welcomeBack": "Welcome back!",
+      "loggedOut": "Logged out successfully",
+      "loggedOutMessage": "You have been securely logged out."
+    },
+    "forms": {
+      "input": {
+        "showPassword": "Show password",
+        "hidePassword": "Hide password",
+        "required": "Required",
+        "optional": "Optional",
+        "helperText": "Helper text"
+      },
+      "button": {
+        "loading": "Loading...",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create",
+        "update": "Update"
+      },
+      "loginForm": {
+        "title": "Sign in to your account",
+        "subtitle": "Enter your credentials to access your dashboard",
+        "email": "Email address",
+        "emailPlaceholder": "Enter your email",
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot your password?",
+        "signIn": "Sign in",
+        "signingIn": "Signing in...",
+        "noAccount": "Don't have an account?",
+        "signUpHere": "Sign up here",
+        "demoCredentials": "Demo Credentials:",
+        "invalidCredentials": "Invalid email or password"
+      }
+    },
+    "layout": {
+      "dashboard": {
+        "navigation": {
+          "dashboard": "Dashboard",
+          "api": "API",
+          "users": "Users",
+          "security": "Security",
+          "settings": "Settings"
+        },
+        "userMenu": {
+          "logout": "Logout"
+        }
+      }
+    },
+    "pages": {
+      "home": {
+        "title": "Modern Web Application",
+        "subtitle": "Comprehensive Theme System",
+        "description": "A complete React application template with advanced theming, multiple color schemes, and comprehensive component library for rapid development.",
+        "cta": {
+          "exploreThemes": "Explore Themes",
+          "viewDashboard": "View Dashboard"
+        },
+        "features": {
+          "colorThemes": "6 Color Themes",
+          "darkLightMode": "Dark/Light Mode",
+          "cssVariables": "CSS Variables",
+          "title": "Advanced Theme Features",
+          "subtitle": "Built with modern CSS variables and React context for seamless theme switching without hardcoded values."
+        },
+        "footer": {
+          "copyright": "© 2024 App. Built with modern web technologies.",
+          "themes": "Themes",
+          "documentation": "Documentation",
+          "apiReference": "API Reference"
+        }
+      },
+      "themes": {
+        "title": "Theme System",
+        "subtitle": "Explore our comprehensive theme system with multiple color schemes and dark/light mode support. All themes use CSS variables for easy customization.",
+        "currentTheme": "Current Theme",
+        "currentlyUsing": "Currently using the {theme} color theme",
+        "availableThemes": "Available Themes",
+        "clickToSwitch": "Click on any theme to switch to it instantly",
+        "active": "Active",
+        "components": {
+          "buttons": "Buttons",
+          "buttonsDescription": "Button variants with theme colors",
+          "formElements": "Form Elements",
+          "formElementsDescription": "Input fields and form controls",
+          "notifications": "Notifications",
+          "notificationsDescription": "Toast notifications with theme colors",
+          "statusIndicators": "Status Indicators",
+          "statusIndicatorsDescription": "Icons and badges with semantic colors",
+          "colorPalette": "Color Palette",
+          "colorPaletteDescription": "Current theme color variables"
+        },
+        "features": {
+          "title": "Theme Features",
+          "subtitle": "What makes our theme system powerful",
+          "cssVariables": {
+            "title": "CSS Variables",
+            "description": "All colors use CSS custom properties for easy runtime switching"
+          },
+          "darkLightMode": {
+            "title": "Dark/Light Mode",
+            "description": "Each color theme supports both dark and light appearance modes"
+          },
+          "accessibility": {
+            "title": "Accessibility",
+            "description": "All themes meet WCAG contrast requirements including high contrast mode"
+          },
+          "persistent": {
+            "title": "Persistent",
+            "description": "Theme preferences are saved to localStorage and restored on reload"
+          },
+          "extensible": {
+            "title": "Extensible",
+            "description": "Easy to add new themes by extending the CSS variable system"
+          },
+          "noHardcodedValues": {
+            "title": "No Hardcoded Values",
+            "description": "All components use semantic color tokens, no hardcoded hex values"
+          }
+        },
+        "states": {
+          "successState": "Success state",
+          "errorState": "Error state",
+          "warningState": "Warning state",
+          "infoState": "Info state"
+        }
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Welcome to your application dashboard",
+        "stats": {
+          "totalUsers": "Total Users",
+          "apiRequests": "API Requests",
+          "securityEvents": "Security Events",
+          "systemHealth": "System Health",
+          "fromLastMonth": "from last month"
+        },
+        "sections": {
+          "recentActivity": {
+            "title": "Recent Activity",
+            "subtitle": "Latest events and system activities"
+          },
+          "systemStatus": {
+            "title": "System Status",
+            "subtitle": "Current system health and alerts",
+            "apiServer": "API Server",
+            "database": "Database",
+            "cache": "Cache",
+            "storage": "Storage",
+            "online": "Online",
+            "connected": "Connected",
+            "warning": "Warning",
+            "available": "Available"
+          },
+          "quickActions": {
+            "title": "Quick Actions",
+            "subtitle": "Common tasks and operations",
+            "manageUsers": "Manage Users",
+            "viewApiLogs": "View API Logs",
+            "securitySettings": "Security Settings",
+            "systemHealth": "System Health"
+          }
+        },
+        "activities": {
+          "userLogin": "User login",
+          "apiRequest": "API request",
+          "databaseBackup": "Database backup",
+          "userRegistration": "User registration",
+          "system": "System",
+          "timeAgo": {
+            "minutesAgo": "{count} minutes ago",
+            "hoursAgo": "{count} hours ago"
+          }
+        }
+      }
     }
   }
 }

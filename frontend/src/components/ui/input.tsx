@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { Eye, EyeOff, AlertCircle } from 'lucide-react';
 
@@ -28,15 +29,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const t = useTranslations();
     const [showPassword, setShowPassword] = React.useState(false);
     const [internalId] = React.useState(() => id || `input-${Math.random().toString(36).substr(2, 9)}`);
-    
+
     const isPassword = type === 'password';
     const inputType = isPassword && showPassword ? 'text' : type;
-    
+
     const hasError = Boolean(error) || variant === 'error';
     const hasSuccess = variant === 'success';
-    
+
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
     };
@@ -49,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             {label}
-            {required && <span className="text-destructive ml-1">*</span>}
+            {required && <span className="text-destructive ml-1" title={t('components.forms.input.required')}>*</span>}
           </label>
         )}
         
@@ -94,7 +96,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               type="button"
               className="absolute inset-y-0 right-0 pr-3 flex items-center"
               onClick={togglePasswordVisibility}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              aria-label={showPassword ? t('components.forms.input.hidePassword') : t('components.forms.input.showPassword')}
             >
               {showPassword ? (
                 <EyeOff className="h-4 w-4 text-muted-foreground hover:text-foreground" />

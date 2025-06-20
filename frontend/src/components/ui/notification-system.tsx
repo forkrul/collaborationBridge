@@ -10,6 +10,7 @@ import {
   X,
 } from 'lucide-react';
 import { useNotificationStore, type Notification } from '@/stores/notification-store';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 
 const NotificationIcon: React.FC<{ type: Notification['type'] }> = ({ type }) => {
@@ -36,6 +37,7 @@ const NotificationIcon: React.FC<{ type: Notification['type'] }> = ({ type }) =>
 };
 
 const NotificationItem: React.FC<{ notification: Notification }> = ({ notification }) => {
+  const t = useTranslations();
   const { removeNotification } = useNotificationStore();
 
   const handleDismiss = () => {
@@ -113,7 +115,7 @@ const NotificationItem: React.FC<{ notification: Notification }> = ({ notificati
                 'rounded-md inline-flex hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
                 notificationStyles.text
               )}
-              aria-label="Dismiss notification"
+              aria-label={t('components.notifications.dismiss')}
             >
               <X className="h-5 w-5" />
             </button>

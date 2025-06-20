@@ -1,0 +1,192 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "profile": "Perfil",
+    "settings": "Configuración"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "email": "Dirección de Correo",
+      "password": "Contraseña",
+      "submit": "Iniciar Sesión",
+      "forgotPassword": "¿Olvidaste tu Contraseña?",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUp": "Registrarse"
+    },
+    "register": {
+      "title": "Crear Cuenta",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Dirección de Correo",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "submit": "Crear Cuenta",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar Sesión"
+    }
+  },
+  "dashboard": {
+    "welcome": "¡Bienvenido de vuelta, {name}!",
+    "stats": {
+      "users": "Usuarios",
+      "revenue": "Ingresos",
+      "orders": "Pedidos",
+      "growth": "Crecimiento"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "retry": "Intentar de Nuevo",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "confirm": "Confirmar"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Por favor ingresa una dirección de correo válida",
+    "minLength": "Debe tener al menos {min} caracteres",
+    "maxLength": "No debe tener más de {max} caracteres",
+    "passwordMatch": "Las contraseñas deben coincidir"
+  },
+  "errors": {
+    "network": "Error de red. Por favor verifica tu conexión.",
+    "unauthorized": "No estás autorizado para realizar esta acción.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "serverError": "Error interno del servidor. Por favor intenta de nuevo más tarde."
+  },
+  "components": {
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema",
+      "toggleTheme": "Cambiar tema",
+      "currentTheme": "Tema actual: {theme}",
+      "appearance": "Apariencia",
+      "colorTheme": "Tema de Color",
+      "themes": {
+        "blue": "Azul",
+        "green": "Verde",
+        "purple": "Morado",
+        "orange": "Naranja",
+        "red": "Rojo",
+        "highContrast": "Alto Contraste"
+      },
+      "themeChanged": "Tema Cambiado",
+      "switchedTo": "Cambiado al tema {theme}"
+    },
+    "notifications": {
+      "success": "¡Éxito!",
+      "error": "¡Error!",
+      "warning": "¡Advertencia!",
+      "info": "¡Información!",
+      "dismiss": "Descartar notificación",
+      "testNotifications": "Probar Todas las Notificaciones",
+      "loginSuccess": "Inicio de sesión exitoso",
+      "loginFailed": "Error al iniciar sesión",
+      "welcomeBack": "¡Bienvenido de vuelta!",
+      "loggedOut": "Sesión cerrada exitosamente",
+      "loggedOutMessage": "Has cerrado sesión de forma segura."
+    },
+    "forms": {
+      "input": {
+        "showPassword": "Mostrar contraseña",
+        "hidePassword": "Ocultar contraseña",
+        "required": "Obligatorio",
+        "optional": "Opcional",
+        "helperText": "Texto de ayuda"
+      },
+      "button": {
+        "loading": "Cargando...",
+        "submit": "Enviar",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "create": "Crear",
+        "update": "Actualizar"
+      },
+      "loginForm": {
+        "title": "Inicia sesión en tu cuenta",
+        "subtitle": "Ingresa tus credenciales para acceder a tu panel",
+        "email": "Dirección de correo",
+        "emailPlaceholder": "Ingresa tu correo",
+        "password": "Contraseña",
+        "passwordPlaceholder": "Ingresa tu contraseña",
+        "rememberMe": "Recordarme",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "signIn": "Iniciar sesión",
+        "signingIn": "Iniciando sesión...",
+        "noAccount": "¿No tienes una cuenta?",
+        "signUpHere": "Regístrate aquí",
+        "demoCredentials": "Credenciales de Demostración:",
+        "invalidCredentials": "Correo o contraseña inválidos"
+      }
+    },
+    "layout": {
+      "dashboard": {
+        "navigation": {
+          "dashboard": "Panel",
+          "api": "API",
+          "users": "Usuarios",
+          "security": "Seguridad",
+          "settings": "Configuración"
+        },
+        "userMenu": {
+          "logout": "Cerrar Sesión"
+        }
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Aplicación Web Moderna",
+      "subtitle": "Sistema de Temas Integral",
+      "description": "Una plantilla completa de aplicación React con temas avanzados, múltiples esquemas de color y biblioteca de componentes integral para desarrollo rápido.",
+      "cta": {
+        "exploreThemes": "Explorar Temas",
+        "viewDashboard": "Ver Panel"
+      },
+      "features": {
+        "colorThemes": "6 Temas de Color",
+        "darkLightMode": "Modo Oscuro/Claro",
+        "cssVariables": "Variables CSS",
+        "title": "Características Avanzadas de Temas",
+        "subtitle": "Construido con variables CSS modernas y contexto React para cambio de temas sin problemas sin valores codificados."
+      },
+      "footer": {
+        "copyright": "© 2024 App. Construido con tecnologías web modernas.",
+        "themes": "Temas",
+        "documentation": "Documentación",
+        "apiReference": "Referencia API"
+      }
+    },
+    "themes": {
+      "title": "Sistema de Temas",
+      "subtitle": "Explora nuestro sistema integral de temas con múltiples esquemas de color y soporte para modo oscuro/claro. Todos los temas usan variables CSS para fácil personalización.",
+      "currentTheme": "Tema Actual",
+      "currentlyUsing": "Actualmente usando el tema de color {theme}",
+      "availableThemes": "Temas Disponibles",
+      "clickToSwitch": "Haz clic en cualquier tema para cambiarlo instantáneamente",
+      "active": "Activo"
+    },
+    "dashboard": {
+      "title": "Panel",
+      "subtitle": "Bienvenido a tu panel de aplicación",
+      "stats": {
+        "totalUsers": "Total de Usuarios",
+        "apiRequests": "Solicitudes API",
+        "securityEvents": "Eventos de Seguridad",
+        "systemHealth": "Salud del Sistema",
+        "fromLastMonth": "del mes pasado"
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useColorTheme } from '@/components/ui/theme-provider';
 import { useNotifications } from '@/hooks/use-notifications';
+import { useTranslations } from 'next-intl';
 import { themeConfigs, type ThemeConfig } from '@/lib/themes';
 import { cn } from '@/lib/utils';
 import { 
@@ -22,19 +23,24 @@ import {
 } from 'lucide-react';
 
 export default function ThemesPage() {
+  const t = useTranslations();
   const { colorTheme, setColorTheme, availableColorThemes } = useColorTheme();
   const { showSuccess, showError, showWarning, showInfo } = useNotifications();
 
   const handleThemeChange = (theme: string) => {
     setColorTheme(theme as any);
-    showSuccess('Theme Changed', `Switched to ${themeConfigs[theme as keyof typeof themeConfigs].label} theme`);
+    const themeKey = theme as keyof typeof themeConfigs;
+    showSuccess(
+      t('components.theme.themeChanged'),
+      t('components.theme.switchedTo', { theme: themeConfigs[themeKey].label })
+    );
   };
 
   const testNotifications = () => {
-    showSuccess('Success!', 'This is a success notification');
-    setTimeout(() => showError('Error!', 'This is an error notification'), 500);
-    setTimeout(() => showWarning('Warning!', 'This is a warning notification'), 1000);
-    setTimeout(() => showInfo('Info!', 'This is an info notification'), 1500);
+    showSuccess(t('components.notifications.success'), 'This is a success notification');
+    setTimeout(() => showError(t('components.notifications.error'), 'This is an error notification'), 500);
+    setTimeout(() => showWarning(t('components.notifications.warning'), 'This is a warning notification'), 1000);
+    setTimeout(() => showInfo(t('components.notifications.info'), 'This is an info notification'), 1500);
   };
 
   return (
@@ -44,7 +50,7 @@ export default function ThemesPage() {
         <div className="container flex h-14 items-center justify-between">
           <div className="flex items-center space-x-2">
             <Zap className="h-6 w-6" />
-            <span className="font-bold">Theme Showcase</span>
+            <span className="font-bold">{t('pages.themes.title')}</span>
           </div>
           <ThemeToggle />
         </div>
@@ -53,10 +59,9 @@ export default function ThemesPage() {
       <div className="container py-8 space-y-8">
         {/* Title */}
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">Theme System</h1>
+          <h1 className="text-4xl font-bold tracking-tight">{t('pages.themes.title')}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our comprehensive theme system with multiple color schemes and 
-            dark/light mode support. All themes use CSS variables for easy customization.
+            {t('pages.themes.subtitle')}
           </p>
         </div>
 
@@ -65,10 +70,10 @@ export default function ThemesPage() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Palette className="h-5 w-5" />
-              <span>Current Theme</span>
+              <span>{t('pages.themes.currentTheme')}</span>
             </CardTitle>
             <CardDescription>
-              Currently using the {themeConfigs[colorTheme].label} color theme
+              {t('pages.themes.currentlyUsing', { theme: themeConfigs[colorTheme].label })}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -87,9 +92,9 @@ export default function ThemesPage() {
         {/* Theme Selection */}
         <Card>
           <CardHeader>
-            <CardTitle>Available Themes</CardTitle>
+            <CardTitle>{t('pages.themes.availableThemes')}</CardTitle>
             <CardDescription>
-              Click on any theme to switch to it instantly
+              {t('pages.themes.clickToSwitch')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -114,7 +119,7 @@ export default function ThemesPage() {
                       <div className="text-sm font-medium">{config.label}</div>
                       {isActive && (
                         <Badge variant="default" className="text-xs">
-                          Active
+                          {t('pages.themes.active')}
                         </Badge>
                       )}
                     </div>

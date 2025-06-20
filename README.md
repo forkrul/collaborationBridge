@@ -1,4 +1,4 @@
-# 8760
+# Minimal Viable Potato - template
 
 **A modern Python web application built with FastAPI, SQLAlchemy, and best practices for rapid development.**
 

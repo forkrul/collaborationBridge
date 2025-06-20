@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { 
   Zap, 
   Shield, 
@@ -16,6 +18,7 @@ import {
 } from 'lucide-react';
 
 export default function HomePage() {
+  const t = useTranslations();
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -30,22 +33,23 @@ export default function HomePage() {
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6 text-sm font-medium">
               <Link href="/themes" className="transition-colors hover:text-foreground/80">
-                Themes
+                {t('pages.home.footer.themes')}
               </Link>
               <Link href="/docs" className="transition-colors hover:text-foreground/80">
-                Documentation
+                {t('pages.home.footer.documentation')}
               </Link>
               <Link href="/api" className="transition-colors hover:text-foreground/80">
-                API
+                {t('pages.home.footer.apiReference')}
               </Link>
             </nav>
             <div className="flex items-center space-x-2">
+              <LanguageSwitcher />
               <ThemeToggle />
               <Button variant="ghost" asChild>
-                <Link href="/login">Sign In</Link>
+                <Link href="/login">{t('navigation.login')}</Link>
               </Button>
               <Button asChild>
-                <Link href="/dashboard">Dashboard</Link>
+                <Link href="/dashboard">{t('navigation.dashboard')}</Link>
               </Button>
             </div>
           </div>
@@ -56,45 +60,44 @@ export default function HomePage() {
       <section className="container flex flex-col items-center justify-center space-y-8 py-24 md:py-32">
         <div className="flex flex-col items-center space-y-4 text-center">
           <Badge variant="secondary" className="px-3 py-1">
-            Modern Web Application Template
+            {t('pages.home.title')}
           </Badge>
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Comprehensive
             <span className="block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Theme System
+              {t('pages.home.subtitle')}
             </span>
           </h1>
           <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            A complete React application template with advanced theming, multiple color schemes, 
-            and comprehensive component library for rapid development.
+            {t('pages.home.description')}
           </p>
         </div>
         <div className="flex flex-col gap-4 sm:flex-row">
           <Button size="lg" asChild>
             <Link href="/themes">
               <Palette className="mr-2 h-4 w-4" />
-              Explore Themes
+              {t('pages.home.cta.exploreThemes')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
             <Link href="/dashboard">
-              View Dashboard
+              {t('pages.home.cta.viewDashboard')}
             </Link>
           </Button>
         </div>
         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
             <CheckCircle className="h-4 w-4 text-success" />
-            <span>6 Color Themes</span>
+            <span>{t('pages.home.features.colorThemes')}</span>
           </div>
           <div className="flex items-center space-x-1">
             <CheckCircle className="h-4 w-4 text-success" />
-            <span>Dark/Light Mode</span>
+            <span>{t('pages.home.features.darkLightMode')}</span>
           </div>
           <div className="flex items-center space-x-1">
             <CheckCircle className="h-4 w-4 text-success" />
-            <span>CSS Variables</span>
+            <span>{t('pages.home.features.cssVariables')}</span>
           </div>
         </div>
       </section>

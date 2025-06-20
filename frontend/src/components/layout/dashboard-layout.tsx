@@ -17,7 +17,9 @@ import {
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { useNotifications } from '@/hooks/use-notifications';
+import { useTranslations } from 'next-intl';
 
 interface NavigationItem {
   name: string;
@@ -25,22 +27,25 @@ interface NavigationItem {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-const navigation: NavigationItem[] = [
-  { name: 'Dashboard', href: '/dashboard', icon: Home },
-  { name: 'API', href: '/api', icon: Database },
-  { name: 'Users', href: '/users', icon: Users },
-  { name: 'Security', href: '/security', icon: Shield },
-  { name: 'Settings', href: '/settings', icon: Settings },
-];
+// Navigation items will be translated in the component
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
+  const t = useTranslations();
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
   const pathname = usePathname();
   const { showSuccess } = useNotifications();
+
+  const navigation: NavigationItem[] = [
+    { name: t('components.layout.dashboard.navigation.dashboard'), href: '/dashboard', icon: Home },
+    { name: t('components.layout.dashboard.navigation.api'), href: '/api', icon: Database },
+    { name: t('components.layout.dashboard.navigation.users'), href: '/users', icon: Users },
+    { name: t('components.layout.dashboard.navigation.security'), href: '/security', icon: Shield },
+    { name: t('components.layout.dashboard.navigation.settings'), href: '/settings', icon: Settings },
+  ];
 
   // Mock user data - replace with actual auth context
   const user = {
@@ -52,9 +57,12 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const handleLogout = async () => {
     try {
       // Add your logout logic here
-      showSuccess('Logged out successfully', 'You have been securely logged out.');
+      showSuccess(
+        t('components.notifications.loggedOut'),
+        t('components.notifications.loggedOutMessage')
+      );
     } catch (error) {
-      showSuccess('Logged out', 'You have been logged out.');
+      showSuccess(t('components.notifications.loggedOut'), t('components.notifications.loggedOut'));
     }
   };
 
@@ -156,6 +164,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex flex-1" />
             <div className="flex items-center gap-x-4 lg:gap-x-6">
+              {/* Language switcher */}
+              <LanguageSwitcher />
+
               {/* Theme toggle */}
               <ThemeToggle />
 
@@ -174,7 +185,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                   className="flex items-center space-x-2"
                 >
                   <LogOut className="h-4 w-4" />
-                  <span className="hidden sm:inline">Logout</span>
+                  <span className="hidden sm:inline">{t('components.layout.dashboard.userMenu.logout')}</span>
                 </Button>
               </div>
             </div>
