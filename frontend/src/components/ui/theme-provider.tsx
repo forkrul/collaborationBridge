@@ -4,7 +4,7 @@ import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { type ThemeProviderProps } from 'next-themes/dist/types';
 
-export type ColorTheme = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'high-contrast';
+export type ColorTheme = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'high-contrast' | 'light' | 'corporate' | 'dark-soft';
 export type AppearanceMode = 'light' | 'dark' | 'system';
 
 interface ExtendedThemeProviderProps extends Omit<ThemeProviderProps, 'themes'> {
@@ -25,7 +25,7 @@ const ThemeContext = React.createContext<{
 
 export function ThemeProvider({
   children,
-  colorTheme = 'blue',
+  colorTheme = 'dark-soft',
   onColorThemeChange,
   ...props
 }: ExtendedThemeProviderProps) {
@@ -37,7 +37,10 @@ export function ThemeProvider({
     'purple',
     'orange',
     'red',
-    'high-contrast'
+    'high-contrast',
+    'light',
+    'corporate',
+    'dark-soft'
   ];
 
   const setColorTheme = React.useCallback((theme: ColorTheme) => {

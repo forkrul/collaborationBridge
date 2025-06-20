@@ -6,7 +6,7 @@ This document explains the advanced theme system that supports multiple color sc
 
 The theme system is built on CSS custom properties (variables) and React context, providing:
 
-- **6 Color Themes**: Blue (default), Green, Purple, Orange, Red, High Contrast
+- **9 Color Themes**: Blue, Green, Purple, Orange, Red, High Contrast, Light, Corporate, Soft Dark
 - **Dark/Light Modes**: Each color theme supports both appearance modes
 - **No Hardcoded Values**: All colors use semantic CSS variables
 - **Runtime Switching**: Instant theme changes without page reload
@@ -65,14 +65,17 @@ function ThemeControls() {
 
 ### Color Themes
 
-| Theme | Description | CSS Class | Preview |
-|-------|-------------|-----------|---------|
-| Blue | Default theme with blue primary colors | *(none)* | 🔵 |
-| Green | Nature-inspired green theme | `theme-green` | 🟢 |
-| Purple | Creative purple theme | `theme-purple` | 🟣 |
-| Orange | Energetic orange theme | `theme-orange` | 🟠 |
-| Red | Bold red theme | `theme-red` | 🔴 |
-| High Contrast | Maximum accessibility | `theme-high-contrast` | ⚫ |
+| Theme | Description | CSS Class | Preview | Category |
+|-------|-------------|-----------|---------|----------|
+| Blue | Classic blue theme | *(none)* | 🔵 | Light |
+| Light | Bright sky blue theme | `theme-light` | 🌤️ | Light |
+| Green | Nature-inspired green theme | `theme-green` | 🟢 | Light |
+| Purple | Creative purple theme | `theme-purple` | 🟣 | Light |
+| Orange | Energetic orange theme | `theme-orange` | 🟠 | Dark |
+| Red | Bold red theme | `theme-red` | 🔴 | Dark |
+| Corporate | Professional navy theme | `theme-corporate` | 🏢 | Professional |
+| High Contrast | Maximum accessibility | `theme-high-contrast` | ⚫ | Professional |
+| Soft Dark | Gentle dark navy (default) | `theme-dark-soft` | 🌙 | Dark |
 
 ### Appearance Modes
 

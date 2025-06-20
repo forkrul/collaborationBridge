@@ -61,7 +61,8 @@ export default function ThemesPage() {
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-bold tracking-tight">{t('pages.themes.title')}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('pages.themes.subtitle')}
+            Explore our comprehensive theme system with 9 color schemes including light, corporate, and soft dark themes.
+            All themes support both dark and light appearance modes with CSS variables for easy customization.
           </p>
         </div>
 
@@ -89,46 +90,137 @@ export default function ThemesPage() {
           </CardContent>
         </Card>
 
-        {/* Theme Selection */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('pages.themes.availableThemes')}</CardTitle>
-            <CardDescription>
-              {t('pages.themes.clickToSwitch')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {availableColorThemes.map((theme) => {
-                const config = themeConfigs[theme];
+        {/* Theme Categories */}
+        <div className="grid gap-6 md:grid-cols-3">
+          {/* Light Themes */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Sun className="h-5 w-5" />
+                <span>Light Themes</span>
+              </CardTitle>
+              <CardDescription>
+                Bright and airy themes perfect for daytime use
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {['blue', 'light', 'green', 'purple'].map((theme) => {
+                const config = themeConfigs[theme as ColorTheme];
                 const isActive = theme === colorTheme;
-                
+
                 return (
                   <button
                     key={theme}
                     onClick={() => handleThemeChange(theme)}
                     className={cn(
-                      'p-4 rounded-lg border-2 transition-all hover:scale-105',
-                      isActive 
-                        ? 'border-primary bg-primary/10' 
+                      'w-full p-3 rounded-lg border-2 transition-all hover:scale-[1.02] flex items-center space-x-3',
+                      isActive
+                        ? 'border-primary bg-primary/10'
                         : 'border-border hover:border-primary/50'
                     )}
                   >
-                    <div className="space-y-2">
-                      <div className={cn('w-8 h-8 rounded-full mx-auto', config.preview)} />
+                    <div className={cn('w-6 h-6 rounded-full', config.preview)} />
+                    <div className="flex-1 text-left">
                       <div className="text-sm font-medium">{config.label}</div>
-                      {isActive && (
-                        <Badge variant="default" className="text-xs">
-                          {t('pages.themes.active')}
-                        </Badge>
-                      )}
+                      <div className="text-xs text-muted-foreground">
+                        {theme === 'light' && 'Sky blue accents'}
+                        {theme === 'blue' && 'Classic blue'}
+                        {theme === 'green' && 'Nature inspired'}
+                        {theme === 'purple' && 'Creative vibes'}
+                      </div>
                     </div>
+                    {isActive && <Check className="h-4 w-4 text-primary" />}
                   </button>
                 );
               })}
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          {/* Professional Themes */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Monitor className="h-5 w-5" />
+                <span>Professional</span>
+              </CardTitle>
+              <CardDescription>
+                Corporate and business-focused themes
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {['corporate', 'high-contrast'].map((theme) => {
+                const config = themeConfigs[theme as ColorTheme];
+                const isActive = theme === colorTheme;
+
+                return (
+                  <button
+                    key={theme}
+                    onClick={() => handleThemeChange(theme)}
+                    className={cn(
+                      'w-full p-3 rounded-lg border-2 transition-all hover:scale-[1.02] flex items-center space-x-3',
+                      isActive
+                        ? 'border-primary bg-primary/10'
+                        : 'border-border hover:border-primary/50'
+                    )}
+                  >
+                    <div className={cn('w-6 h-6 rounded-full', config.preview)} />
+                    <div className="flex-1 text-left">
+                      <div className="text-sm font-medium">{config.label}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {theme === 'corporate' && 'Professional navy'}
+                        {theme === 'high-contrast' && 'Maximum accessibility'}
+                      </div>
+                    </div>
+                    {isActive && <Check className="h-4 w-4 text-primary" />}
+                  </button>
+                );
+              })}
+            </CardContent>
+          </Card>
+
+          {/* Dark Themes */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Moon className="h-5 w-5" />
+                <span>Dark Themes</span>
+              </CardTitle>
+              <CardDescription>
+                Easy on the eyes for extended use
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {['dark-soft', 'orange', 'red'].map((theme) => {
+                const config = themeConfigs[theme as ColorTheme];
+                const isActive = theme === colorTheme;
+
+                return (
+                  <button
+                    key={theme}
+                    onClick={() => handleThemeChange(theme)}
+                    className={cn(
+                      'w-full p-3 rounded-lg border-2 transition-all hover:scale-[1.02] flex items-center space-x-3',
+                      isActive
+                        ? 'border-primary bg-primary/10'
+                        : 'border-border hover:border-primary/50'
+                    )}
+                  >
+                    <div className={cn('w-6 h-6 rounded-full', config.preview)} />
+                    <div className="flex-1 text-left">
+                      <div className="text-sm font-medium">{config.label}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {theme === 'dark-soft' && 'Soft navy background'}
+                        {theme === 'orange' && 'Energetic orange'}
+                        {theme === 'red' && 'Bold red accents'}
+                      </div>
+                    </div>
+                    {isActive && <Check className="h-4 w-4 text-primary" />}
+                  </button>
+                );
+              })}
+            </CardContent>
+          </Card>
+        </div>
 
         {/* Component Showcase */}
         <div className="grid gap-6 md:grid-cols-2">

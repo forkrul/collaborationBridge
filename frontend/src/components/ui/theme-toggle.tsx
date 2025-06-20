@@ -27,6 +27,9 @@ const colorThemeColors: Record<ColorTheme, string> = {
   orange: 'bg-orange-500',
   red: 'bg-red-500',
   'high-contrast': 'bg-gray-900 dark:bg-gray-100',
+  light: 'bg-sky-300',
+  corporate: 'bg-slate-600',
+  'dark-soft': 'bg-slate-800',
 };
 
 export function ThemeToggle() {
@@ -41,7 +44,10 @@ export function ThemeToggle() {
       'purple': 'purple',
       'orange': 'orange',
       'red': 'red',
-      'high-contrast': 'highContrast'
+      'high-contrast': 'highContrast',
+      'light': 'light',
+      'corporate': 'corporate',
+      'dark-soft': 'darkSoft'
     };
     return t(`components.theme.themes.${themeMap[themeKey]}`);
   };

@@ -89,7 +89,7 @@ export default function HomePage() {
         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
             <CheckCircle className="h-4 w-4 text-success" />
-            <span>{t('pages.home.features.colorThemes')}</span>
+            <span>9 Color Themes</span>
           </div>
           <div className="flex items-center space-x-1">
             <CheckCircle className="h-4 w-4 text-success" />

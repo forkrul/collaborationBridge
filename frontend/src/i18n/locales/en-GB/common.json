@@ -203,7 +203,10 @@
         "purple": "Purple",
         "orange": "Orange",
         "red": "Red",
-        "highContrast": "High Contrast"
+        "highContrast": "High Contrast",
+        "light": "Light",
+        "corporate": "Corporate",
+        "darkSoft": "Soft Dark"
       },
       "themeChanged": "Theme Changed",
       "switchedTo": "Switched to {theme} theme"

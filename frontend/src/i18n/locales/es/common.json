@@ -77,7 +77,10 @@
         "purple": "Morado",
         "orange": "Naranja",
         "red": "Rojo",
-        "highContrast": "Alto Contraste"
+        "highContrast": "Alto Contraste",
+        "light": "Claro",
+        "corporate": "Corporativo",
+        "darkSoft": "Oscuro Suave"
       },
       "themeChanged": "Tema Cambiado",
       "switchedTo": "Cambiado al tema {theme}"
