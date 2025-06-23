@@ -1,0 +1,209 @@
+{
+  "name": "MVP Template Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+
+  // VSCode customizations
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "files.watcherExclude": {
+          "**/node_modules/**": true,
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/dist/**": true,
+          "**/build/**": true,
+          "**/.next/**": true
+        },
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "typescript.suggest.autoImports": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit",
+          "source.organizeImports": "explicit"
+        },
+        "eslint.workingDirectories": ["frontend"],
+        "tailwindCSS.includeLanguages": {
+          "typescript": "javascript",
+          "typescriptreact": "javascript"
+        },
+        "tailwindCSS.experimental.classRegex": [
+          ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+          ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ],
+        "emmet.includeLanguages": {
+          "typescript": "html",
+          "typescriptreact": "html"
+        },
+        "git.autofetch": true,
+        "git.enableSmartCommit": true,
+        "git.confirmSync": false,
+        "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace",
+        "editor.fontLigatures": true,
+        "editor.fontSize": 14,
+        "editor.lineHeight": 1.5,
+        "editor.minimap.enabled": false,
+        "editor.wordWrap": "on",
+        "explorer.confirmDelete": false,
+        "explorer.confirmDragAndDrop": false,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000
+      },
+      
+      "extensions": [
+        // Core development
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-json",
+        
+        // React and Next.js
+        "ms-vscode.vscode-react-native",
+        "burkeholland.simple-react-snippets",
+        "dsznajder.es7-react-js-snippets",
+        "formulahendry.auto-rename-tag",
+        "bradlc.vscode-tailwindcss",
+        
+        // Git and GitHub
+        "github.vscode-github-actions",
+        "github.copilot",
+        "github.copilot-chat",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        
+        // Markdown and Documentation
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        
+        // Mermaid Support
+        "tomoyukim.vscode-mermaid-editor",
+        "vstirbu.vscode-mermaid-preview",
+        
+        // Augment AI Assistant
+        "augmentcode.augment",
+        
+        // Nix Support
+        "bbenoist.nix",
+        "arrterian.nix-env-selector",
+        "jnoortheen.nix-ide",
+        
+        // Python Support
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        
+        // Docker Support
+        "ms-azuretools.vscode-docker",
+        
+        // Utilities
+        "pkief.material-icon-theme",
+        "github.github-vscode-theme",
+        "ms-vscode.hexeditor",
+        "streetsidesoftware.code-spell-checker",
+        "wayou.vscode-todo-highlight",
+        "gruntfuggly.todo-tree",
+        "ms-vscode.live-server",
+        "ritwickdey.liveserver",
+        
+        // API and Testing
+        "humao.rest-client",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        
+        // Internationalization
+        "lokalise.i18n-ally",
+        
+        // Theme and UI
+        "zhuangtongfa.material-theme",
+        "vscode-icons-team.vscode-icons",
+        "christian-kohler.path-intellisense",
+        "formulahendry.auto-close-tag",
+        
+        // Performance and Monitoring
+        "ms-vscode.vscode-performance",
+        "waderyan.gitblame",
+        
+        // Additional Language Support
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-css-peek",
+        "zignd.html-css-class-completion",
+        
+        // Development Tools
+        "ms-vscode.remote-repositories",
+        "github.remotehub",
+        "ms-vscode.remote-explorer",
+        
+        // Code Quality
+        "sonarsource.sonarlint-vscode",
+        "ms-vscode.vscode-security-scan"
+      ]
+    }
+  },
+
+  // Port forwarding for development servers
+  "forwardPorts": [
+    3000,  // Next.js frontend
+    3001,  // Storybook
+    8000,  // Python backend
+    5432,  // PostgreSQL
+    6379,  // Redis
+    9090   // Additional services
+  ],
+  
+  "portsAttributes": {
+    "3000": {
+      "label": "Frontend (Next.js)",
+      "onAutoForward": "notify"
+    },
+    "3001": {
+      "label": "Storybook",
+      "onAutoForward": "silent"
+    },
+    "8000": {
+      "label": "Backend API",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // Container configuration
+  "runArgs": [
+    "--init"
+  ],
+
+  // Post-creation setup
+  "postCreateCommand": "cd /workspace && if [ -f .devcontainer/setup.sh ]; then bash .devcontainer/setup.sh; fi",
+  
+  // User to run as
+  "remoteUser": "vscode",
+  
+  // Working directory
+  "workspaceFolder": "/workspace",
+  
+  // Environment variables
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "FORCE_COLOR": "1"
+  },
+
+  // Initialize command to set up Nix and dependencies
+  "initializeCommand": "echo 'Initializing devcontainer...'",
+
+  // Update content command
+  "updateContentCommand": "echo 'Updating content...'",
+
+  // Post-attach command for user setup
+  "postAttachCommand": "echo 'Container ready! Run: nix-shell to enter development environment'"
+}
