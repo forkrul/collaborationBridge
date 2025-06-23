@@ -1,43 +1,8 @@
 {
-  "name": "MVP Template Development Environment (Simple)",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-  
-  // Features to install
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "configureZshAsDefaultShell": true,
-      "installOhMyZsh": true,
-      "upgradePackages": true,
-      "username": "vscode",
-      "userUid": "1000",
-      "userGid": "1000"
-    },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "nodeGypDependencies": true,
-      "version": "20",
-      "nvmVersion": "latest"
-    },
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11",
-      "installTools": true,
-      "optimize": true
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
-      "version": "latest",
-      "enableNonRootDocker": true,
-      "moby": true
-    },
-    "ghcr.io/devcontainers/features/nix:1": {
-      "multiUser": false,
-      "version": "latest"
-    }
+  "name": "MVP Template Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
   },
 
   // VSCode customizations
@@ -106,6 +71,7 @@
         "burkeholland.simple-react-snippets",
         "dsznajder.es7-react-js-snippets",
         "formulahendry.auto-rename-tag",
+        "bradlc.vscode-tailwindcss",
         
         // Git and GitHub
         "github.vscode-github-actions",
@@ -215,15 +181,15 @@
   "runArgs": [
     "--init"
   ],
-  
+
   // Post-creation setup
-  "postCreateCommand": "cd /workspaces/${localWorkspaceFolderBasename} && npm install -g @mermaid-js/mermaid-cli && if [ -d frontend ]; then cd frontend && npm install; fi",
+  "postCreateCommand": "cd /workspace && if [ -f .devcontainer/setup.sh ]; then bash .devcontainer/setup.sh; fi",
   
   // User to run as
   "remoteUser": "vscode",
   
   // Working directory
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspace",
   
   // Environment variables
   "containerEnv": {
@@ -231,10 +197,13 @@
     "NEXT_TELEMETRY_DISABLED": "1",
     "FORCE_COLOR": "1"
   },
-  
-  // Initialize command to set up environment
-  "initializeCommand": "echo 'Initializing MVP Template devcontainer...'",
-  
+
+  // Initialize command to set up Nix and dependencies
+  "initializeCommand": "echo 'Initializing devcontainer...'",
+
+  // Update content command
+  "updateContentCommand": "echo 'Updating content...'",
+
   // Post-attach command for user setup
-  "postAttachCommand": "echo '🎯 MVP Template Development Environment Ready! Use: nix-shell to enter Nix environment'"
+  "postAttachCommand": "echo 'Container ready! Run: nix-shell to enter development environment'"
 }

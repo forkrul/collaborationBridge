@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Nix package manager
-RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
+RUN curl -L https://nixos.org/nix/install | sh -s -- --no-daemon
 
 # Set up Nix environment for vscode user
 USER vscode
@@ -60,30 +60,27 @@ ENV PATH="/nix/var/nix/profiles/default/bin:/home/vscode/.nix-profile/bin:${PATH
 RUN echo 'if [ -e /home/vscode/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vscode/.nix-profile/etc/profile.d/nix.sh; fi' >> /home/vscode/.bashrc && \
     echo 'if [ -e /home/vscode/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vscode/.nix-profile/etc/profile.d/nix.sh; fi' >> /home/vscode/.zshrc
 
-# Install Node.js via Nix (this ensures we have a working Node.js environment)
-RUN . /home/vscode/.nix-profile/etc/profile.d/nix.sh && \
-    nix-env -iA nixpkgs.nodejs_20 nixpkgs.nodePackages.npm nixpkgs.nodePackages.yarn
+# Install Node.js 20 directly
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
-# Install Python via Nix
-RUN . /home/vscode/.nix-profile/etc/profile.d/nix.sh && \
-    nix-env -iA nixpkgs.python311 nixpkgs.python311Packages.pip
+# Install Python 3.11 (already available in Ubuntu 22.04)
+RUN apt-get update && apt-get install -y python3.11 python3.11-pip python3.11-venv
 
-# Install development tools via Nix
-RUN . /home/vscode/.nix-profile/etc/profile.d/nix.sh && \
-    nix-env -iA \
-    nixpkgs.git \
-    nixpkgs.gh \
-    nixpkgs.docker \
-    nixpkgs.docker-compose \
-    nixpkgs.postgresql_16 \
-    nixpkgs.redis \
-    nixpkgs.nodePackages.typescript \
-    nixpkgs.nodePackages.eslint \
-    nixpkgs.nodePackages.prettier \
-    nixpkgs.nodePackages.mermaid-cli
+# Install GitHub CLI
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
+    apt-get update && apt-get install -y gh
+
+# Install yarn and pnpm
+RUN npm install -g yarn pnpm
+
+# Install Mermaid CLI
+RUN npm install -g @mermaid-js/mermaid-cli
 
 # Set up Oh My Zsh
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+RUN curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -s -- --unattended
 
 # Configure Zsh with useful settings
 RUN echo 'export ZSH="$HOME/.oh-my-zsh"' > /home/vscode/.zshrc && \
@@ -133,8 +130,9 @@ RUN echo '#!/bin/bash' > /home/vscode/welcome.sh && \
     echo 'echo "📦 Available tools:"' >> /home/vscode/welcome.sh && \
     echo 'echo "  • Node.js $(node --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
     echo 'echo "  • npm $(npm --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
-    echo 'echo "  • Python $(python --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
+    echo 'echo "  • Python $(python3.11 --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
     echo 'echo "  • Git $(git --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
+    echo 'echo "  • GitHub CLI $(gh --version 2>/dev/null | head -1 || echo \"not available\")"' >> /home/vscode/welcome.sh && \
     echo 'echo "  • Nix $(nix --version 2>/dev/null || echo \"not available\")"' >> /home/vscode/welcome.sh && \
     echo 'echo ""' >> /home/vscode/welcome.sh && \
     echo 'echo "🚀 Quick commands:"' >> /home/vscode/welcome.sh && \
