@@ -1,10 +1,10 @@
 # API Usage Guide
 
-This comprehensive guide covers how to effectively use the 8760 API for building applications and integrations.
+This comprehensive guide covers how to effectively use the API for building applications and integrations.
 
 ## API Overview
 
-The 8760 API is a RESTful API built with FastAPI that provides:
+The API is a RESTful API built with FastAPI that provides:
 
 - **RESTful Design**: Standard HTTP methods and status codes
 - **JSON Format**: All requests and responses use JSON
@@ -197,7 +197,7 @@ curl -X GET "http://localhost:8000/api/v1/info"
 **Response:**
 ```json
 {
-  "name": "8760 API",
+  "name": "Python MVP Template API",
   "version": "2.0.0",
   "description": "Python MVP Template API",
   "features": [
@@ -815,4 +815,4 @@ example();
 5. **Implement exponential backoff for retries**
 6. **Monitor API performance**
 
-Ready to build amazing integrations with the 8760 API? This guide provides everything you need to get started! 🚀
+Ready to build amazing integrations with the API? This guide provides everything you need to get started! 🚀

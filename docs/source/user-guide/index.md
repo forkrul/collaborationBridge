@@ -1,10 +1,10 @@
 # User Guide
 
-Welcome to the 8760 User Guide! This comprehensive guide will help you understand and use the application effectively, whether you're integrating with the API, building client applications, or managing user accounts.
+Welcome to the User Guide! This comprehensive guide will help you understand and use the application effectively, whether you're integrating with the API, building client applications, or managing user accounts.
 
 ## Overview
 
-8760 is a modern Python web application built with FastAPI that provides a robust foundation for building scalable web services. The application follows modern development practices and includes comprehensive features for authentication, data management, and API interactions.
+This is a modern Python web application built with FastAPI that provides a robust foundation for building scalable web services. The application follows modern development practices and includes comprehensive features for authentication, data management, and API interactions.
 
 ## Quick Navigation
 
@@ -21,7 +21,7 @@ This user guide is organized into focused sections for easy navigation:
 
 Before diving into the detailed guides, ensure you have:
 
-- [ ] **Application Access**: URL and credentials for the 8760 instance
+- [ ] **Application Access**: URL and credentials for the application instance
 - [ ] **API Documentation**: Bookmark the interactive docs at `/docs`
 - [ ] **Authentication**: Valid user account or API credentials
 - [ ] **Development Environment**: Tools for making HTTP requests (curl, Postman, etc.)
@@ -50,7 +50,7 @@ The application provides several interfaces for interaction:
 
 ### API Documentation Interfaces
 
-8760 provides multiple ways to explore and understand the API:
+The application provides multiple ways to explore and understand the API:
 
 #### Swagger UI (`/docs`)
 Interactive API documentation with live testing capabilities:
@@ -118,7 +118,7 @@ For complete authentication documentation, see the **[Authentication Guide](sect
 
 ## API Overview
 
-The 8760 API is a modern RESTful API that provides comprehensive functionality for building applications. Here's a quick overview:
+The API is a modern RESTful API that provides comprehensive functionality for building applications. Here's a quick overview:
 
 ### Key Features
 
@@ -155,7 +155,7 @@ For complete API documentation, see the **[API Usage Guide](sections/api-usage.m
 
 ## Data Models
 
-8760 uses consistent data models across all entities with built-in features for timestamps and soft delete functionality.
+The application uses consistent data models across all entities with built-in features for timestamps and soft delete functionality.
 
 ### Standard Model Structure
 
@@ -397,7 +397,7 @@ For more comprehensive integration examples, see the **[API Usage Guide](section
 
 ### Modern Web Interface
 
-8760 includes a modern React-based web interface that provides:
+The application includes a modern React-based web interface that provides:
 
 - **🌙 Dark-Mode-First Design**: Beautiful, accessible interface optimized for dark mode
 - **📱 Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
@@ -443,7 +443,7 @@ The React interface is built following the [UX Development PRD](../ux-developmen
 
 ## Next Steps
 
-Now that you have an overview of the 8760 application, here are your next steps:
+Now that you have an overview of the application, here are your next steps:
 
 ### 🚀 For New Users
 1. **Start with Authentication**: Read the [Authentication Guide](sections/authentication.md)
@@ -466,7 +466,7 @@ Now that you have an overview of the 8760 application, here are your next steps:
 
 ## Summary
 
-The 8760 User Guide provides everything you need to successfully integrate with and use the application:
+The User Guide provides everything you need to successfully integrate with and use the application:
 
 - **🔐 Comprehensive Authentication**: Secure JWT-based authentication with detailed examples
 - **🌐 Complete API Coverage**: RESTful API with pagination, filtering, and bulk operations
@@ -475,4 +475,4 @@ The 8760 User Guide provides everything you need to successfully integrate with 
 - **🔧 Best Practices**: Security, performance, and development recommendations
 - **🆘 Troubleshooting**: Common issues and solutions
 
-Ready to build amazing applications with 8760? Start with the interactive API documentation at `/docs` and explore all available endpoints! 🚀
+Ready to build amazing applications? Start with the interactive API documentation at `/docs` and explore all available endpoints! 🚀

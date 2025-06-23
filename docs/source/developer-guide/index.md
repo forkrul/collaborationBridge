@@ -1,10 +1,10 @@
 # Developer Guide
 
-This comprehensive guide covers everything developers need to know to work effectively with the 8760 codebase.
+This comprehensive guide covers everything developers need to know to work effectively with the codebase.
 
 ## Architecture Overview
 
-8760 follows a modern, layered architecture designed for maintainability, testability, and scalability.
+The application follows a modern, layered architecture designed for maintainability, testability, and scalability.
 
 ### Application Layers
 
@@ -55,8 +55,8 @@ src/project_name/
 #### 1. Clone and Setup
 
 ```bash
-git clone https://github.com/forkrul/8760.git
-cd 8760
+git clone https://github.com/yourusername/your-project.git
+cd your-project
 
 # Option 1: Nix (Recommended)
 nix develop
@@ -830,13 +830,13 @@ settings = Settings()
 
 ```bash
 # Build production image
-docker build -f docker/Dockerfile -t 8760:latest .
+docker build -f docker/Dockerfile -t project:latest .
 
 # Run with environment variables
 docker run -p 8000:8000 \
   -e DATABASE_URL=postgresql://... \
   -e SECRET_KEY=your-secret-key \
-  8760:latest
+  project:latest
 ```
 
 ### Health Checks

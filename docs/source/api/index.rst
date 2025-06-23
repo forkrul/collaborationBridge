@@ -1,7 +1,7 @@
 API Reference
 =============
 
-Comprehensive API documentation for 8760, including all endpoints, request/response formats, and authentication details.
+Comprehensive API documentation for the Python MVP Template, including all endpoints, request/response formats, and authentication details.
 
 Base URL
 --------
@@ -13,7 +13,7 @@ All API endpoints are prefixed with::
 Authentication
 --------------
 
-8760 uses JWT (JSON Web Token) based authentication. Include the token in the Authorization header::
+The application uses JWT (JSON Web Token) based authentication. Include the token in the Authorization header::
 
     Authorization: Bearer <your-jwt-token>
 

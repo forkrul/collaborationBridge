@@ -1,10 +1,10 @@
 # Authentication Guide
 
-This guide covers everything you need to know about authentication in the 8760 application.
+This guide covers everything you need to know about authentication in the application.
 
 ## Overview
 
-8760 uses JWT (JSON Web Token) based authentication for secure access to protected resources. The authentication system provides:
+The application uses JWT (JSON Web Token) based authentication for secure access to protected resources. The authentication system provides:
 
 - **Secure Token-Based Authentication**: JWT tokens for stateless authentication
 - **User Registration and Login**: Complete user account management

@@ -1,6 +1,6 @@
 # Administrator Guide
 
-Welcome to the 8760 Administrator Guide! This comprehensive guide covers deployment, configuration, monitoring, and maintenance of the 8760 Python MVP Template in production environments.
+Welcome to the Administrator Guide! This comprehensive guide covers deployment, configuration, monitoring, and maintenance of the Python MVP Template in production environments.
 
 ## Overview
 
@@ -732,4 +732,4 @@ bandit -r src/
 - **Status Page**: https://status.yourdomain.com
 - **Documentation**: https://docs.yourdomain.com
 
-Ready to administer your 8760 application like a pro? This guide provides everything you need for successful deployment and operations! 🚀
+Ready to administer your application like a pro? This guide provides everything you need for successful deployment and operations! 🚀

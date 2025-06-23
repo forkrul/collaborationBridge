@@ -8,7 +8,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath("../../src"))
 
 # Project information
-project = "8760"
+project = "Python MVP Template"
 copyright = f"{datetime.now().year}, forkrul"
 author = "forkrul"
 release = "0.1.0"

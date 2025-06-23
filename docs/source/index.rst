@@ -1,5 +1,5 @@
-Welcome to 8760 Python MVP Template Documentation!
-===================================================
+Welcome to Python MVP Template Documentation!
+==============================================
 
 This is a comprehensive Python MVP template built with FastAPI, SQLAlchemy, and modern development best practices for rapid, production-ready development.
 
@@ -10,7 +10,7 @@ This is a comprehensive Python MVP template built with FastAPI, SQLAlchemy, and 
    comprehensive testing framework, and reusable component library. See the :doc:`changelog <../CHANGELOG>` for details.
 
 .. tip::
-   **New to 8760?** Start with our :doc:`quickstart/index` guide to get up and running in minutes!
+   **New to the template?** Start with our :doc:`quickstart/index` guide to get up and running in minutes!
 
 .. important::
    **Looking for specific information?**
