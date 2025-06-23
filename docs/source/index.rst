@@ -1,5 +1,5 @@
-Welcome to Python MVP Template Documentation!
-==============================================
+Welcome to 8760 Python MVP Template Documentation!
+===================================================
 
 This is a comprehensive Python MVP template built with FastAPI, SQLAlchemy, and modern development best practices for rapid, production-ready development.
 
@@ -8,6 +8,16 @@ This is a comprehensive Python MVP template built with FastAPI, SQLAlchemy, and 
 
    Major update with production-ready soft delete system, enterprise-scale bulk operations,
    comprehensive testing framework, and reusable component library. See the :doc:`changelog <../CHANGELOG>` for details.
+
+.. tip::
+   **New to 8760?** Start with our :doc:`quickstart/index` guide to get up and running in minutes!
+
+.. important::
+   **Looking for specific information?**
+
+   - **Users**: See the :doc:`user-guide/index` for API usage and integration examples
+   - **Developers**: Check the :doc:`developer-guide/index` for development workflows
+   - **Administrators**: Visit the :doc:`admin-guide/index` for deployment and operations
 
 🚀 **Template Overview**
 ------------------------
@@ -90,6 +100,7 @@ The Python MVP Template provides a complete foundation for building modern web a
    quickstart/index
    user-guide/index
    developer-guide/index
+   admin-guide/index
 
 .. toctree::
    :maxdepth: 2

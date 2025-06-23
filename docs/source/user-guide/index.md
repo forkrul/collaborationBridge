@@ -1,10 +1,40 @@
 # User Guide
 
-Welcome to the 8760 User Guide! This guide will help you understand and use the application effectively.
+Welcome to the 8760 User Guide! This comprehensive guide will help you understand and use the application effectively, whether you're integrating with the API, building client applications, or managing user accounts.
 
 ## Overview
 
 8760 is a modern Python web application built with FastAPI that provides a robust foundation for building scalable web services. The application follows modern development practices and includes comprehensive features for authentication, data management, and API interactions.
+
+## Quick Navigation
+
+This user guide is organized into focused sections for easy navigation:
+
+- **[Authentication Guide](sections/authentication.md)** - Complete authentication and user management
+- **[API Usage Guide](sections/api-usage.md)** - Comprehensive API integration guide
+- **[Data Models & Schemas](#data-models)** - Understanding the data structures
+- **[Integration Examples](#integration-examples)** - Real-world implementation examples
+- **[Best Practices](#best-practices)** - Security and performance recommendations
+- **[Troubleshooting](#troubleshooting)** - Common issues and solutions
+
+## Getting Started Checklist
+
+Before diving into the detailed guides, ensure you have:
+
+- [ ] **Application Access**: URL and credentials for the 8760 instance
+- [ ] **API Documentation**: Bookmark the interactive docs at `/docs`
+- [ ] **Authentication**: Valid user account or API credentials
+- [ ] **Development Environment**: Tools for making HTTP requests (curl, Postman, etc.)
+- [ ] **Client Libraries**: Appropriate HTTP client for your programming language
+
+## Table of Contents
+
+```{toctree}
+:maxdepth: 2
+
+sections/authentication
+sections/api-usage
+```
 
 ## Getting Started
 
@@ -12,52 +42,54 @@ Welcome to the 8760 User Guide! This guide will help you understand and use the 
 
 The application provides several interfaces for interaction:
 
-- **Web API**: Primary interface for programmatic access
-- **Interactive Documentation**: Built-in API documentation
-- **Admin Interface**: Administrative functions (if enabled)
+- **Web API**: Primary interface for programmatic access at `/api/v1/`
+- **Interactive Documentation**: Built-in API documentation at `/docs`
+- **Alternative Documentation**: ReDoc interface at `/redoc`
+- **Health Monitoring**: System status at `/api/v1/health`
+- **React Interface**: Modern web interface (if enabled)
 
-### API Documentation
+### API Documentation Interfaces
 
-8760 provides comprehensive API documentation through multiple interfaces:
+8760 provides multiple ways to explore and understand the API:
 
-#### Swagger UI
-Access interactive API documentation at: `http://localhost:8000/docs`
+#### Swagger UI (`/docs`)
+Interactive API documentation with live testing capabilities:
 
-Features:
-- **Interactive Testing**: Test API endpoints directly from the browser
-- **Request/Response Examples**: See example data for all endpoints
-- **Authentication**: Test authenticated endpoints with tokens
-- **Schema Documentation**: Detailed information about data models
+- **🧪 Interactive Testing**: Test endpoints directly in your browser
+- **📋 Request/Response Examples**: See real data examples for all endpoints
+- **🔐 Authentication Testing**: Test protected endpoints with your tokens
+- **📊 Schema Documentation**: Detailed information about all data models
+- **🔍 Search & Filter**: Find specific endpoints quickly
 
-#### ReDoc
-Alternative documentation interface at: `http://localhost:8000/redoc`
+#### ReDoc (`/redoc`)
+Professional documentation interface optimized for reading:
 
-Features:
-- **Clean Interface**: Professional documentation layout
-- **Detailed Schemas**: Comprehensive data model documentation
-- **Code Examples**: Request/response examples in multiple formats
-- **Search Functionality**: Find endpoints and schemas quickly
+- **📖 Clean Layout**: Professional, easy-to-read documentation
+- **🔍 Advanced Search**: Find endpoints, schemas, and examples quickly
+- **📱 Mobile Friendly**: Responsive design for all devices
+- **🎨 Syntax Highlighting**: Beautiful code examples
+- **📋 Copy-Paste Ready**: Easy to copy examples and schemas
 
-#### OpenAPI Specification
-Raw OpenAPI specification at: `http://localhost:8000/openapi.json`
+#### OpenAPI Specification (`/openapi.json`)
+Machine-readable API specification for tooling:
 
-Use this for:
-- **Code Generation**: Generate client libraries
-- **API Testing**: Import into testing tools like Postman
-- **Integration**: Connect with API management platforms
+- **🛠️ Code Generation**: Generate client libraries in any language
+- **🧪 Testing Tools**: Import into Postman, Insomnia, or other tools
+- **🔗 API Management**: Connect with API gateways and management platforms
+- **📊 Documentation**: Generate custom documentation
 
-## Authentication
+## Quick Start Examples
 
-### Overview
+### Basic API Usage
 
-8760 uses JWT (JSON Web Token) based authentication for secure access to protected resources.
+Here are some quick examples to get you started:
 
-### Getting Started with Authentication
+#### Health Check
+```bash
+curl -X GET "http://localhost:8000/api/v1/health"
+```
 
-#### 1. User Registration
-
-Create a new user account:
-
+#### User Registration
 ```bash
 curl -X POST "http://localhost:8000/api/v1/auth/register" \
   -H "Content-Type: application/json" \
@@ -69,161 +101,79 @@ curl -X POST "http://localhost:8000/api/v1/auth/register" \
   }'
 ```
 
-#### 2. User Login
-
-Authenticate and receive an access token:
-
+#### User Login
 ```bash
 curl -X POST "http://localhost:8000/api/v1/auth/login" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "username=user@example.com&password=SecurePassword123"
 ```
 
-Response:
-```json
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "token_type": "bearer",
-  "expires_in": 1800
-}
-```
-
-#### 3. Using Access Tokens
-
-Include the token in the Authorization header for protected endpoints:
-
+#### Authenticated Request
 ```bash
 curl -X GET "http://localhost:8000/api/v1/auth/profile" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  -H "Authorization: Bearer your-access-token"
 ```
 
-### Token Management
+For complete authentication documentation, see the **[Authentication Guide](sections/authentication.md)**.
 
-#### Token Expiration
-- **Default Expiration**: 30 minutes
-- **Refresh Strategy**: Request new tokens before expiration
-- **Automatic Logout**: Tokens expire automatically for security
+## API Overview
 
-#### Token Refresh
+The 8760 API is a modern RESTful API that provides comprehensive functionality for building applications. Here's a quick overview:
 
-Refresh your access token:
+### Key Features
 
-```bash
-curl -X POST "http://localhost:8000/api/v1/auth/refresh" \
-  -H "Authorization: Bearer your-current-token"
+- **🔗 RESTful Design**: Standard HTTP methods and status codes
+- **📄 JSON Format**: All requests and responses use JSON
+- **🔐 JWT Authentication**: Secure token-based authentication
+- **📊 Pagination**: Built-in pagination for large datasets
+- **🔍 Filtering & Search**: Powerful query capabilities
+- **⚡ Bulk Operations**: High-performance bulk operations
+- **📈 Rate Limiting**: Built-in protection against abuse
+- **📚 Interactive Docs**: Comprehensive API documentation
+
+### Base URL Structure
+
+```
+{protocol}://{host}:{port}/api/{version}/
 ```
 
-#### Logout
+**Examples:**
+- Development: `http://localhost:8000/api/v1/`
+- Production: `https://api.yourdomain.com/api/v1/`
 
-Invalidate your session (client-side token removal):
+### Essential Endpoints
 
-```bash
-curl -X POST "http://localhost:8000/api/v1/auth/logout" \
-  -H "Authorization: Bearer your-token"
-```
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Application health check |
+| `/services` | GET | Service discovery |
+| `/auth/register` | POST | User registration |
+| `/auth/login` | POST | User authentication |
+| `/auth/profile` | GET | Current user profile |
 
-## API Usage
-
-### Making API Requests
-
-#### Base URL
-All API endpoints are prefixed with: `http://localhost:8000/api/v1`
-
-#### Content Type
-Use `application/json` for request bodies:
-```bash
-curl -X POST "http://localhost:8000/api/v1/endpoint" \
-  -H "Content-Type: application/json" \
-  -d '{"key": "value"}'
-```
-
-#### Response Format
-All responses are in JSON format with consistent structure:
-
-**Success Response:**
-```json
-{
-  "id": 1,
-  "name": "Example",
-  "created_at": "2024-01-15T10:30:00Z",
-  "updated_at": "2024-01-15T10:30:00Z"
-}
-```
-
-**Error Response:**
-```json
-{
-  "detail": "Error description",
-  "error_code": "VALIDATION_ERROR",
-  "field_errors": {
-    "email": ["Invalid email format"]
-  }
-}
-```
-
-### Common Endpoints
-
-#### Health Check
-Check application status:
-```bash
-curl -X GET "http://localhost:8000/api/v1/health"
-```
-
-#### Service Discovery
-Get available services:
-```bash
-curl -X GET "http://localhost:8000/api/v1/services"
-```
-
-#### User Profile
-Get current user information:
-```bash
-curl -X GET "http://localhost:8000/api/v1/auth/profile" \
-  -H "Authorization: Bearer your-token"
-```
-
-### Pagination
-
-List endpoints support pagination:
-
-```bash
-curl -X GET "http://localhost:8000/api/v1/users?skip=0&limit=20"
-```
-
-Parameters:
-- **skip**: Number of records to skip (default: 0)
-- **limit**: Maximum records to return (default: 100, max: 1000)
-
-Response includes pagination metadata:
-```json
-{
-  "items": [...],
-  "total": 150,
-  "skip": 0,
-  "limit": 20,
-  "has_next": true
-}
-```
-
-### Filtering and Search
-
-Many endpoints support filtering:
-
-```bash
-# Filter by field
-curl -X GET "http://localhost:8000/api/v1/users?is_active=true"
-
-# Search by text
-curl -X GET "http://localhost:8000/api/v1/users?search=john"
-
-# Date range filtering
-curl -X GET "http://localhost:8000/api/v1/users?created_after=2024-01-01"
-```
+For complete API documentation, see the **[API Usage Guide](sections/api-usage.md)**.
 
 ## Data Models
 
-### User Model
+8760 uses consistent data models across all entities with built-in features for timestamps and soft delete functionality.
 
+### Standard Model Structure
+
+All models follow a consistent structure:
+
+```json
+{
+  "id": 1,
+  "created_at": "2024-06-23T10:30:00Z",
+  "updated_at": "2024-06-23T10:30:00Z",
+  "deleted_at": null,
+  "is_deleted": false
+}
+```
+
+### Core Models
+
+#### User Model
 ```json
 {
   "id": 1,
@@ -232,41 +182,47 @@ curl -X GET "http://localhost:8000/api/v1/users?created_after=2024-01-01"
   "full_name": "John Doe",
   "is_active": true,
   "is_superuser": false,
-  "created_at": "2024-01-15T10:30:00Z",
-  "updated_at": "2024-01-15T10:30:00Z"
+  "created_at": "2024-06-23T10:30:00Z",
+  "updated_at": "2024-06-23T10:30:00Z"
 }
 ```
 
-### Timestamps
+### Model Features
 
-All models include automatic timestamps:
-- **created_at**: When the record was created
-- **updated_at**: When the record was last modified
-- **deleted_at**: When the record was soft-deleted (if applicable)
+#### Automatic Timestamps
+- **created_at**: Record creation timestamp (immutable)
+- **updated_at**: Last modification timestamp (auto-updated)
+- **deleted_at**: Soft deletion timestamp (null if active)
 
-### Soft Delete
+#### Soft Delete Support
+- **is_deleted**: Boolean flag for quick filtering
+- **deleted_at**: Timestamp of soft deletion
+- **deletion_reason**: Optional reason for deletion
+- **deleted_by**: User/system that performed deletion
 
-Some models support soft delete:
-- Records are marked as deleted but not removed from database
-- Soft-deleted records are excluded from normal queries
-- Can be restored if needed
+#### Audit Trail
+All models include comprehensive audit information for compliance and debugging.
 
 ## Error Handling
 
+The API provides comprehensive error information to help you handle issues gracefully.
+
 ### HTTP Status Codes
 
-The API uses standard HTTP status codes:
+| Code | Status | Description |
+|------|--------|-------------|
+| 200 | OK | Successful request |
+| 201 | Created | Resource created successfully |
+| 204 | No Content | Successful request with no response body |
+| 400 | Bad Request | Invalid request data |
+| 401 | Unauthorized | Authentication required |
+| 403 | Forbidden | Insufficient permissions |
+| 404 | Not Found | Resource not found |
+| 422 | Unprocessable Entity | Validation errors |
+| 429 | Too Many Requests | Rate limit exceeded |
+| 500 | Internal Server Error | Server error |
 
-- **200 OK**: Successful request
-- **201 Created**: Resource created successfully
-- **400 Bad Request**: Invalid request data
-- **401 Unauthorized**: Authentication required
-- **403 Forbidden**: Insufficient permissions
-- **404 Not Found**: Resource not found
-- **422 Unprocessable Entity**: Validation errors
-- **500 Internal Server Error**: Server error
-
-### Error Response Format
+### Error Response Structure
 
 ```json
 {
@@ -275,7 +231,7 @@ The API uses standard HTTP status codes:
   "field_errors": {
     "field_name": ["Field-specific error message"]
   },
-  "request_id": "uuid-for-tracking"
+  "request_id": "req_123456789"
 }
 ```
 
@@ -286,119 +242,156 @@ The API uses standard HTTP status codes:
 - **PERMISSION_DENIED**: Insufficient permissions
 - **RESOURCE_NOT_FOUND**: Requested resource doesn't exist
 - **RATE_LIMIT_EXCEEDED**: Too many requests
+- **DUPLICATE_RESOURCE**: Resource already exists
 
 ## Best Practices
 
-### API Usage
+### 🔐 Security Best Practices
 
-1. **Always use HTTPS** in production
-2. **Store tokens securely** (not in localStorage for web apps)
-3. **Handle token expiration** gracefully
-4. **Implement proper error handling**
-5. **Use appropriate HTTP methods** (GET, POST, PUT, DELETE)
+1. **Always use HTTPS** in production environments
+2. **Store tokens securely** - use httpOnly cookies or secure storage
+3. **Implement proper session management** with automatic logout
+4. **Validate all input** on both client and server side
+5. **Never log sensitive data** (passwords, tokens, personal information)
+6. **Follow OWASP security guidelines** for web applications
 
-### Performance
+### ⚡ Performance Best Practices
 
-1. **Use pagination** for large datasets
-2. **Cache responses** when appropriate
-3. **Minimize request frequency**
+1. **Use pagination** for large datasets (limit: 100 max)
+2. **Implement caching** for frequently accessed data
+3. **Minimize request frequency** with bulk operations
 4. **Use compression** (gzip) for large payloads
-5. **Implement request timeouts**
+5. **Implement request timeouts** and retry logic
+6. **Monitor API performance** and response times
 
-### Security
+### 🛠️ Development Best Practices
 
-1. **Never log sensitive data** (passwords, tokens)
-2. **Validate all input** on client side
-3. **Use HTTPS** for all communications
-4. **Implement proper session management**
-5. **Follow OWASP guidelines**
+1. **Use appropriate HTTP methods** (GET, POST, PUT, PATCH, DELETE)
+2. **Handle errors gracefully** with proper user feedback
+3. **Implement exponential backoff** for rate limiting
+4. **Use client-side validation** to improve user experience
+5. **Test with realistic data** and edge cases
+6. **Document your integrations** for future maintenance
 
 ## Troubleshooting
 
-### Common Issues
+### Common Issues & Solutions
 
-#### Authentication Problems
+#### 🔐 Authentication Issues
 
-**Issue**: "Invalid or expired token"
-**Solution**: 
-- Check token format and expiration
-- Refresh token if expired
-- Re-authenticate if refresh fails
+| Issue | Symptoms | Solution |
+|-------|----------|----------|
+| Invalid token | 401 Unauthorized | Check token format, refresh if expired |
+| Permission denied | 403 Forbidden | Verify user permissions, contact admin |
+| Account disabled | Login fails | Contact administrator to reactivate |
 
-**Issue**: "Permission denied"
-**Solution**:
-- Verify user has required permissions
-- Check if account is active
-- Contact administrator if needed
+#### 🌐 API Request Issues
 
-#### API Request Issues
+| Issue | Symptoms | Solution |
+|-------|----------|----------|
+| Validation error | 422 Unprocessable Entity | Check request format and required fields |
+| Rate limit exceeded | 429 Too Many Requests | Implement exponential backoff |
+| Resource not found | 404 Not Found | Verify endpoint URL and resource ID |
 
-**Issue**: "Validation error"
-**Solution**:
-- Check request format and required fields
-- Verify data types match schema
-- Review API documentation for examples
+#### 🔧 Integration Issues
 
-**Issue**: "Rate limit exceeded"
-**Solution**:
-- Reduce request frequency
-- Implement exponential backoff
-- Contact support for rate limit increase
+| Issue | Symptoms | Solution |
+|-------|----------|----------|
+| CORS errors | Browser blocks requests | Configure CORS settings |
+| Timeout errors | Requests hang | Implement request timeouts |
+| SSL errors | Certificate issues | Verify SSL configuration |
+
+### Debug Checklist
+
+When encountering issues, check:
+
+1. **✅ API Documentation**: Review endpoint documentation at `/docs`
+2. **✅ Error Messages**: Read error responses carefully for details
+3. **✅ Request Format**: Verify headers, body, and parameters
+4. **✅ Authentication**: Ensure valid tokens and permissions
+5. **✅ Network**: Check connectivity and firewall settings
+6. **✅ Rate Limits**: Monitor rate limit headers
 
 ### Getting Help
 
-1. **Check API Documentation**: Review endpoint documentation
-2. **Examine Error Messages**: Error responses include helpful details
-3. **Check Application Logs**: Server logs contain detailed error information
-4. **Contact Support**: Reach out to development team for assistance
+- **📚 Documentation**: Complete guides at `/docs`
+- **🔍 Interactive Testing**: Use Swagger UI for live testing
+- **📊 Health Check**: Monitor system status at `/api/v1/health`
+- **💬 Support**: Contact development team for assistance
 
 ### Useful Tools
 
-- **Postman**: API testing and development
-- **curl**: Command-line HTTP client
-- **HTTPie**: User-friendly command-line HTTP client
-- **Insomnia**: API testing and debugging
+- **[Postman](https://postman.com)**: API testing and development
+- **[curl](https://curl.se)**: Command-line HTTP client
+- **[HTTPie](https://httpie.io)**: User-friendly HTTP client
+- **[Insomnia](https://insomnia.rest)**: API testing and debugging
 
 ## Integration Examples
 
-### Python Client
+Here are quick examples to get you started with different programming languages:
+
+### Python Example
 
 ```python
 import requests
 
-# Authentication
-response = requests.post(
-    "http://localhost:8000/api/v1/auth/login",
-    data={"username": "user@example.com", "password": "password"}
-)
-token = response.json()["access_token"]
+class APIClient:
+    def __init__(self, base_url):
+        self.base_url = base_url
+        self.token = None
 
-# Authenticated request
-headers = {"Authorization": f"Bearer {token}"}
-response = requests.get(
-    "http://localhost:8000/api/v1/auth/profile",
-    headers=headers
-)
-user_data = response.json()
+    def login(self, username, password):
+        response = requests.post(f"{self.base_url}/auth/login",
+                               data={"username": username, "password": password})
+        self.token = response.json()["access_token"]
+        return self.token
+
+    def get_profile(self):
+        headers = {"Authorization": f"Bearer {self.token}"}
+        response = requests.get(f"{self.base_url}/auth/profile", headers=headers)
+        return response.json()
+
+# Usage
+client = APIClient("http://localhost:8000/api/v1")
+client.login("user@example.com", "password")
+profile = client.get_profile()
 ```
 
-### JavaScript Client
+### JavaScript Example
 
 ```javascript
-// Authentication
-const loginResponse = await fetch('/api/v1/auth/login', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'username=user@example.com&password=password'
-});
-const {access_token} = await loginResponse.json();
+class APIClient {
+  constructor(baseUrl) {
+    this.baseUrl = baseUrl;
+    this.token = null;
+  }
 
-// Authenticated request
-const profileResponse = await fetch('/api/v1/auth/profile', {
-  headers: {'Authorization': `Bearer ${access_token}`}
-});
-const userData = await profileResponse.json();
+  async login(username, password) {
+    const response = await fetch(`${this.baseUrl}/auth/login`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: `username=${username}&password=${password}`
+    });
+    const data = await response.json();
+    this.token = data.access_token;
+    return this.token;
+  }
+
+  async getProfile() {
+    const response = await fetch(`${this.baseUrl}/auth/profile`, {
+      headers: {'Authorization': `Bearer ${this.token}`}
+    });
+    return await response.json();
+  }
+}
+
+// Usage
+const client = new APIClient('http://localhost:8000/api/v1');
+await client.login('user@example.com', 'password');
+const profile = await client.getProfile();
 ```
+
+For more comprehensive integration examples, see the **[API Usage Guide](sections/api-usage.md)**.
 
 ## React Interface
 
@@ -448,4 +441,38 @@ The React interface is built following the [UX Development PRD](../ux-developmen
 - **Performance Optimized**: Core Web Vitals compliance
 - **Accessibility First**: WCAG 2.1 AA compliance
 
-Ready to start using 8760? Check out the interactive API documentation at `/docs` to explore all available endpoints, or access the modern React interface for a complete user experience! 🚀
+## Next Steps
+
+Now that you have an overview of the 8760 application, here are your next steps:
+
+### 🚀 For New Users
+1. **Start with Authentication**: Read the [Authentication Guide](sections/authentication.md)
+2. **Explore the API**: Use the interactive documentation at `/docs`
+3. **Try Examples**: Copy and paste the integration examples above
+4. **Build Your First Integration**: Start with simple GET requests
+
+### 🔧 For Developers
+1. **Read the API Guide**: Complete [API Usage Guide](sections/api-usage.md)
+2. **Review Best Practices**: Implement security and performance recommendations
+3. **Set Up Development Environment**: Configure your tools and libraries
+4. **Build Production Integrations**: Follow the comprehensive examples
+
+### 📚 Additional Resources
+
+- **[Developer Guide](../developer-guide/index.md)**: Development workflows and patterns
+- **[Admin Guide](../admin-guide/index.md)**: Deployment and operations
+- **[API Reference](../api/index.rst)**: Complete API documentation
+- **[Architecture Guide](../architecture/index.md)**: System design and patterns
+
+## Summary
+
+The 8760 User Guide provides everything you need to successfully integrate with and use the application:
+
+- **🔐 Comprehensive Authentication**: Secure JWT-based authentication with detailed examples
+- **🌐 Complete API Coverage**: RESTful API with pagination, filtering, and bulk operations
+- **📊 Rich Data Models**: Consistent data structures with timestamps and soft delete
+- **🛠️ Integration Examples**: Real-world code examples in multiple languages
+- **🔧 Best Practices**: Security, performance, and development recommendations
+- **🆘 Troubleshooting**: Common issues and solutions
+
+Ready to build amazing applications with 8760? Start with the interactive API documentation at `/docs` and explore all available endpoints! 🚀

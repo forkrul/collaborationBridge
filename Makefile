@@ -42,16 +42,19 @@ format: ## Format code
 	$(POETRY) run ruff check --fix src tests
 
 docs: ## Build documentation
-	cd docs && $(POETRY) run make html
+	./scripts/generate-docs.sh
 
 docs-serve: ## Serve documentation locally
-	cd docs && $(POETRY) run python -m http.server -d build/html 8080
+	./scripts/serve-docs.sh
 
 docs-dev: ## Start development documentation server
 	./scripts/dev-docs.sh
 
 docs-deploy: ## Deploy documentation to GitHub Pages
 	./scripts/deploy-docs.sh
+
+docs-clean: ## Clean documentation build
+	rm -rf docs/build
 
 setup-github-pages: ## Setup GitHub Pages via API
 	./scripts/setup-github-pages.sh
