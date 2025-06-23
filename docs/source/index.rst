@@ -3,22 +3,42 @@ Welcome to Python MVP Template Documentation!
 
 This is a comprehensive Python MVP template built with FastAPI, SQLAlchemy, and modern development best practices for rapid, production-ready development.
 
+.. note::
+   **🎉 Version 2.0 Released!**
+
+   Major update with production-ready soft delete system, enterprise-scale bulk operations,
+   comprehensive testing framework, and reusable component library. See the :doc:`changelog <../CHANGELOG>` for details.
+
 🚀 **Template Overview**
 ------------------------
 
 The Python MVP Template provides a complete foundation for building modern web applications with:
 
+**Core Framework**
+
 * **🔥 FastAPI**: Modern, fast web framework with automatic OpenAPI docs
-* **🗄️ SQLAlchemy 2.0**: Powerful async ORM with soft delete functionality
+* **🗄️ SQLAlchemy 2.0**: Powerful async ORM with enhanced soft delete functionality
 * **✅ Pydantic v2**: Advanced data validation and serialization
-* **🔄 Alembic**: Database migration management
-* **🧪 Comprehensive Testing**: Unit, integration, and E2E test frameworks
+* **🔄 Alembic**: Database migration management with audit field support
+
+**Production-Ready Features** *(New in v2.0)*
+
+* **🔧 Enhanced Soft Delete**: Production-ready soft delete with comprehensive audit trails
+* **⚡ Bulk Operations**: High-performance bulk operations (10,000+ records/second)
+* **🏥 Health Monitoring**: Database health checks and performance monitoring
+* **🔗 Cascading Deletes**: Relationship-aware cascading soft delete operations
+* **⚙️ Configuration Management**: Comprehensive configuration system with 30+ settings
+* **📦 Component Library**: Reusable components for cross-project efficiency
+
+**Development & Quality**
+
+* **🧪 Comprehensive Testing**: Enhanced testing framework with performance and compliance testing
 * **🐳 Docker**: Complete containerization for all environments
 * **📦 Nix**: Reproducible development environments
 * **🌐 Service URL Manager**: Centralized URL management across environments
 * **🔧 Pre-commit**: Automated code quality enforcement
 * **📊 Structured Logging**: JSON logging with structlog
-* **🔐 Security**: JWT authentication, password hashing, CORS
+* **🔐 Security**: JWT authentication, password hashing, CORS, GDPR compliance
 * **📚 Documentation**: Auto-generated API docs and comprehensive guides
 
 🎯 **Quick Start**
@@ -70,6 +90,16 @@ The Python MVP Template provides a complete foundation for building modern web a
    quickstart/index
    user-guide/index
    developer-guide/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Enhanced Features (v2.0):
+
+   soft-delete/index
+   bulk-operations/index
+   health-monitoring/index
+   component-library/index
+   configuration/index
 
 .. toctree::
    :maxdepth: 2

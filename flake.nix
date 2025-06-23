@@ -1,5 +1,5 @@
 {
-  description = "Python MVP Template - FastAPI development environment";
+  description = "MVP Template - Full-stack development environment with Python FastAPI backend and Next.js frontend";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -113,41 +113,73 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          name = "python-mvp-template";
-          
+          name = "mvp-template-fullstack";
+
           buildInputs = with pkgs; [
             # Python environment
             pythonEnv
-            
+
+            # Node.js and frontend tools
+            nodejs_20
+            nodePackages.npm
+            nodePackages.yarn
+            nodePackages.pnpm
+            nodePackages.typescript
+            nodePackages.eslint
+            nodePackages.prettier
+            nodePackages.next
+            nodePackages.mermaid-cli
+            nodePackages.markdownlint-cli
+
             # Database services
             postgresql_16
             redis
             sqlite
-            
+
             # Development tools
             git
+            gh
             curl
             wget
             jq
-            
+            yq-go
+
+            # Shell and utilities
+            zsh
+            starship
+            ripgrep
+            fd
+            bat
+            exa
+            tree
+            htop
+            neofetch
+
             # Container tools
             docker
             docker-compose
-            
+
             # Documentation
             pandoc
             graphviz
-            
-            # Node.js for some tools
-            nodejs_20
-            
+
             # System dependencies
             gcc
             pkg-config
             openssl
             libffi
             zlib
-            
+
+            # Language servers for IDE support
+            nodePackages.typescript-language-server
+            nodePackages.vscode-langservers-extracted
+            nodePackages.yaml-language-server
+
+            # Formatters and linters
+            shfmt
+            shellcheck
+            hadolint
+
             # Utilities
             bash
             coreutils
@@ -163,7 +195,8 @@
             zip
             tar
             gzip
-            
+            rsync
+
             # Custom scripts
             devScripts
           ];
