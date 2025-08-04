@@ -4,7 +4,7 @@ import { cn } from '@company/core'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const cardVariants = cva(
@@ -38,7 +38,7 @@ export interface CardProps
   /** Visual variant of the card */
   variant?: 'default' | 'outlined' | 'elevated' | 'filled'
   /** Size variant of the card */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether the card is interactive (clickable) */
   interactive?: boolean
   /** Whether the card is disabled */
@@ -101,7 +101,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
     
     return (
       <Heading
-        ref={ref}
+        ref={ref as any}
         className={cn(
           'text-2xl font-semibold leading-none tracking-tight',
           className

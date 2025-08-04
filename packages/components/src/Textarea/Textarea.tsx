@@ -4,7 +4,7 @@ import { cn, generateId } from '@company/core'
 import type { 
   BaseComponentProps, 
   FormComponentProps,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const textareaVariants = cva(
@@ -46,7 +46,7 @@ export interface TextareaProps
   /** Textarea variant */
   variant?: 'default' | 'error' | 'success'
   /** Textarea size */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Resize behavior */
   resize?: 'none' | 'vertical' | 'horizontal' | 'both'
   /** Whether to show character count */

@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../Select'
 import type { 
   BaseComponentProps, 
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const paginationVariants = cva(
@@ -44,7 +44,7 @@ export interface PaginationProps
   /** Visual variant */
   variant?: 'default' | 'simple' | 'compact'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Number of page buttons to show around current page */
   siblingCount?: number
   /** Whether to show first/last page buttons */

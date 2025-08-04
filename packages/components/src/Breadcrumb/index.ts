@@ -19,5 +19,5 @@ export type {
   BreadcrumbSeparatorProps,
   BreadcrumbEllipsisProps,
   AutoBreadcrumbProps,
-  BreadcrumbItem,
+  BreadcrumbItem as BreadcrumbItemType,
 } from './Breadcrumb'

@@ -3,10 +3,10 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@company/core'
 import { ChevronRight, MoreHorizontal, Home, Slash } from 'lucide-react'
-import type { 
-  BaseComponentProps, 
+import type {
+  BaseComponentProps,
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize
 } from '@company/core'
 
 const breadcrumbVariants = cva(
@@ -39,7 +39,7 @@ export interface BreadcrumbProps
   /** Visual variant of the breadcrumb */
   variant?: 'default' | 'pills' | 'arrows'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Custom separator component */
   separator?: React.ComponentType<{ className?: string }>
   /** Maximum number of items to show before collapsing */

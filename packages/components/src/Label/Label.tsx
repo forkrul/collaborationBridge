@@ -5,7 +5,7 @@ import { cn } from '@company/core'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const labelVariants = cva(
@@ -46,7 +46,7 @@ export interface LabelProps
   /** Visual variant of the label */
   variant?: 'default' | 'muted' | 'error' | 'success'
   /** Size of the label */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Font weight of the label */
   weight?: 'normal' | 'medium' | 'semibold' | 'bold'
   /** Whether the field is required (shows asterisk) */

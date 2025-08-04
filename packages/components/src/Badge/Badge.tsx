@@ -2,11 +2,10 @@ import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@company/core'
 import { X } from 'lucide-react'
-import type { 
-  BaseComponentProps, 
+import type {
+  BaseComponentProps,
   ComponentWithChildren,
-  ComponentSize,
-  InteractiveComponentProps 
+  StandardComponentSize
 } from '@company/core'
 
 const badgeVariants = cva(
@@ -36,15 +35,16 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'>,
     VariantProps<typeof badgeVariants>,
     BaseComponentProps,
-    ComponentWithChildren,
-    Pick<InteractiveComponentProps, 'onClick'> {
+    ComponentWithChildren {
+  /** Click handler */
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
   /** Visual variant of the badge */
   variant?: 'default' | 'secondary' | 'success' | 'warning' | 'error' | 'outline' | 'ghost'
   /** Size of the badge */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether the badge is removable (shows close button) */
   removable?: boolean
   /** Callback when badge is removed */

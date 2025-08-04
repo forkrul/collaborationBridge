@@ -6,7 +6,7 @@ import { X } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const Popover = PopoverPrimitive.Root
@@ -37,7 +37,7 @@ export interface PopoverContentProps
     BaseComponentProps,
     ComponentWithChildren {
   /** Size variant of the popover */
-  size?: ComponentSize | 'auto'
+  size?: StandardComponentSize | 'auto'
   /** Whether to show close button */
   showCloseButton?: boolean
   /** Custom close button */
@@ -163,7 +163,7 @@ export interface TooltipProps
   extends Omit<PopoverContentProps, 'children'>,
     BaseComponentProps {
   /** Tooltip content */
-  content: React.ReactNode
+  content: string
   /** Trigger element */
   children: React.ReactNode
   /** Delay before showing (ms) */

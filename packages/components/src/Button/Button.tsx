@@ -7,7 +7,7 @@ import type {
   BaseComponentProps, 
   InteractiveComponentProps, 
   LoadingProps,
-  ComponentSize,
+  StandardComponentSize,
   ComponentVariant 
 } from '@company/core'
 
@@ -16,6 +16,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         tertiary: 'bg-tertiary text-tertiary-foreground hover:bg-tertiary/80',
@@ -41,10 +42,9 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onBlur'>,
     VariantProps<typeof buttonVariants>,
     BaseComponentProps,
-    Omit<InteractiveComponentProps, 'onClick'>,
     LoadingProps {
   /** Render as a different component */
   asChild?: boolean
@@ -55,7 +55,7 @@ export interface ButtonProps
   /** Button variant */
   variant?: ComponentVariant | 'destructive' | 'link'
   /** Button size */
-  size?: ComponentSize | 'icon'
+  size?: StandardComponentSize | 'icon'
   /** Click handler */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }

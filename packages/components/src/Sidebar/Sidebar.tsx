@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const sidebarVariants = cva(
@@ -44,7 +44,7 @@ export interface SidebarProps
   /** Visual variant of the sidebar */
   variant?: 'default' | 'floating' | 'minimal'
   /** Size variant when expanded */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Position of the sidebar */
   position?: 'left' | 'right'
   /** Whether the sidebar is collapsible */

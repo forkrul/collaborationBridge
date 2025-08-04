@@ -1,11 +1,7 @@
-import type { Theme } from './types'
+import { Theme } from './types'
 
-/**
- * Base theme configuration
- * Light theme with default brand colors
- */
-export const baseTheme: Theme = {
-  name: 'base',
+export const corporateTheme: Theme = {
+  name: 'corporate',
   colors: {
     primary: {
       50: '#eff6ff',

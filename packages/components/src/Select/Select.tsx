@@ -6,7 +6,7 @@ import { Check, ChevronDown, ChevronUp } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   FormComponentProps,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const Select = SelectPrimitive.Root
@@ -42,7 +42,7 @@ export interface SelectTriggerProps
   /** Visual variant */
   variant?: 'default' | 'error' | 'success'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
 }
 
 const SelectTrigger = React.forwardRef<

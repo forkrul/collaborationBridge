@@ -5,7 +5,7 @@ import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const tableVariants = cva(
@@ -38,7 +38,7 @@ export interface TableProps
   /** Visual variant of the table */
   variant?: 'default' | 'striped' | 'bordered'
   /** Size variant of the table */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether the table is scrollable */
   scrollable?: boolean
   /** Custom container className */

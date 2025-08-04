@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@company/core'
 import type { 
   BaseComponentProps, 
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const progressVariants = cva(
@@ -58,7 +58,7 @@ export interface ProgressProps
   /** Visual variant */
   variant?: 'default' | 'success' | 'warning' | 'error'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether to show percentage text */
   showValue?: boolean
   /** Custom label text */

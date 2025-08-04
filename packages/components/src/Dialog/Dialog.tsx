@@ -6,7 +6,7 @@ import { X } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const Dialog = DialogPrimitive.Root
@@ -55,7 +55,7 @@ export interface DialogContentProps
     BaseComponentProps,
     ComponentWithChildren {
   /** Size variant of the dialog */
-  size?: ComponentSize | 'xl' | 'full'
+  size?: StandardComponentSize | 'xl' | 'full'
   /** Whether to show the close button */
   showCloseButton?: boolean
   /** Custom close button */

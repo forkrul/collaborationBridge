@@ -6,7 +6,7 @@ import { Button } from '../Button'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const headerVariants = cva(
@@ -45,7 +45,7 @@ export interface HeaderProps
   /** Visual variant of the header */
   variant?: 'default' | 'transparent' | 'solid' | 'floating'
   /** Size variant of the header */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether the header is sticky */
   sticky?: boolean
   /** Logo element */
@@ -232,7 +232,7 @@ HeaderLogo.displayName = 'HeaderLogo'
 
 // Header Navigation Component
 export interface HeaderNavigationProps
-  extends React.HTMLAttributes<HTMLNavElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     BaseComponentProps,
     ComponentWithChildren {}
 

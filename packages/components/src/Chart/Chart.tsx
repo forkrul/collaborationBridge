@@ -4,7 +4,7 @@ import { cn } from '@company/core'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const chartVariants = cva(
@@ -52,7 +52,7 @@ export interface ChartProps
   /** Visual variant */
   variant?: 'default' | 'card' | 'minimal'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Chart type */
   type?: 'bar' | 'line' | 'pie' | 'area'
   /** Whether to show legend */
@@ -157,8 +157,9 @@ const PieChart: React.FC<{ data: ChartDataPoint[]; colors: string[] }> = ({ data
               d={pathData}
               fill={color}
               className="hover:opacity-80 transition-opacity"
-              title={`${item.label}: ${item.value} (${(percentage * 100).toFixed(1)}%)`}
-            />
+            >
+              <title>{`${item.label}: ${item.value} (${(percentage * 100).toFixed(1)}%)`}</title>
+            </path>
           )
         })}
       </svg>

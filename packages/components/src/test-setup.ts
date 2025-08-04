@@ -34,7 +34,7 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 }))
 
 // Mock IntersectionObserver
-global.IntersectionObserver = jest.fn().mockImplementation(() => ({
+;(global as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),
@@ -48,7 +48,7 @@ jest.mock('@radix-ui/react-portal', () => ({
 // Suppress console warnings in tests
 const originalError = console.error
 beforeAll(() => {
-  console.error = (...args: any[]) => {
+  console.error = (...args: Parameters<typeof console.error>) => {
     if (
       typeof args[0] === 'string' &&
       args[0].includes('Warning: ReactDOM.render is no longer supported')
@@ -62,3 +62,6 @@ beforeAll(() => {
 afterAll(() => {
   console.error = originalError
 })
+
+// Setup jest-axe
+// Note: jest-axe setup is handled in jest configuration

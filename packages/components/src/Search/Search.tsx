@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Checkbox } from '../Checkbox'
 import type { 
   BaseComponentProps, 
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const searchVariants = cva(
@@ -69,7 +69,7 @@ export interface SearchProps
   /** Visual variant */
   variant?: 'default' | 'filled' | 'bordered'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Debounce delay in milliseconds */
   debounceMs?: number
   /** Whether search is loading */

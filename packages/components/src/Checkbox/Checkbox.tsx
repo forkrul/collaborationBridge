@@ -6,7 +6,7 @@ import { Check, Minus } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   FormComponentProps,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const checkboxVariants = cva(
@@ -45,7 +45,7 @@ export interface CheckboxProps
   /** Visual variant */
   variant?: 'default' | 'secondary' | 'success' | 'warning' | 'error'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether the checkbox is in an indeterminate state */
   indeterminate?: boolean
   /** Custom icon for checked state */
@@ -81,7 +81,11 @@ const Checkbox = React.forwardRef<
   
   React.useEffect(() => {
     if (checkboxRef.current) {
-      checkboxRef.current.indeterminate = Boolean(indeterminate)
+      // Set indeterminate state via DOM property
+      const element = checkboxRef.current as any
+      if (element && 'indeterminate' in element) {
+        element.indeterminate = Boolean(indeterminate)
+      }
     }
   }, [indeterminate])
 
@@ -111,7 +115,9 @@ const Checkbox = React.forwardRef<
             } else if (ref) {
               ref.current = node
             }
-            checkboxRef.current = node
+            if (checkboxRef) {
+              (checkboxRef as any).current = node
+            }
           }}
           id={internalId}
           className={cn(checkboxVariants({ variant: effectiveVariant, size }), className)}

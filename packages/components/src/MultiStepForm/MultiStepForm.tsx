@@ -7,7 +7,7 @@ import { Progress } from '../Progress'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const multiStepFormVariants = cva(
@@ -80,7 +80,7 @@ export interface MultiStepFormProps
   /** Visual variant */
   variant?: 'default' | 'card' | 'minimal'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether to show progress bar */
   showProgress?: boolean
   /** Whether to show step indicators */
@@ -122,19 +122,19 @@ const MultiStepForm = React.forwardRef<HTMLDivElement, MultiStepFormProps>(
     const isLast = currentStepIndex === steps.length - 1
     const progress = ((currentStepIndex + 1) / steps.length) * 100
 
-    const updateData = React.useCallback((data: any) => {
-      setFormData(prev => ({ ...prev, ...data }))
+    const updateData = React.useCallback((data: Record<string, any>) => {
+      setFormData((prev: Record<string, any>) => ({ ...prev, ...data }))
     }, [])
 
     const validateCurrentStep = async (): Promise<boolean> => {
-      if (!currentStep.validation) return true
+      if (!currentStep?.validation) return true
       
       setIsValidating(true)
       try {
-        const isValid = await currentStep.validation(formData)
+        const isValid = await currentStep!.validation(formData)
         return isValid
       } catch (error) {
-        onValidationError?.(currentStep, error)
+        onValidationError?.(currentStep!, error)
         return false
       } finally {
         setIsValidating(false)

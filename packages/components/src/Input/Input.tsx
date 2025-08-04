@@ -5,7 +5,7 @@ import { Eye, EyeOff, AlertCircle, CheckCircle } from 'lucide-react'
 import type { 
   BaseComponentProps, 
   FormComponentProps,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const inputVariants = cva(
@@ -44,7 +44,7 @@ export interface InputProps
   /** Input variant */
   variant?: 'default' | 'error' | 'success'
   /** Input size */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether to show character count */
   showCharacterCount?: boolean
   /** Maximum character count */

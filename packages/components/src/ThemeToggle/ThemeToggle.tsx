@@ -18,7 +18,7 @@ import {
 import { useTheme, type Theme } from '../ThemeProvider'
 import type { 
   BaseComponentProps, 
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const themeToggleVariants = cva(
@@ -50,7 +50,7 @@ export interface ThemeToggleProps
   /** Visual variant of the theme toggle */
   variant?: 'button' | 'select' | 'popover'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Whether to show labels */
   showLabels?: boolean
   /** Custom theme labels */
@@ -69,7 +69,8 @@ const defaultLabels: Record<Theme, string> = {
   system: 'System',
 }
 
-const defaultIcons: Record<Theme, React.ReactNode> = {
+const defaultIcons: Record<string, React.ReactNode> = {
+  base: <Sun className="h-4 w-4" />,
   light: <Sun className="h-4 w-4" />,
   dark: <Moon className="h-4 w-4" />,
   system: <Monitor className="h-4 w-4" />,
@@ -96,7 +97,7 @@ const ThemeToggle = React.forwardRef<HTMLDivElement, ThemeToggleProps>(
     const cycleTheme = () => {
       const currentIndex = themes.indexOf(theme)
       const nextIndex = (currentIndex + 1) % themes.length
-      setTheme(themes[nextIndex])
+      setTheme(themes[nextIndex]!)
     }
 
     const renderButton = () => (
@@ -105,9 +106,9 @@ const ThemeToggle = React.forwardRef<HTMLDivElement, ThemeToggleProps>(
         size={size}
         onClick={cycleTheme}
         className={cn('flex items-center space-x-2', className)}
-        aria-label={`Switch to ${themeLabels[themes[(themes.indexOf(theme) + 1) % themes.length]]} theme`}
+        aria-label={`Switch to ${theme ? themeLabels[themes[(themes.indexOf(theme) + 1) % themes.length]] : 'next'} theme`}
       >
-        {themeIcons[theme]}
+        {theme ? themeIcons[theme] : themeIcons.base}
         {showLabels && <span>{themeLabels[theme]}</span>}
       </Button>
     )

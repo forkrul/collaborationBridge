@@ -29,9 +29,14 @@ export interface ComponentWithChildren extends BaseComponentProps {
 export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 /**
+ * Standard component size variants (excluding xs for most components)
+ */
+export type StandardComponentSize = 'sm' | 'md' | 'lg'
+
+/**
  * Component variant types
  */
-export type ComponentVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'outline'
+export type ComponentVariant = 'default' | 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'outline'
 
 /**
  * Component color schemes

@@ -7,7 +7,7 @@ import { Progress } from '../Progress'
 import type { 
   BaseComponentProps, 
   ComponentWithChildren,
-  ComponentSize 
+  StandardComponentSize 
 } from '@company/core'
 
 const fileUploadVariants = cva(
@@ -63,7 +63,7 @@ export interface FileUploadProps
   /** Upload variant */
   variant?: 'default' | 'active' | 'error' | 'success'
   /** Size variant */
-  size?: ComponentSize
+  size?: StandardComponentSize
   /** Custom upload text */
   uploadText?: string
   /** Custom description text */
@@ -106,7 +106,7 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
       return <File className="h-4 w-4" />
     }
 
-    const validateFile = (file: File): string | null => {
+    const validateFile = (file: File): string | undefined => {
       if (file.size > maxSize) {
         return `File size must be less than ${formatBytes(maxSize)}`
       }
@@ -125,7 +125,7 @@ const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
         }
       }
 
-      return null
+      return undefined
     }
 
     const simulateUpload = async (fileId: string) => {
