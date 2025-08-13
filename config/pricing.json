@@ -1,0 +1,236 @@
+{
+  "tiers": [
+    {
+      "id": "starter",
+      "name": "Starter",
+      "description": "Perfect for individuals and small projects",
+      "price": {
+        "monthly": 0,
+        "yearly": 0,
+        "currency": "USD"
+      },
+      "popular": false,
+      "features": [
+        {
+          "id": "users",
+          "name": "Users",
+          "value": "Up to 3 users",
+          "included": true
+        },
+        {
+          "id": "storage",
+          "name": "Storage",
+          "value": "5GB storage",
+          "included": true
+        },
+        {
+          "id": "projects",
+          "name": "Projects",
+          "value": "3 projects",
+          "included": true
+        },
+        {
+          "id": "support",
+          "name": "Support",
+          "value": "Community support",
+          "included": true
+        },
+        {
+          "id": "api_calls",
+          "name": "API Calls",
+          "value": "1,000/month",
+          "included": true
+        },
+        {
+          "id": "advanced_analytics",
+          "name": "Advanced Analytics",
+          "value": "Basic analytics only",
+          "included": false
+        },
+        {
+          "id": "priority_support",
+          "name": "Priority Support",
+          "value": "24/7 priority support",
+          "included": false
+        },
+        {
+          "id": "custom_integrations",
+          "name": "Custom Integrations",
+          "value": "Custom API integrations",
+          "included": false
+        },
+        {
+          "id": "sso",
+          "name": "Single Sign-On",
+          "value": "SSO authentication",
+          "included": false
+        }
+      ],
+      "cta": {
+        "text": "Get Started",
+        "variant": "outline"
+      }
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "description": "Ideal for growing teams and businesses",
+      "price": {
+        "monthly": 29,
+        "yearly": 290,
+        "currency": "USD"
+      },
+      "popular": true,
+      "features": [
+        {
+          "id": "users",
+          "name": "Users",
+          "value": "Up to 25 users",
+          "included": true
+        },
+        {
+          "id": "storage",
+          "name": "Storage",
+          "value": "100GB storage",
+          "included": true
+        },
+        {
+          "id": "projects",
+          "name": "Projects",
+          "value": "Unlimited projects",
+          "included": true
+        },
+        {
+          "id": "support",
+          "name": "Support",
+          "value": "Email support",
+          "included": true
+        },
+        {
+          "id": "api_calls",
+          "name": "API Calls",
+          "value": "50,000/month",
+          "included": true
+        },
+        {
+          "id": "advanced_analytics",
+          "name": "Advanced Analytics",
+          "value": "Advanced analytics & reporting",
+          "included": true
+        },
+        {
+          "id": "priority_support",
+          "name": "Priority Support",
+          "value": "24/7 priority support",
+          "included": false
+        },
+        {
+          "id": "custom_integrations",
+          "name": "Custom Integrations",
+          "value": "Custom API integrations",
+          "included": false
+        },
+        {
+          "id": "sso",
+          "name": "Single Sign-On",
+          "value": "SSO authentication",
+          "included": false
+        }
+      ],
+      "cta": {
+        "text": "Start Free Trial",
+        "variant": "default"
+      }
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "description": "For large organizations with advanced needs",
+      "price": {
+        "monthly": 99,
+        "yearly": 990,
+        "currency": "USD"
+      },
+      "popular": false,
+      "features": [
+        {
+          "id": "users",
+          "name": "Users",
+          "value": "Unlimited users",
+          "included": true
+        },
+        {
+          "id": "storage",
+          "name": "Storage",
+          "value": "1TB storage",
+          "included": true
+        },
+        {
+          "id": "projects",
+          "name": "Projects",
+          "value": "Unlimited projects",
+          "included": true
+        },
+        {
+          "id": "support",
+          "name": "Support",
+          "value": "Dedicated account manager",
+          "included": true
+        },
+        {
+          "id": "api_calls",
+          "name": "API Calls",
+          "value": "Unlimited",
+          "included": true
+        },
+        {
+          "id": "advanced_analytics",
+          "name": "Advanced Analytics",
+          "value": "Advanced analytics & reporting",
+          "included": true
+        },
+        {
+          "id": "priority_support",
+          "name": "Priority Support",
+          "value": "24/7 priority support",
+          "included": true
+        },
+        {
+          "id": "custom_integrations",
+          "name": "Custom Integrations",
+          "value": "Custom API integrations",
+          "included": true
+        },
+        {
+          "id": "sso",
+          "name": "Single Sign-On",
+          "value": "SSO authentication",
+          "included": true
+        }
+      ],
+      "cta": {
+        "text": "Contact Sales",
+        "variant": "secondary"
+      }
+    }
+  ],
+  "billing": {
+    "periods": ["monthly", "yearly"],
+    "yearlyDiscount": 0.17,
+    "currency": "USD"
+  },
+  "features": {
+    "categories": [
+      {
+        "id": "core",
+        "name": "Core Features",
+        "features": ["users", "storage", "projects", "support", "api_calls"]
+      },
+      {
+        "id": "advanced",
+        "name": "Advanced Features", 
+        "features": ["advanced_analytics", "priority_support", "custom_integrations", "sso"]
+      }
+    ]
+  }
+}
