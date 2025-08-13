@@ -37,6 +37,7 @@ export function Header({ className }: HeaderProps) {
 
   const navigation = [
     { name: t('home'), href: '/' },
+    { name: t('pricing'), href: '/pricing' },
     { name: t('dashboard'), href: '/dashboard' },
     { name: 'API Docs', href: '/docs' },
   ];

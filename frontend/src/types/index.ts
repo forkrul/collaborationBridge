@@ -315,3 +315,46 @@ export interface ChartConfig {
   title?: string;
   description?: string;
 }
+
+// Pricing types
+export interface PricingFeature {
+  id: string;
+  name: string;
+  value: string;
+  included: boolean;
+}
+
+export interface PricingTier {
+  id: string;
+  name: string;
+  description: string;
+  price: {
+    monthly: number;
+    yearly: number;
+    currency: string;
+  };
+  popular: boolean;
+  features: PricingFeature[];
+  cta: {
+    text: string;
+    variant: 'default' | 'outline' | 'secondary' | 'destructive' | 'ghost' | 'link';
+  };
+}
+
+export interface PricingConfig {
+  tiers: PricingTier[];
+  billing: {
+    periods: string[];
+    yearlyDiscount: number;
+    currency: string;
+  };
+  features: {
+    categories: Array<{
+      id: string;
+      name: string;
+      features: string[];
+    }>;
+  };
+}
+
+export type BillingPeriod = 'monthly' | 'yearly';
