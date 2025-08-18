@@ -80,3 +80,16 @@ If you encounter issues:
 3. **Update pre-commit hooks**: `uv run pre-commit install`
 
 For more information about uv, see: https://docs.astral.sh/uv/
+
+## Future: Astral's `ty` Type Checker
+
+Astral is also developing [`ty`](https://github.com/astral-sh/ty), an extremely fast Python type checker written in Rust. However, as of December 2024:
+
+- **Status**: Preview/experimental - not ready for production use
+- **Current**: We continue using MyPy for type checking (mature and stable)
+- **Future**: When `ty` becomes production-ready, we can evaluate migration
+
+The project is positioned to easily adopt `ty` when it's ready, completing the full Astral toolchain:
+- ✅ **uv** - Package management
+- ✅ **Ruff** - Linting and formatting
+- 🔮 **ty** - Type checking (when ready)
