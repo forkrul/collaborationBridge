@@ -11,6 +11,7 @@ from src.project_name.utils.service_url_manager import get_url_manager
 # Create main API router
 api_router = APIRouter(prefix=settings.API_PREFIX)
 
+
 # Health check endpoint
 @api_router.get("/health", tags=["health"])
 async def health_check():
@@ -25,8 +26,9 @@ async def health_check():
         "status": "healthy",
         "version": settings.API_VERSION,
         "environment": settings.ENVIRONMENT,
-        "services": service_urls
+        "services": service_urls,
     }
+
 
 # Service discovery endpoint
 @api_router.get("/services", tags=["services"])
@@ -38,13 +40,15 @@ async def get_services():
             "environment": url_manager.environment,
             "services": url_manager.get_all_service_urls(),
             "health_checks": url_manager.health_check_urls(),
-            "available_environments": url_manager.list_environments()
+            "available_environments": url_manager.list_environments(),
         }
     except Exception as e:
         return {"error": str(e), "services": {}}
 
+
 # Include i18n router
 from src.project_name.api.v1.endpoints import i18n
+
 api_router.include_router(i18n.router, prefix="/i18n", tags=["i18n"])
 
 # Include other routers here as they are created

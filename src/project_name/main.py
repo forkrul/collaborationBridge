@@ -4,8 +4,8 @@ This module creates and configures the FastAPI application with
 middleware, routers, and other components.
 """
 
+from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import AsyncGenerator
 
 import structlog
 from fastapi import FastAPI
@@ -15,7 +15,6 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from src.project_name.api.v1.router import api_router
 from src.project_name.core.config import settings
 from src.project_name.core.database import create_tables
-
 
 # Configure structured logging
 structlog.configure(
@@ -28,7 +27,7 @@ structlog.configure(
         structlog.processors.StackInfoRenderer(),
         structlog.processors.format_exc_info,
         structlog.processors.UnicodeDecoder(),
-        structlog.processors.JSONRenderer()
+        structlog.processors.JSONRenderer(),
     ],
     context_class=dict,
     logger_factory=structlog.stdlib.LoggerFactory(),
@@ -42,19 +41,19 @@ logger = structlog.get_logger()
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifespan manager.
-    
+
     Handles startup and shutdown events for the FastAPI application.
     """
     # Startup
     logger.info("Starting up application", environment=settings.ENVIRONMENT)
-    
+
     # Create database tables if in development
     if settings.is_development:
         await create_tables()
         logger.info("Database tables created")
-    
+
     yield
-    
+
     # Shutdown
     logger.info("Shutting down application")
 
@@ -82,10 +81,7 @@ if settings.BACKEND_CORS_ORIGINS:
 
 # Add trusted host middleware
 if settings.ALLOWED_HOSTS:
-    app.add_middleware(
-        TrustedHostMiddleware,
-        allowed_hosts=settings.ALLOWED_HOSTS
-    )
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.ALLOWED_HOSTS)
 
 # Include API router
 app.include_router(api_router)

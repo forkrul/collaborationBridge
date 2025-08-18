@@ -241,9 +241,9 @@ EOF
       echo ""
     fi
     
-    # Check if poetry.lock exists
-    if [ ! -f "poetry.lock" ]; then
-      echo "📦 No poetry.lock found. Run 'make install' to install dependencies."
+    # Check if uv.lock exists
+    if [ ! -f "uv.lock" ]; then
+      echo "📦 No uv.lock found. Run 'make install' to install dependencies."
       echo ""
     fi
     

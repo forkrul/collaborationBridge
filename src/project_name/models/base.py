@@ -8,10 +8,9 @@ code quality, documentation, and type safety.
 """
 
 from datetime import datetime
-from typing import Any, List, Optional, Type, TypeVar, Union
+from typing import Any, TypeVar
 
-from sqlalchemy import Boolean, Column, DateTime, Integer, String, Text, event, select
-from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import Boolean, Column, DateTime, Integer, String, Text, event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import DeclarativeBase, Query, Session
 from sqlalchemy.sql import func
@@ -19,11 +18,12 @@ from sqlalchemy.sql import func
 from src.project_name.core.database_manager import metadata
 
 # Type variable for generic model operations
-ModelType = TypeVar('ModelType', bound='BaseModel')
+ModelType = TypeVar("ModelType", bound="BaseModel")
 
 
 class Base(DeclarativeBase):
     """Base class for all models."""
+
     metadata = metadata
 
 
@@ -42,7 +42,7 @@ class TimestampMixin:
             DateTime,
             nullable=False,
             server_default=func.now(),
-            doc="Timestamp when the record was created"
+            doc="Timestamp when the record was created",
         )
 
     @declared_attr
@@ -53,7 +53,7 @@ class TimestampMixin:
             nullable=False,
             server_default=func.now(),
             onupdate=func.now(),
-            doc="Timestamp when the record was last updated"
+            doc="Timestamp when the record was last updated",
         )
 
 
@@ -97,7 +97,7 @@ class SoftDeleteMixin:
             DateTime(timezone=True),
             nullable=True,
             index=True,
-            doc="Timestamp when the record was soft deleted (timezone-aware)"
+            doc="Timestamp when the record was soft deleted (timezone-aware)",
         )
 
     @declared_attr
@@ -110,7 +110,7 @@ class SoftDeleteMixin:
         return Column(
             String(255),
             nullable=True,
-            doc="Identifier of user/system that performed the deletion"
+            doc="Identifier of user/system that performed the deletion",
         )
 
     @declared_attr
@@ -120,11 +120,7 @@ class SoftDeleteMixin:
         Returns:
             Column: Text column for storing deletion reason or notes.
         """
-        return Column(
-            Text,
-            nullable=True,
-            doc="Optional reason for the deletion"
-        )
+        return Column(Text, nullable=True, doc="Optional reason for the deletion")
 
     @declared_attr
     def is_deleted(cls) -> Column:
@@ -139,13 +135,11 @@ class SoftDeleteMixin:
             server_default="false",
             default=False,
             index=True,
-            doc="Boolean flag indicating if the record is deleted"
+            doc="Boolean flag indicating if the record is deleted",
         )
 
     def soft_delete(
-        self,
-        deleted_by: Optional[str] = None,
-        reason: Optional[str] = None
+        self, deleted_by: str | None = None, reason: str | None = None
     ) -> None:
         """Mark the record as soft deleted with audit information.
 
@@ -160,7 +154,7 @@ class SoftDeleteMixin:
             user.soft_delete(deleted_by="admin", reason="Policy violation")
         """
         if self.is_soft_deleted:
-            record_id = getattr(self, 'id', 'unknown')
+            record_id = getattr(self, "id", "unknown")
             raise ValueError(
                 f"Record {self.__class__.__name__}(id={record_id}) is already deleted"
             )
@@ -183,7 +177,7 @@ class SoftDeleteMixin:
                 user.restore()
         """
         if not self.is_soft_deleted:
-            record_id = getattr(self, 'id', 'unknown')
+            record_id = getattr(self, "id", "unknown")
             raise ValueError(
                 f"Record {self.__class__.__name__}(id={record_id}) is not deleted"
             )
@@ -260,12 +254,7 @@ class BaseModel(Base, TimestampMixin, SoftDeleteMixin):
 
     __abstract__ = True
 
-    id = Column(
-        Integer,
-        primary_key=True,
-        index=True,
-        doc="Primary key for the record"
-    )
+    id = Column(Integer, primary_key=True, index=True, doc="Primary key for the record")
 
     def __repr__(self) -> str:
         """Return a string representation of the model."""

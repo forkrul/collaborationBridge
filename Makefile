@@ -3,7 +3,7 @@
 # Variables
 PROJECT_NAME := project_name
 PYTHON := python3.11
-POETRY := poetry
+UV := uv
 
 help: ## Show this help message
 	@echo "Usage: make [target]"
@@ -12,34 +12,37 @@ help: ## Show this help message
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "  %-15s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 install: ## Install project dependencies
-	$(POETRY) install
+	$(UV) sync
+
+install-dev: ## Install project dependencies including dev tools
+	$(UV) sync --extra dev --extra test --extra docs
 
 dev: ## Run development server
-	$(POETRY) run uvicorn src.$(PROJECT_NAME).main:app --reload --host 0.0.0.0 --port 8000
+	$(UV) run uvicorn src.$(PROJECT_NAME).main:app --reload --host 0.0.0.0 --port 8000
 
 test: ## Run all tests
-	$(POETRY) run pytest
+	$(UV) run pytest
 
 test-unit: ## Run unit tests only
-	$(POETRY) run pytest tests/unit
+	$(UV) run pytest tests/unit
 
 test-integration: ## Run integration tests only
-	$(POETRY) run pytest tests/integration
+	$(UV) run pytest tests/integration
 
 test-e2e: ## Run end-to-end tests
-	$(POETRY) run behave tests/e2e/features
-	$(POETRY) run pytest tests/e2e --playwright
+	$(UV) run behave tests/e2e/features
+	$(UV) run pytest tests/e2e --playwright
 
 test-cov: ## Run tests with coverage
-	$(POETRY) run pytest --cov=src --cov-report=html --cov-report=term
+	$(UV) run pytest --cov=src --cov-report=html --cov-report=term
 
 lint: ## Run linting checks
-	$(POETRY) run ruff check src tests
-	$(POETRY) run mypy src
+	$(UV) run ruff check src tests
+	$(UV) run mypy src
 
 format: ## Format code
-	$(POETRY) run ruff format src tests
-	$(POETRY) run ruff check --fix src tests
+	$(UV) run ruff format src tests
+	$(UV) run ruff check --fix src tests
 
 docs: ## Build documentation
 	./scripts/generate-docs.sh
@@ -77,13 +80,13 @@ nix-services-status: ## Check service status (Nix)
 
 # Service URL Management
 service-urls-list: ## List all service URLs
-	$(POETRY) run python scripts/service-urls.py list-services
+	$(UV) run python scripts/service-urls.py list-services
 
 service-urls-health: ## Check health of all services
-	$(POETRY) run python scripts/service-urls.py health-check
+	$(UV) run python scripts/service-urls.py health-check
 
 service-urls-test: ## Test connectivity to all services
-	$(POETRY) run python scripts/service-urls.py test-endpoints
+	$(UV) run python scripts/service-urls.py test-endpoints
 
 clean: ## Clean build artifacts
 	find . -type d -name "__pycache__" -exec rm -rf {} +
@@ -107,34 +110,34 @@ docker-logs: ## View Docker logs
 	docker-compose -f docker/docker-compose.yml logs -f
 
 db-init: ## Initialize database with Alembic
-	$(POETRY) run alembic init alembic
+	$(UV) run alembic init alembic
 
 db-migrate: ## Create new migration
 	@test -n "$(msg)" || (echo "Error: msg parameter required. Usage: make db-migrate msg='your message'" && exit 1)
-	$(POETRY) run alembic revision --autogenerate -m "$(msg)"
+	$(UV) run alembic revision --autogenerate -m "$(msg)"
 
 db-upgrade: ## Run database migrations
-	$(POETRY) run alembic upgrade head
+	$(UV) run alembic upgrade head
 
 db-downgrade: ## Rollback database migration
-	$(POETRY) run alembic downgrade -1
+	$(UV) run alembic downgrade -1
 
 db-history: ## Show migration history
-	$(POETRY) run alembic history
+	$(UV) run alembic history
 
 db-current: ## Show current database revision
-	$(POETRY) run alembic current
+	$(UV) run alembic current
 
 db-sqlite-upgrade: ## Run migrations with SQLite (for testing)
-	DATABASE_BACKEND=sqlite $(POETRY) run alembic upgrade head
+	DATABASE_BACKEND=sqlite $(UV) run alembic upgrade head
 
 db-reset: ## Reset database (drop all tables and re-run migrations)
-	$(POETRY) run alembic downgrade base
-	$(POETRY) run alembic upgrade head
+	$(UV) run alembic downgrade base
+	$(UV) run alembic upgrade head
 
 pre-commit: ## Run pre-commit hooks
-	$(POETRY) run pre-commit run --all-files
+	$(UV) run pre-commit run --all-files
 
 install-hooks: ## Install git hooks (including work hours policy)
-	$(POETRY) run pre-commit install
+	$(UV) run pre-commit install
 	./scripts/install-pre-push-hook.sh
