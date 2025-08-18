@@ -30,8 +30,8 @@ echo "📍 Current branch: $CURRENT_BRANCH"
 # Build documentation
 echo "🔨 Building documentation..."
 cd docs
-poetry run make clean
-poetry run make html
+uv run make clean
+uv run make html
 cd ..
 
 # Check if build was successful

@@ -1,12 +1,13 @@
 """Internationalization configuration for the application."""
 
 from enum import Enum
-from typing import Dict
+
 from pydantic import BaseModel
 
 
 class SupportedLocale(str, Enum):
     """Supported locales enumeration."""
+
     AFRIKAANS = "af"
     ENGLISH_UK = "en_GB"
     GERMAN = "de"
@@ -17,6 +18,7 @@ class SupportedLocale(str, Enum):
 
 class LocaleConfig(BaseModel):
     """Configuration for a specific locale."""
+
     name: str
     native_name: str
     direction: str = "ltr"
@@ -29,7 +31,7 @@ class LocaleConfig(BaseModel):
 
 
 # Locale configurations
-LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
+LOCALE_CONFIGS: dict[str, LocaleConfig] = {
     SupportedLocale.AFRIKAANS: LocaleConfig(
         name="Afrikaans",
         native_name="Afrikaans",
@@ -38,7 +40,7 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         date_format="%d/%m/%Y",
         time_format="%H:%M",
         decimal_separator=",",
-        thousands_separator=" "
+        thousands_separator=" ",
     ),
     SupportedLocale.ENGLISH_UK: LocaleConfig(
         name="English (UK)",
@@ -46,7 +48,7 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         region="GB",
         currency="GBP",
         date_format="%d/%m/%Y",
-        time_format="%H:%M"
+        time_format="%H:%M",
     ),
     SupportedLocale.GERMAN: LocaleConfig(
         name="German",
@@ -56,7 +58,7 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         date_format="%d.%m.%Y",
         time_format="%H:%M",
         decimal_separator=",",
-        thousands_separator="."
+        thousands_separator=".",
     ),
     SupportedLocale.ROMANIAN: LocaleConfig(
         name="Romanian",
@@ -66,7 +68,7 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         date_format="%d.%m.%Y",
         time_format="%H:%M",
         decimal_separator=",",
-        thousands_separator="."
+        thousands_separator=".",
     ),
     SupportedLocale.ZULU: LocaleConfig(
         name="isiZulu",
@@ -74,7 +76,7 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         region="ZA",
         currency="ZAR",
         date_format="%Y/%m/%d",
-        time_format="%H:%M"
+        time_format="%H:%M",
     ),
     SupportedLocale.SWISS_GERMAN: LocaleConfig(
         name="Swiss German (Zürich)",
@@ -84,8 +86,8 @@ LOCALE_CONFIGS: Dict[str, LocaleConfig] = {
         date_format="%d.%m.%Y",
         time_format="%H:%M",
         decimal_separator=".",
-        thousands_separator="'"
-    )
+        thousands_separator="'",
+    ),
 }
 
 DEFAULT_LOCALE = SupportedLocale.ENGLISH_UK
@@ -93,9 +95,9 @@ FALLBACK_LOCALE = SupportedLocale.ENGLISH_UK
 
 # Translation domains
 TRANSLATION_DOMAINS = [
-    "messages",      # General messages
-    "auth",          # Authentication
-    "validation",    # Form validation
-    "errors",        # Error messages
-    "api",           # API responses
+    "messages",  # General messages
+    "auth",  # Authentication
+    "validation",  # Form validation
+    "errors",  # Error messages
+    "api",  # API responses
 ]

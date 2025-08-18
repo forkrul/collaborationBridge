@@ -62,8 +62,8 @@ cd your-project
 nix develop
 make install
 
-# Option 2: Manual
-poetry install
+# Option 2: Manual with uv
+uv sync --extra dev --extra test --extra docs
 ```
 
 #### 2. Environment Configuration
@@ -689,13 +689,13 @@ make test-e2e
 make test-cov
 
 # Run specific test file
-poetry run pytest tests/unit/test_post_service.py -v
+uv run pytest tests/unit/test_post_service.py -v
 
 # Run tests matching pattern
-poetry run pytest -k "test_create" -v
+uv run pytest -k "test_create" -v
 
 # Run tests with debugging
-poetry run pytest --pdb
+uv run pytest --pdb
 ```
 
 ## Code Quality
@@ -709,11 +709,9 @@ The project uses several tools for code quality:
 make lint
 
 # Individual tools
-poetry run ruff check src/          # Fast linting
-poetry run ruff format src/         # Fast formatting
-poetry run black src/               # Code formatting
-poetry run isort src/               # Import sorting
-poetry run mypy src/                # Type checking
+uv run ruff check src/              # Fast linting and formatting
+uv run ruff format src/             # Fast formatting
+uv run mypy src/                    # Type checking
 ```
 
 ### Pre-commit Hooks

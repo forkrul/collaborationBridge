@@ -28,9 +28,9 @@ cd your-project  # Environment loads automatically
 If not using Nix, ensure you have:
 
 ```bash
-# Python and Poetry
+# Python and uv
 python3.11 --version
-poetry --version
+uv --version
 
 # Database services
 postgresql --version
@@ -444,7 +444,7 @@ make test-e2e
 make test-cov
 
 # Specific test file
-poetry run pytest tests/unit/test_post_service.py -v
+uv run pytest tests/unit/test_post_service.py -v
 ```
 
 ## Code Quality
@@ -465,11 +465,10 @@ make pre-commit
 ```
 
 **Tools included:**
-- **Ruff**: Fast Python linter and formatter
-- **Black**: Code formatting
-- **isort**: Import sorting
+- **Ruff**: Fast Python linter and formatter (replaces Black and isort)
 - **MyPy**: Static type checking
 - **Pre-commit**: Git hooks for quality
+- **uv**: Fast Python package manager
 
 ### Pre-commit Hooks
 
@@ -477,7 +476,7 @@ Automatically run quality checks on commit:
 
 ```bash
 # Install hooks
-poetry run pre-commit install
+uv run pre-commit install
 
 # Run manually
 make pre-commit

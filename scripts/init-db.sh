@@ -16,6 +16,6 @@ echo "Database is ready!"
 
 # Run migrations
 echo "Running database migrations..."
-poetry run alembic upgrade head
+uv run alembic upgrade head
 
 echo "Database initialization complete!"

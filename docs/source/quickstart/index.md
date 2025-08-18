@@ -4,6 +4,8 @@ This guide will get you up and running with the Python MVP Template in minutes.
 
 ## Prerequisites
 
+> **🚀 New in v2.1**: This project now uses [uv](https://docs.astral.sh/uv/) for faster dependency management instead of Poetry. uv is significantly faster and uses standard Python packaging.
+
 Choose your preferred setup method:
 
 ### Option 1: Nix (Recommended)
@@ -12,7 +14,7 @@ Choose your preferred setup method:
 
 ### Option 2: Manual Setup
 - Python 3.11+
-- Poetry
+- uv (modern Python package manager)
 - PostgreSQL 16+
 - Redis
 - Docker (optional)
@@ -58,8 +60,8 @@ If you prefer to manage dependencies manually:
 git clone https://github.com/yourusername/your-project.git
 cd your-project
 
-# 2. Install Poetry (if not installed)
-curl -sSL https://install.python-poetry.org | python3 -
+# 2. Install uv (if not installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 3. Install dependencies
 make install
@@ -317,5 +319,44 @@ echo $PYTHONPATH
 make clean
 make install
 ```
+
+## Migration from Poetry
+
+If you're upgrading from a Poetry-based version of this template:
+
+### Automatic Migration
+
+The project has been migrated to use uv. All existing functionality is preserved:
+
+```bash
+# Remove old Poetry files (if they exist)
+rm -f poetry.lock
+
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install dependencies with uv
+uv sync --extra dev --extra test --extra docs
+
+# Verify everything works
+make test
+```
+
+### Key Changes
+
+- **Package Manager**: Poetry → uv (faster dependency resolution)
+- **Lock File**: `poetry.lock` → `uv.lock`
+- **Commands**: `poetry run` → `uv run`
+- **Tooling**: Consolidated linting/formatting with Ruff (removed Black/isort)
+- **Performance**: Significantly faster dependency installation and resolution
+
+### Benefits
+
+- ⚡ **10x faster** dependency resolution and installation
+- 🎯 **Simpler**: Standard Python packaging without Poetry-specific configuration
+- 🔧 **Modern**: Latest Python packaging standards and tools
+- 📦 **Better caching**: Improved dependency caching across projects
+
+For detailed migration information, see `MIGRATION_TO_UV.md` in the project root.
 
 Ready to build something amazing? Let's go! 🚀

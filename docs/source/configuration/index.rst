@@ -119,7 +119,7 @@ Configure security and data protection features:
    )
 
 Monitoring and Alerting Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configure monitoring and alerting behavior:
 

@@ -1,7 +1,7 @@
 """BDD steps for health check feature."""
 
 import requests
-from behave import given, when, then
+from behave import given, then, when
 
 
 @given("the application is running")

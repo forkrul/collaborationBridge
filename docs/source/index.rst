@@ -43,6 +43,7 @@ The Python MVP Template provides a complete foundation for building modern web a
 **Development & Quality**
 
 * **🧪 Comprehensive Testing**: Enhanced testing framework with performance and compliance testing
+* **⚡ Modern Tooling**: uv for fast dependency management, Ruff for linting and formatting
 * **🐳 Docker**: Complete containerization for all environments
 * **📦 Nix**: Reproducible development environments
 * **🌐 Service URL Manager**: Centralized URL management across environments

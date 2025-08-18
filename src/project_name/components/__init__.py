@@ -16,11 +16,17 @@ maintainability, and performance across different MVP projects.
 """
 
 # Core database components
+# Configuration management
+from src.project_name.core.soft_delete_config import (
+    SoftDeleteConfig,
+    get_soft_delete_config,
+    update_soft_delete_config,
+)
 from src.project_name.models.base import (
     Base,
     BaseModel,
+    SoftDeleteMixin,
     TimestampMixin,
-    SoftDeleteMixin
 )
 
 # Service layer components
@@ -29,36 +35,26 @@ from src.project_name.services.soft_delete_manager import SoftDeleteManager
 
 # Database utilities
 from src.project_name.utils.database_utils import (
+    CascadingSoftDeleteManager,
     DatabaseHealthChecker,
-    CascadingSoftDeleteManager
-)
-
-# Configuration management
-from src.project_name.core.soft_delete_config import (
-    SoftDeleteConfig,
-    get_soft_delete_config,
-    update_soft_delete_config
 )
 
 __all__ = [
     # Database models and mixins
     "Base",
-    "BaseModel", 
+    "BaseModel",
     "TimestampMixin",
     "SoftDeleteMixin",
-    
     # Service layer
     "BaseService",
     "SoftDeleteManager",
-    
     # Database utilities
     "DatabaseHealthChecker",
     "CascadingSoftDeleteManager",
-    
     # Configuration
     "SoftDeleteConfig",
-    "get_soft_delete_config", 
-    "update_soft_delete_config"
+    "get_soft_delete_config",
+    "update_soft_delete_config",
 ]
 
 # Version information
@@ -73,63 +69,67 @@ COMPONENT_REGISTRY = {
             "BaseModel": {
                 "description": "Enhanced base model with timestamps and soft delete",
                 "features": ["auto_timestamps", "soft_delete", "audit_trail"],
-                "usage": "Inherit from BaseModel for all database entities"
+                "usage": "Inherit from BaseModel for all database entities",
             },
             "SoftDeleteMixin": {
                 "description": "Production-ready soft delete functionality",
                 "features": ["audit_trail", "timezone_aware", "error_handling"],
-                "usage": "Add to models requiring soft delete capability"
+                "usage": "Add to models requiring soft delete capability",
             },
             "TimestampMixin": {
                 "description": "Automatic timestamp tracking",
                 "features": ["created_at", "updated_at", "server_defaults"],
-                "usage": "Add to models requiring timestamp tracking"
-            }
+                "usage": "Add to models requiring timestamp tracking",
+            },
         },
         "services": {
             "BaseService": {
                 "description": "Enhanced service base class with advanced CRUD",
                 "features": ["bulk_operations", "pagination", "soft_delete_support"],
-                "usage": "Inherit for all service classes"
+                "usage": "Inherit for all service classes",
             },
             "SoftDeleteManager": {
                 "description": "Bulk soft delete operations manager",
                 "features": ["batch_processing", "performance_optimized", "statistics"],
-                "usage": "Use for bulk soft delete operations"
-            }
+                "usage": "Use for bulk soft delete operations",
+            },
         },
         "utilities": {
             "DatabaseHealthChecker": {
                 "description": "Database health monitoring and diagnostics",
                 "features": ["connection_check", "table_stats", "health_reports"],
-                "usage": "Monitor database health and performance"
+                "usage": "Monitor database health and performance",
             },
             "CascadingSoftDeleteManager": {
                 "description": "Cascading soft delete with relationship handling",
-                "features": ["relationship_aware", "circular_protection", "depth_limiting"],
-                "usage": "Handle complex deletion scenarios"
-            }
-        }
+                "features": [
+                    "relationship_aware",
+                    "circular_protection",
+                    "depth_limiting",
+                ],
+                "usage": "Handle complex deletion scenarios",
+            },
+        },
     },
     "configuration": {
         "SoftDeleteConfig": {
             "description": "Comprehensive configuration management",
             "features": ["environment_based", "validation", "runtime_updates"],
-            "usage": "Configure soft delete behavior across environments"
+            "usage": "Configure soft delete behavior across environments",
         }
-    }
+    },
 }
 
 
 def get_component_info(component_name: str) -> dict:
     """Get information about a specific component.
-    
+
     Args:
         component_name: Name of the component to get info for.
-        
+
     Returns:
         Dictionary containing component information.
-        
+
     Example:
         info = get_component_info("BaseModel")
         print(info["description"])
@@ -138,23 +138,23 @@ def get_component_info(component_name: str) -> dict:
         for subcategory, items in components.items():
             if component_name in items:
                 return items[component_name]
-    
+
     return {"error": f"Component '{component_name}' not found"}
 
 
 def list_components(category: str = None) -> dict:
     """List all available components, optionally filtered by category.
-    
+
     Args:
         category: Optional category to filter by.
-        
+
     Returns:
         Dictionary of components organized by category.
-        
+
     Example:
         # List all components
         all_components = list_components()
-        
+
         # List only database components
         db_components = list_components("database")
     """
@@ -165,7 +165,7 @@ def list_components(category: str = None) -> dict:
 
 def get_usage_examples() -> dict:
     """Get usage examples for all components.
-    
+
     Returns:
         Dictionary containing usage examples for each component.
     """
@@ -182,7 +182,6 @@ class User(BaseModel):
 # - soft delete capability
 # - audit trail support
         """,
-        
         "BaseService": """
 # Service implementation
 class UserService(BaseService):
@@ -197,7 +196,6 @@ async with AsyncSession(engine) as session:
     users = await service.get_active_paginated(page=1, size=10)
     await service.soft_delete(user.id, deleted_by="admin")
         """,
-        
         "SoftDeleteManager": """
 # Bulk operations
 async with AsyncSession(engine) as session:
@@ -211,7 +209,6 @@ async with AsyncSession(engine) as session:
     # Get statistics
     stats = await manager.get_deletion_stats(User)
         """,
-        
         "DatabaseHealthChecker": """
 # Health monitoring
 async with AsyncSession(engine) as session:
@@ -223,7 +220,6 @@ async with AsyncSession(engine) as session:
     # Get comprehensive report
     report = await checker.get_health_report([User, Post])
         """,
-        
         "SoftDeleteConfig": """
 # Configuration management
 config = SoftDeleteConfig(
@@ -238,7 +234,7 @@ config = SoftDeleteConfig()  # Reads from environment
 
 # Runtime updates
 update_soft_delete_config(cascade_soft_delete=True)
-        """
+        """,
     }
 
 
@@ -304,26 +300,22 @@ def print_quick_start():
 # Component validation utilities
 def validate_component_setup() -> dict:
     """Validate that all components are properly configured.
-    
+
     Returns:
         Dictionary containing validation results.
     """
-    results = {
-        "valid": True,
-        "issues": [],
-        "recommendations": []
-    }
-    
+    results = {"valid": True, "issues": [], "recommendations": []}
+
     try:
         # Test imports
         from src.project_name.models.base import BaseModel
         from src.project_name.services.base_service import BaseService
         from src.project_name.services.soft_delete_manager import SoftDeleteManager
-        
+
         results["recommendations"].append("All core components imported successfully")
-        
+
     except ImportError as e:
         results["valid"] = False
         results["issues"].append(f"Import error: {e}")
-    
+
     return results

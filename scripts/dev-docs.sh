@@ -15,13 +15,13 @@ fi
 
 # Install documentation dependencies if needed
 echo "📦 Checking documentation dependencies..."
-poetry install --with docs --quiet
+uv sync --extra docs --quiet
 
 # Build initial documentation
 echo "🔨 Building initial documentation..."
 cd docs
-poetry run make clean
-poetry run make html
+uv run make clean
+uv run make html
 cd ..
 
 echo "✅ Initial build complete!"
@@ -37,4 +37,4 @@ echo ""
 
 # Start the development server
 cd docs
-poetry run python -m http.server -d build/html 8080
+uv run python -m http.server -d build/html 8080
