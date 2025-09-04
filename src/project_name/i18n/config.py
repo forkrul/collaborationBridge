@@ -14,6 +14,15 @@ class SupportedLocale(str, Enum):
     ROMANIAN = "ro"
     ZULU = "zu"
     SWISS_GERMAN = "gsw_CH"
+    CHINESE_SIMPLIFIED = "zh"
+    HINDI = "hi"
+    SPANISH = "es"
+    ARABIC = "ar"
+    FRENCH = "fr"
+    BENGALI = "bn"
+    PORTUGUESE = "pt"
+    RUSSIAN = "ru"
+    INDONESIAN = "id"
 
 
 class LocaleConfig(BaseModel):
@@ -87,6 +96,87 @@ LOCALE_CONFIGS: dict[str, LocaleConfig] = {
         time_format="%H:%M",
         decimal_separator=".",
         thousands_separator="'",
+    ),
+    SupportedLocale.CHINESE_SIMPLIFIED: LocaleConfig(
+        name="Chinese (Simplified)",
+        native_name="简体中文",
+        direction="ltr",
+        region="CN",
+        currency="CNY",
+        date_format="%Y-%m-%d",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.HINDI: LocaleConfig(
+        name="Hindi",
+        native_name="हिन्दी",
+        direction="ltr",
+        region="IN",
+        currency="INR",
+        date_format="%d-%m-%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.SPANISH: LocaleConfig(
+        name="Spanish",
+        native_name="Español",
+        direction="ltr",
+        region="ES",
+        currency="EUR",
+        date_format="%d/%m/%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.ARABIC: LocaleConfig(
+        name="Arabic",
+        native_name="العربية",
+        direction="rtl",
+        region="SA",
+        currency="SAR",
+        date_format="%d/%m/%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.FRENCH: LocaleConfig(
+        name="French",
+        native_name="Français",
+        direction="ltr",
+        region="FR",
+        currency="EUR",
+        date_format="%d/%m/%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.BENGALI: LocaleConfig(
+        name="Bengali",
+        native_name="বাংলা",
+        direction="ltr",
+        region="BD",
+        currency="BDT",
+        date_format="%d-%m-%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.PORTUGUESE: LocaleConfig(
+        name="Portuguese",
+        native_name="Português",
+        direction="ltr",
+        region="PT",
+        currency="EUR",
+        date_format="%d-%m-%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.RUSSIAN: LocaleConfig(
+        name="Russian",
+        native_name="Русский",
+        direction="ltr",
+        region="RU",
+        currency="RUB",
+        date_format="%d.%m.%Y",
+        time_format="%H:%M",
+    ),
+    SupportedLocale.INDONESIAN: LocaleConfig(
+        name="Indonesian",
+        native_name="Bahasa Indonesia",
+        direction="ltr",
+        region="ID",
+        currency="IDR",
+        date_format="%d/%m/%Y",
+        time_format="%H:%M",
     ),
 }
 
