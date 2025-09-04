@@ -86,7 +86,7 @@ class TranslationManager:
         Returns:
             Formatted datetime string.
         """
-        babel_locale = Locale.parse(locale.replace("_", "-"))
+        babel_locale = Locale.parse(locale.replace("_", "-"), sep="-")
         return format_datetime(dt, format=format_type, locale=babel_locale)
 
     def format_currency(
@@ -105,7 +105,7 @@ class TranslationManager:
         if not currency:
             currency = LOCALE_CONFIGS[locale].currency
 
-        babel_locale = Locale.parse(locale.replace("_", "-"))
+        babel_locale = Locale.parse(locale.replace("_", "-"), sep="-")
         return format_currency(amount, currency, locale=babel_locale)
 
     def format_number(self, number: float, locale: str) -> str:
@@ -118,7 +118,7 @@ class TranslationManager:
         Returns:
             Formatted number string.
         """
-        babel_locale = Locale.parse(locale.replace("_", "-"))
+        babel_locale = Locale.parse(locale.replace("_", "-"), sep="-")
         return format_decimal(number, locale=babel_locale)
 
 
