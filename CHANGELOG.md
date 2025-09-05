@@ -1,10 +1,12 @@
 # Changelog
 
 
-This is a project template. Replace the sample entry below with your real releases. For guidance, see Common Changelog.
-
-- Spec: https://common-changelog.org/
-- Example: docs/CHANGELOG_EXAMPLE.md
+> [!NOTE]
+> **This is a template for your project's changelog.**
+>
+> - Replace the sample entry below with your project's actual release history.
+> - For guidance on writing a good changelog, see [Common Changelog](https://common-changelog.org/).
+> - This project follows the [Common Changelog](https://common-changelog.org/) specification.
 
 ## [1.0.0] - 2025-08-24
 

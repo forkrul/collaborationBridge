@@ -11,9 +11,9 @@
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-[![CI](https://github.com/forkrul/8760/workflows/CI/badge.svg)](https://github.com/forkrul/8760/actions/workflows/ci.yml)
-[![Documentation](https://github.com/forkrul/8760/workflows/Documentation%20Check/badge.svg)](https://github.com/forkrul/8760/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/gh/forkrul/8760/branch/master/graph/badge.svg)](https://codecov.io/gh/forkrul/8760)
+[![CI](https://github.com/<your-username>/<your-repo-name>/workflows/CI/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/ci.yml)
+[![Documentation](https://github.com/<your-username>/<your-repo-name>/workflows/Documentation%20Check/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/docs.yml)
+[![codecov](https://codecov.io/gh/<your-username>/<your-repo-name>/branch/master/graph/badge.svg)](https://codecov.io/gh/<your-username>/<your-repo-name>)
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -27,14 +27,22 @@
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 [![Pydantic v2](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pydantic/pydantic/main/docs/badge/v2.json)](https://pydantic.dev)
 
-<!-- TEMPLATE: Add project-specific badges below -->
-<!-- Example: Deployment status, API status, etc. -->
-<!-- [![Deployment](https://img.shields.io/badge/deployment-active-green)](https://your-app.com) -->
-<!-- [![API Status](https://img.shields.io/badge/API-online-green)](https://your-api.com/health) -->
+<!--
+======================================================================================
+==  TODO: Add project-specific badges below.                                        ==
+==  These are just examples. Remove them if they don't apply to your project.       ==
+======================================================================================
+-->
+<!-- Example: [![Deployment](https://img.shields.io/badge/deployment-active-green)](https://your-app.com) -->
+<!-- Example: [![API Status](https://img.shields.io/badge/API-online-green)](https://your-api.com/health) -->
 
 </div>
 
-**<PROJECT_DESCRIPTION>**
+> [!IMPORTANT]
+> **TODO: PROJECT DESCRIPTION**
+>
+> Replace this section with a brief and informative description of your project.
+> Explain what the project does, its purpose, and its key features.
 
 🚀 **Built with the [Python MVP Template](https://github.com/forkrul/project-template-mvp)** - A modern Python web application template with FastAPI, SQLAlchemy, and best practices for rapid development.
 
@@ -86,8 +94,8 @@ Install the policy with: `make install-hooks`
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/forkrul/8760.git
-   cd 8760
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   cd <your-repo-name>
    ```
 
 2. **Enter Nix development environment**
@@ -122,8 +130,8 @@ Install the policy with: `make install-hooks`
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/forkrul/8760.git
-   cd 8760
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   cd <your-repo-name>
    ```
 
 2. **Install dependencies**
@@ -159,8 +167,8 @@ This project includes comprehensive Nix support for reproducible development env
 
 ```bash
 # Clone project
-git clone https://github.com/forkrul/8760.git
-cd 8760
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
 
 # Install Nix and direnv (one-time setup)
 make install-nix
@@ -253,7 +261,7 @@ docker-compose -f docker/docker-compose.yml down
 ## Project Structure
 
 ```
-8760/                           # Project root
+<your-repo-name>/               # Project root
 ├── .github/workflows/          # GitHub Actions CI/CD
 ├── src/project_name/           # Main application code
 │   ├── api/                    # API routes and endpoints
@@ -336,7 +344,7 @@ The project includes comprehensive documentation built with Sphinx:
 
 - **Local Documentation**: `make docs` then `make docs-serve`
 - **GitHub Pages**: Deploy with `make docs-deploy`
-- **Live Documentation**: https://forkrul.github.io/8760/
+- **Live Documentation**: https://<your-username>.github.io/<your-repo-name>/
 
 ### Documentation Workflow
 
@@ -375,10 +383,10 @@ curl -X POST \
 
 ```bash
 # Build production image
-docker build -f docker/Dockerfile -t 8760:latest .
+docker build -f docker/Dockerfile -t <your-repo-name>:latest .
 
 # Run production container
-docker run -p 8000:8000 8760:latest
+docker run -p 8000:8000 <your-repo-name>:latest
 ```
 
 ### Environment Variables
