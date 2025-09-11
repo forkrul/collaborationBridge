@@ -1,34 +1,27 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from './test-utils';
 import { MigratedTextField } from '../MigratedTextField';
-import { CoexistenceProvider } from '../CoexistenceProvider';
 
-// Mock Reshaped components
-jest.mock('reshaped', () => ({
-  TextField: ({ children, onChange, ...props }: any) => (
-    <input 
-      data-testid="reshaped-textfield"
-      onChange={(e) => onChange?.({ name: props.name, value: e.target.value, event: e })}
-      {...props}
-    />
-  ),
-  FormControl: ({ children, ...props }: any) => (
-    <div data-testid="reshaped-form-control" {...props}>{children}</div>
-  ),
+// Mock the migration theme hook to avoid provider issues
+jest.mock('../CoexistenceProvider', () => ({
+  CoexistenceProvider: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+  useMigrationTheme: () => ({
+    currentTheme: 'blue',
+    appearance: 'light' as const,
+    setTheme: jest.fn(),
+    setAppearance: jest.fn(),
+    availableThemes: ['blue', 'green', 'purple'],
+    reshapedTheme: {
+      color: 'primary',
+      appearance: 'light' as const,
+    },
+  }),
 }));
-
-const renderWithProvider = (component: React.ReactElement) => {
-  return render(
-    <CoexistenceProvider>
-      {component}
-    </CoexistenceProvider>
-  );
-};
 
 describe('MigratedTextField', () => {
   describe('shadcn/ui mode (default)', () => {
     it('renders shadcn input by default', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField name="test" placeholder="Test input" />
       );
       
@@ -39,7 +32,7 @@ describe('MigratedTextField', () => {
 
     it('handles onChange events correctly', () => {
       const handleChange = jest.fn();
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test" 
           placeholder="Test input"
@@ -58,7 +51,7 @@ describe('MigratedTextField', () => {
     });
 
     it('renders with label and helper text', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test"
           label="Test Label"
@@ -72,7 +65,7 @@ describe('MigratedTextField', () => {
     });
 
     it('shows error state correctly', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test"
           label="Test Label"
@@ -89,7 +82,7 @@ describe('MigratedTextField', () => {
 
   describe('Reshaped mode', () => {
     it('renders Reshaped TextField when useReshaped is true', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           useReshaped
           name="test" 
@@ -101,7 +94,7 @@ describe('MigratedTextField', () => {
     });
 
     it('wraps with FormControl when form props are provided', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           useReshaped
           name="test"
@@ -115,7 +108,7 @@ describe('MigratedTextField', () => {
 
     it('handles onChange events in Reshaped mode', () => {
       const handleChange = jest.fn();
-      renderWithProvider(
+      render(
         <MigratedTextField 
           useReshaped
           name="test" 
@@ -137,7 +130,7 @@ describe('MigratedTextField', () => {
 
   describe('prop mapping', () => {
     it('maps type prop correctly', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test"
           type="password"
@@ -150,7 +143,7 @@ describe('MigratedTextField', () => {
     });
 
     it('maps disabled prop correctly', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test"
           disabled
@@ -163,7 +156,7 @@ describe('MigratedTextField', () => {
     });
 
     it('maps required prop correctly', () => {
-      renderWithProvider(
+      render(
         <MigratedTextField 
           name="test"
           required
