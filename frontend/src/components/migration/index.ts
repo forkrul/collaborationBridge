@@ -7,17 +7,25 @@
  *
  * Usage:
  * ```tsx
- * import { Button, Card, TextField, Select, Badge, Dialog } from '@/components/migration';
+ * import {
+ *   Button, Card, TextField, Select, Badge, Dialog,
+ *   Checkbox, Textarea, Progress, Switch
+ * } from '@/components/migration';
  *
  * // Use shadcn/ui (default)
  * <Button>Click me</Button>
  * <TextField name="email" placeholder="Enter email" />
- * <Select options={[{label: 'Option 1', value: '1'}]} />
+ * <Checkbox name="agree" value="yes">I agree</Checkbox>
+ * <Textarea name="message" placeholder="Your message" />
+ * <Progress value={50} />
  *
  * // Use Reshaped UI
  * <Button useReshaped>Click me</Button>
  * <TextField useReshaped name="email" placeholder="Enter email" />
- * <Select useReshaped options={[{label: 'Option 1', value: '1'}]} />
+ * <Checkbox useReshaped name="agree" value="yes">I agree</Checkbox>
+ * <Textarea useReshaped name="message" placeholder="Your message" />
+ * <Progress useReshaped value={50} color="primary" />
+ * <Switch useReshaped name="notifications">Enable notifications</Switch>
  * ```
  */
 
@@ -37,6 +45,15 @@ export {
   MigratedDialogTrigger as DialogTrigger,
   MigratedDialogContent as DialogContent,
 } from './MigratedDialog';
+
+// Phase 3 components (Advanced Form & UI elements)
+export {
+  MigratedCheckbox as Checkbox,
+  MigratedCheckboxGroup as CheckboxGroup,
+} from './MigratedCheckbox';
+export { MigratedTextarea as Textarea } from './MigratedTextarea';
+export { MigratedProgress as Progress } from './MigratedProgress';
+export { MigratedSwitch as Switch } from './MigratedSwitch';
 
 // Re-export theme utilities
 export { themeUtils } from '@/lib/reshaped-theme';
