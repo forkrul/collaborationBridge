@@ -15,6 +15,19 @@ import {
   Textarea,
   Progress,
   Switch,
+  Table,
+  TableRow,
+  TableCell,
+  TableHead,
+  TableBody,
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSection,
+  Breadcrumbs,
+  BreadcrumbsItem,
+  Pagination,
   useMigrationTheme
 } from '@/components/migration';
 
@@ -417,6 +430,212 @@ export default function MigrationDemoPage() {
                     </div>
                   </div>
                 )}
+              </div>
+            </div>
+          </div>
+        </Card.Content>
+      </Card>
+
+      {/* Phase 4 Components Demo */}
+      <Card className="p-6" useReshaped={useReshaped}>
+        <Card.Header useReshaped={useReshaped}>
+          <Card.Title useReshaped={useReshaped}>Phase 4: Final Components</Card.Title>
+          <Card.Description useReshaped={useReshaped}>
+            Table, DropdownMenu, Breadcrumbs, and Pagination components
+          </Card.Description>
+        </Card.Header>
+        <Card.Content useReshaped={useReshaped}>
+          <div className="space-y-8">
+            {/* Table Demo */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Table Components</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Basic Table:</p>
+                  <Table useReshaped={useReshaped}>
+                    <TableBody>
+                      <TableRow useReshaped={useReshaped}>
+                        <TableHead useReshaped={useReshaped}>Name</TableHead>
+                        <TableHead useReshaped={useReshaped}>Email</TableHead>
+                        <TableHead useReshaped={useReshaped}>Role</TableHead>
+                      </TableRow>
+                      <TableRow useReshaped={useReshaped}>
+                        <TableCell useReshaped={useReshaped}>John Doe</TableCell>
+                        <TableCell useReshaped={useReshaped}>john@example.com</TableCell>
+                        <TableCell useReshaped={useReshaped}>Admin</TableCell>
+                      </TableRow>
+                      <TableRow useReshaped={useReshaped}>
+                        <TableCell useReshaped={useReshaped}>Jane Smith</TableCell>
+                        <TableCell useReshaped={useReshaped}>jane@example.com</TableCell>
+                        <TableCell useReshaped={useReshaped}>User</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </div>
+
+                {useReshaped && (
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">Enhanced Table (Reshaped only):</p>
+                    <Table useReshaped border columnBorder>
+                      <TableBody>
+                        <TableRow useReshaped>
+                          <TableHead useReshaped>Product</TableHead>
+                          <TableHead useReshaped align="center">Quantity</TableHead>
+                          <TableHead useReshaped align="end">Price</TableHead>
+                        </TableRow>
+                        <TableRow useReshaped highlighted>
+                          <TableCell useReshaped>MacBook Pro</TableCell>
+                          <TableCell useReshaped align="center">2</TableCell>
+                          <TableCell useReshaped align="end">$2,999</TableCell>
+                        </TableRow>
+                        <TableRow useReshaped>
+                          <TableCell useReshaped>iPhone 15</TableCell>
+                          <TableCell useReshaped align="center">1</TableCell>
+                          <TableCell useReshaped align="end">$999</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* DropdownMenu Demo */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">DropdownMenu Components</h3>
+              <div className="flex gap-4 items-start">
+                <DropdownMenu useReshaped={useReshaped}>
+                  <DropdownMenuTrigger useReshaped={useReshaped}>
+                    {(attributes) => (
+                      <Button
+                        useReshaped={useReshaped}
+                        {...(useReshaped ? { attributes } : {})}
+                      >
+                        Basic Menu
+                      </Button>
+                    )}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent useReshaped={useReshaped}>
+                    <DropdownMenuItem useReshaped={useReshaped} onClick={() => alert('Action 1')}>
+                      Action 1
+                    </DropdownMenuItem>
+                    <DropdownMenuItem useReshaped={useReshaped} onClick={() => alert('Action 2')}>
+                      Action 2
+                    </DropdownMenuItem>
+                    <DropdownMenuItem useReshaped={useReshaped} onClick={() => alert('Action 3')}>
+                      Action 3
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                {useReshaped && (
+                  <DropdownMenu useReshaped>
+                    <DropdownMenuTrigger useReshaped>
+                      {(attributes) => (
+                        <Button useReshaped attributes={attributes}>
+                          Sectioned Menu
+                        </Button>
+                      )}
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent useReshaped>
+                      <DropdownMenuSection useReshaped>
+                        <DropdownMenuItem useReshaped onClick={() => alert('Edit')}>
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem useReshaped onClick={() => alert('Duplicate')}>
+                          Duplicate
+                        </DropdownMenuItem>
+                      </DropdownMenuSection>
+                      <DropdownMenuSection useReshaped>
+                        <DropdownMenuItem useReshaped onClick={() => alert('Archive')}>
+                          Archive
+                        </DropdownMenuItem>
+                        <DropdownMenuItem useReshaped onClick={() => alert('Delete')}>
+                          Delete
+                        </DropdownMenuItem>
+                      </DropdownMenuSection>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
+              </div>
+            </div>
+
+            {/* Breadcrumbs Demo */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Breadcrumbs Components</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Basic Breadcrumbs:</p>
+                  <Breadcrumbs useReshaped={useReshaped}>
+                    <BreadcrumbsItem useReshaped={useReshaped} onClick={() => alert('Home')}>
+                      Home
+                    </BreadcrumbsItem>
+                    <BreadcrumbsItem useReshaped={useReshaped} onClick={() => alert('Products')}>
+                      Products
+                    </BreadcrumbsItem>
+                    <BreadcrumbsItem useReshaped={useReshaped} onClick={() => alert('Electronics')}>
+                      Electronics
+                    </BreadcrumbsItem>
+                    <BreadcrumbsItem useReshaped={useReshaped}>
+                      MacBook Pro
+                    </BreadcrumbsItem>
+                  </Breadcrumbs>
+                </div>
+
+                {useReshaped && (
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">Collapsible Breadcrumbs (Reshaped only):</p>
+                    <Breadcrumbs useReshaped defaultVisibleItems={2} expandAriaLabel="Expand items">
+                      <BreadcrumbsItem useReshaped onClick={() => alert('Home')}>
+                        Home
+                      </BreadcrumbsItem>
+                      <BreadcrumbsItem useReshaped onClick={() => alert('Category')}>
+                        Category
+                      </BreadcrumbsItem>
+                      <BreadcrumbsItem useReshaped onClick={() => alert('Subcategory')}>
+                        Subcategory
+                      </BreadcrumbsItem>
+                      <BreadcrumbsItem useReshaped onClick={() => alert('Products')}>
+                        Products
+                      </BreadcrumbsItem>
+                      <BreadcrumbsItem useReshaped>
+                        Current Item
+                      </BreadcrumbsItem>
+                    </Breadcrumbs>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Pagination Demo */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold">Pagination Components</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Basic Pagination:</p>
+                  <Pagination
+                    useReshaped={useReshaped}
+                    total={10}
+                    defaultPage={3}
+                    onChange={({ page }) => console.log('Page changed to:', page)}
+                    previousAriaLabel="Previous page"
+                    nextAriaLabel="Next page"
+                    pageAriaLabel={({ page }) => `Go to page ${page}`}
+                  />
+                </div>
+
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Large Pagination:</p>
+                  <Pagination
+                    useReshaped={useReshaped}
+                    total={25}
+                    defaultPage={12}
+                    onChange={({ page }) => console.log('Page changed to:', page)}
+                    previousAriaLabel="Previous page"
+                    nextAriaLabel="Next page"
+                    pageAriaLabel={({ page }) => `Go to page ${page}`}
+                  />
+                </div>
               </div>
             </div>
           </div>
