@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { NotificationSystem } from '@/components/ui/notification-system';
+import { CoexistenceProvider } from '@/components/migration';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -34,8 +35,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        {children}
-        <NotificationSystem />
+        <CoexistenceProvider>
+          {children}
+          <NotificationSystem />
+        </CoexistenceProvider>
       </ThemeProvider>
       <ReactQueryDevtools
         initialIsOpen={false}
