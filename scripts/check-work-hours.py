@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Pre-commit hook to check if commits are being made during work hours.
-Blocks remote pushes outside of 07:30-17:00 CET with a warning.
+Pre-push hook to check if pushes are being made during work hours.
+Blocks remote pushes outside of 07:30-17:00 CET.
+
+This script is intended to be used as a pre-push git hook.
 """
 
 import sys
@@ -22,38 +24,9 @@ def is_work_hours(dt):
     
     return work_start <= dt <= work_end
 
-def is_remote_push():
-    """Check if this is a remote push operation."""
-    try:
-        # Check if we're in a git push operation
-        result = subprocess.run(
-            ['git', 'rev-parse', '--is-inside-work-tree'],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        
-        # Check if there are any remotes configured
-        result = subprocess.run(
-            ['git', 'remote'],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        
-        # If we have remotes and this is likely a push operation
-        # (we can't directly detect push, but we can check if we're about to commit)
-        return len(result.stdout.strip()) > 0
-    except subprocess.CalledProcessError:
-        return False
-
 def main():
     """Main function to check work hours."""
     current_time = get_current_cet_time()
-    
-    # Always allow local commits
-    if not is_remote_push():
-        return 0
     
     if not is_work_hours(current_time):
         print("🚫 WORK HOURS POLICY VIOLATION")
