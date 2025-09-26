@@ -2,11 +2,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 from src.app.core.database import Base
 from src.app.core.mixins import TimestampMixin, SoftDeleteMixin
 import sqlalchemy as sa
-from typing import List, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from src.app.models.contact import Contact
-    from src.app.models.interaction import Interaction
+from typing import List
 
 
 class User(Base, TimestampMixin, SoftDeleteMixin):

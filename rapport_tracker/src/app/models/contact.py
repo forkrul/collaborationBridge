@@ -4,11 +4,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 from src.app.core.database import Base
 from src.app.core.mixins import TimestampMixin, SoftDeleteMixin
 import uuid
-from typing import TYPE_CHECKING, List
-
-if TYPE_CHECKING:
-    from src.app.models.user import User
-    from src.app.models.interaction import Interaction
+from typing import List
 
 class ContactLevel(str, Enum):
     """Defines the organizational relationship of the contact to the user."""

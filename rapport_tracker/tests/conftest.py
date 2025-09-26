@@ -31,7 +31,7 @@ async def db_session() -> AsyncGenerator[AsyncSession, None]:
         await connection.run_sync(Base.metadata.create_all)
 
     TestingSessionLocal = sessionmaker(
-        autocommit=False, autoflush=False, bind=engine, class_=AsyncSession
+        autocommit=False, autoflush=False, bind=engine, class_=AsyncSession, expire_on_commit=False
     )
 
     async with TestingSessionLocal() as session:

@@ -9,8 +9,6 @@ from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from src.app.models.rapport import InteractionTacticLog
-    from src.app.models.user import User
-    from src.app.models.contact import Contact
 
 class InteractionMedium(str, Enum):
     """The medium through which the interaction took place."""

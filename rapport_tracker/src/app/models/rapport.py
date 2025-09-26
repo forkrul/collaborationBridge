@@ -1,13 +1,11 @@
 from enum import Enum
 import sqlalchemy as sa
+from sqlalchemy import UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.app.core.database import Base
 from src.app.core.mixins import TimestampMixin
 import uuid
-from typing import List, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from src.app.models.interaction import Interaction
+from typing import List
 
 class ScientificDomain(str, Enum):
     """The primary research domain for the tactic."""
@@ -34,11 +32,10 @@ class InteractionTacticLog(Base, TimestampMixin):
     Logs the application and effectiveness of tactics during an interaction (Association Object).
     """
     __tablename__ = "interaction_tactic_logs"
-    id = None
 
-    # Composite Primary Key and Foreign Keys
-    interaction_id: Mapped[uuid.UUID] = mapped_column(sa.ForeignKey("interactions.id"), primary_key=True)
-    tactic_id: Mapped[uuid.UUID] = mapped_column(sa.ForeignKey("rapport_tactics.id"), primary_key=True)
+    # Foreign Keys
+    interaction_id: Mapped[uuid.UUID] = mapped_column(sa.ForeignKey("interactions.id"), nullable=False)
+    tactic_id: Mapped[uuid.UUID] = mapped_column(sa.ForeignKey("rapport_tactics.id"), nullable=False)
 
     # Effectiveness rating (1-5), 1=Ineffective/Backfired, 5=Highly Effective
     effectiveness_score: Mapped[int] = mapped_column(sa.Integer, nullable=True)
@@ -47,3 +44,7 @@ class InteractionTacticLog(Base, TimestampMixin):
     # Relationships
     interaction: Mapped["Interaction"] = relationship(back_populates="tactic_logs")
     tactic: Mapped["RapportTactic"] = relationship(back_populates="interaction_logs")
+
+    __table_args__ = (
+        UniqueConstraint("interaction_id", "tactic_id", name="uq_interaction_tactic"),
+    )
