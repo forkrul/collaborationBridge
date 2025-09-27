@@ -12,13 +12,6 @@ from src.collaboration_bridge.core.config import settings
 # Ensure we use the test database URL
 TEST_DATABASE_URL = settings.DATABASE_URL_TEST
 
-@pytest.fixture(scope="session")
-def event_loop():
-    """Create an instance of the default event loop for the session."""
-    loop = asyncio.get_event_loop_policy().new_event_loop()
-    yield loop
-    loop.close()
-
 @pytest.fixture(scope="function")
 async def db_session() -> AsyncGenerator[AsyncSession, None]:
     """Creates a new database session for a test, managing setup and teardown."""
