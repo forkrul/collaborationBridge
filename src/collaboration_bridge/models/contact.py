@@ -1,10 +1,13 @@
-from enum import Enum
-import sqlalchemy as sa
-from sqlalchemy.orm import relationship, Mapped, mapped_column
-from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.mixins import TimestampMixin, SoftDeleteMixin
 import uuid
+from enum import Enum
 from typing import List
+
+import sqlalchemy as sa
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from src.collaboration_bridge.core.database import Base
+from src.collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
+
 
 class ContactLevel(str, Enum):
     """Defines the organizational relationship of the contact to the user."""

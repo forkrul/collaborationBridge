@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Depends
 from typing import List
+
+from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.collaboration_bridge.core.database import get_db_session

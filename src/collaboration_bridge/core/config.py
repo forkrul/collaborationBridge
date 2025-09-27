@@ -1,6 +1,7 @@
-import os
 from typing import Literal, Optional
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
     """Application configuration settings loaded from environment variables."""

@@ -1,11 +1,13 @@
+import uuid
 from datetime import datetime
 from enum import Enum
+from typing import TYPE_CHECKING, List
+
 import sqlalchemy as sa
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.mixins import TimestampMixin, SoftDeleteMixin
-import uuid
-from typing import List, TYPE_CHECKING
+from src.collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
 
 if TYPE_CHECKING:
     from src.collaboration_bridge.models.rapport import InteractionTacticLog

@@ -11,15 +11,14 @@ The implementation follows PEP 8, PEP 257, and PEP 484 standards for
 code quality, documentation, and type safety.
 """
 
-from datetime import datetime
 from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 from uuid import UUID
 
-from sqlalchemy import and_, select, update
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from src.collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
+from src.collaboration_bridge.core.mixins import SoftDeleteMixin
 
 # Type variables for generic operations
 ModelType = TypeVar("ModelType")

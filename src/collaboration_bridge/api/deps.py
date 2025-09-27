@@ -1,7 +1,9 @@
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from src.collaboration_bridge.core.database import get_db_session
 from src.collaboration_bridge.models.user import User
+
 
 async def get_current_user(db: AsyncSession = Depends(get_db_session)) -> User:
     """

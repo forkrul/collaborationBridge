@@ -12,11 +12,13 @@ code quality, documentation, and type safety.
 
 from datetime import datetime
 from typing import Any, Optional
+
 import sqlalchemy as sa
-from sqlalchemy import Boolean, String, Text, event
+from sqlalchemy import Boolean, String, Text
 from sqlalchemy.ext.declarative import declared_attr
-from sqlalchemy.orm import mapped_column, Mapped, Query, Session
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import functions
+
 
 class TimestampMixin:
     """Enhanced mixin for adding comprehensive timestamp tracking.

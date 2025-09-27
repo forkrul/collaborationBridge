@@ -1,7 +1,10 @@
-from pydantic import Field
 from typing import Optional
-from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+
+from pydantic import Field
+
 from src.collaboration_bridge.models.contact import ContactLevel
+from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+
 
 class ContactBase(BaseSchema):
     """Base schema for Contact data."""

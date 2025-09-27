@@ -1,11 +1,13 @@
-from typing import Generic, TypeVar, Type, Optional, List, Any, Dict
+import uuid
+from typing import Any, Dict, Generic, Optional, Type, TypeVar
+
+from pydantic import BaseModel
+from sqlalchemy import and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy import and_
-from pydantic import BaseModel
+
 from src.collaboration_bridge.core.database import Base
 from src.collaboration_bridge.core.mixins import SoftDeleteMixin
-import uuid
 
 ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)

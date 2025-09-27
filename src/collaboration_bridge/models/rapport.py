@@ -1,11 +1,14 @@
+import uuid
 from enum import Enum
+from typing import List
+
 import sqlalchemy as sa
 from sqlalchemy import UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from src.collaboration_bridge.core.database import Base
 from src.collaboration_bridge.core.mixins import TimestampMixin
-import uuid
-from typing import List
+
 
 class ScientificDomain(str, Enum):
     """The primary research domain for the tactic."""

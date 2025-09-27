@@ -1,17 +1,20 @@
 from contextlib import asynccontextmanager
 from datetime import datetime
-from fastapi import FastAPI, APIRouter
+
+from fastapi import APIRouter, FastAPI
 from sqlalchemy import select
 
+# Import the routers
+from src.collaboration_bridge.api.v1.contacts import router as contacts_v1_router
+from src.collaboration_bridge.api.v1.interactions import (
+    router as interactions_v1_router,
+)
+from src.collaboration_bridge.api.v1.rapport import router as rapport_v1_router
 from src.collaboration_bridge.core.config import settings
 from src.collaboration_bridge.core.database import AsyncSessionLocal
 from src.collaboration_bridge.core.seed_data import SEED_TACTICS
 from src.collaboration_bridge.models.rapport import RapportTactic
 
-# Import the routers
-from src.collaboration_bridge.api.v1.contacts import router as contacts_v1_router
-from src.collaboration_bridge.api.v1.interactions import router as interactions_v1_router
-from src.collaboration_bridge.api.v1.rapport import router as rapport_v1_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

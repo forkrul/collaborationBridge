@@ -384,6 +384,16 @@ test = [
     { name = "pytest-playwright" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+test = [
+    { name = "httpx" },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "aiosqlite", specifier = ">=0.19.0" },
@@ -430,6 +440,14 @@ requires-dist = [
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.32.1" },
 ]
 provides-extras = ["dev", "test", "docs"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.12.9" }]
+test = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "pytest-asyncio", specifier = ">=1.1.0" },
+]
 
 [[package]]
 name = "colorama"

@@ -12,7 +12,7 @@ code quality, documentation, and type safety.
 """
 
 from datetime import datetime, timedelta
-from typing import Any, List, Optional, Type, TypeVar, Union
+from typing import List, Optional, Type, TypeVar, Union
 from uuid import UUID
 
 from sqlalchemy import and_, delete, select, update
@@ -106,7 +106,7 @@ class SoftDeleteManager:
         )
 
         result = await self.session.execute(query)
-        
+
         if commit:
             await self.session.commit()
 
@@ -157,7 +157,7 @@ class SoftDeleteManager:
         )
 
         result = await self.session.execute(query)
-        
+
         if commit:
             await self.session.commit()
 
@@ -193,7 +193,7 @@ class SoftDeleteManager:
         )
 
         result = await self.session.execute(query)
-        
+
         if commit:
             await self.session.commit()
 
@@ -228,7 +228,7 @@ class SoftDeleteManager:
 
         if deleted_after:
             query = query.where(model.deleted_at >= deleted_after)
-        
+
         if deleted_by:
             query = query.where(model.deleted_by == deleted_by)
 
@@ -262,7 +262,7 @@ class SoftDeleteManager:
 
         if deleted_after:
             query = query.where(model.deleted_at >= deleted_after)
-        
+
         if deleted_by:
             query = query.where(model.deleted_by == deleted_by)
 

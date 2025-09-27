@@ -1,13 +1,18 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from typing import List
 import uuid
+from typing import List
 
-from src.collaboration_bridge.schemas.contact import ContactRead, ContactCreate, ContactUpdate
-from src.collaboration_bridge.crud.contact import contact_crud
-from src.collaboration_bridge.api import deps
-from src.collaboration_bridge.models.user import User
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
+
+from src.collaboration_bridge.api import deps
 from src.collaboration_bridge.core.database import get_db_session
+from src.collaboration_bridge.crud.contact import contact_crud
+from src.collaboration_bridge.models.user import User
+from src.collaboration_bridge.schemas.contact import (
+    ContactCreate,
+    ContactRead,
+    ContactUpdate,
+)
 
 router = APIRouter()
 
