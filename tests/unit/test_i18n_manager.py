@@ -4,7 +4,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from src.project_name.i18n.manager import TranslationManager, translate
+from src.collaboration_bridge.i18n.manager import TranslationManager, translate
 
 
 class TestTranslationManager:

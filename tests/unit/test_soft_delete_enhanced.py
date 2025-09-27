@@ -16,8 +16,8 @@ import pytest
 from sqlalchemy import Column, String
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.project_name.models.base import BaseModel
-from src.project_name.services.soft_delete_manager import SoftDeleteManager
+from src.collaboration_bridge.models.base import BaseModel
+from src.collaboration_bridge.services.soft_delete_manager import SoftDeleteManager
 
 
 # Test model for soft delete testing

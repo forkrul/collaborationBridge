@@ -1,412 +1,260 @@
-# Minimal Viable Potato - template
+# Collaboration Bridge
 
-**A modern Python web application built with FastAPI, SQLAlchemy, and best practices for rapid development.**
+A science-backed manager interaction tracking application built with FastAPI, SQLAlchemy, and best practices. Track your interactions with managers and skip-level managers using validated rapport-building techniques from communication studies, social psychology, and influence research.
 
-🚀 **Production-ready application** with comprehensive tooling, testing, and deployment configurations.
+## 🎯 Features
 
-<div align="center">
+### Core Functionality
+- **Manager Interaction Tracking**: Log meetings, calls, and interactions with detailed context
+- **Science-Backed Rapport Techniques**: Built-in library of validated rapport-building strategies
+- **Effectiveness Measurement**: Track and analyze the effectiveness of different techniques
+- **Contact Management**: Organize managers, skip-levels, and senior leadership contacts
+- **Behavioral Insights**: Record non-verbal cues, communication styles, and common ground
 
-![Python](https://img.shields.io/badge/python-v3.11+-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-00a393.svg)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-red.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+### Technical Features
+- **FastAPI**: Modern, fast web framework with automatic API documentation
+- **SQLAlchemy 2.0**: Modern ORM with async support and enhanced soft delete
+- **PostgreSQL**: Production database with timezone-aware timestamps
+- **SQLite**: Testing database for development and CI/CD
+- **Pydantic**: Data validation following PEP 484 type hints
+- **Enhanced Soft Delete**: Production-ready soft delete with audit trails
+- **Comprehensive Testing**: TDD/BDD approach with pytest and behave
+- **Code Quality**: PEP 8, PEP 257, PEP 484 compliance with ruff and mypy
 
-[![CI](https://github.com/<your-username>/<your-repo-name>/workflows/CI/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/ci.yml)
-[![Documentation](https://github.com/<your-username>/<your-repo-name>/workflows/Documentation%20Check/badge.svg)](https://github.com/<your-username>/<your-repo-name>/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/gh/<your-username>/<your-repo-name>/branch/master/graph/badge.svg)](https://codecov.io/gh/<your-username>/<your-repo-name>)
-
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-
-[![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker)](https://www.docker.com/)
-[![Nix](https://img.shields.io/badge/nix-supported-blue?logo=nixos)](https://nixos.org/)
-[![Poetry](https://img.shields.io/badge/dependency-poetry-blue)](https://python-poetry.org/)
-
-[![Security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
-[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
-[![Pydantic v2](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pydantic/pydantic/main/docs/badge/v2.json)](https://pydantic.dev)
-
-<!--
-======================================================================================
-==  TODO: Add project-specific badges below.                                        ==
-==  These are just examples. Remove them if they don't apply to your project.       ==
-======================================================================================
--->
-<!-- Example: [![Deployment](https://img.shields.io/badge/deployment-active-green)](https://your-app.com) -->
-<!-- Example: [![API Status](https://img.shields.io/badge/API-online-green)](https://your-api.com/health) -->
-
-</div>
-
-> [!IMPORTANT]
-> **TODO: PROJECT DESCRIPTION**
->
-> Replace this section with a brief and informative description of your project.
-> Explain what the project does, its purpose, and its key features.
-
-🚀 **Built with the [Python MVP Template](https://github.com/forkrul/project-template-mvp)** - A modern Python web application template with FastAPI, SQLAlchemy, and best practices for rapid development.
-
-## Features
-
-- **FastAPI**: Modern, fast web framework for building APIs
-- **SQLAlchemy 2.0**: Powerful ORM with async support
-- **Pydantic**: Data validation using Python type annotations
-- **Alembic**: Database migration tool
-- **Pytest**: Testing framework with async support
-- **Docker**: Containerization for development and production
-- **Pre-commit**: Code quality hooks with work hours policy
-- **Structured Logging**: JSON logging with structlog
-- **Security**: JWT authentication and password hashing
-- **Service URL Manager**: Centralized URL management across environments
-- **Soft Delete**: Built-in soft delete functionality for all models
-- **Comprehensive Testing**: Unit, integration, and E2E tests
-- **Documentation**: Auto-generated API docs with Sphinx
-
-## ⏰ Work Hours Policy
-
-This template includes a work-life balance policy that blocks remote pushes outside of work hours:
-
-- **Work Hours**: 07:30 - 17:00 CET
-- **Policy**: Remote pushes blocked outside work hours
-- **Local commits**: Always allowed
-- **Bypass**: Use `git push --no-verify` (not recommended)
-
-Install the policy with: `make install-hooks`
-
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
 
-**Option 1: Nix (Recommended)**
-- [Nix package manager](https://nixos.org/download.html)
-- [direnv](https://direnv.net/) (optional but recommended)
-
-**Option 2: Manual Setup**
 - Python 3.11+
-- Poetry
-- PostgreSQL 16+
-- Redis
-- Docker & Docker Compose (optional)
+- PostgreSQL (for production)
+- Git
 
 ### Installation
 
-#### Using Nix (Recommended)
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   cd <your-repo-name>
-   ```
-
-2. **Enter Nix development environment**
-   ```bash
-   # With Nix flakes
-   nix develop
-
-   # Or with traditional nix-shell
-   nix-shell
-
-   # Or with direnv (automatic)
-   direnv allow
-   ```
-
-3. **Install Python dependencies**
-   ```bash
-   make install
-   ```
-
-4. **Start services and run migrations**
-   ```bash
-   services_start  # Start PostgreSQL and Redis
-   make db-upgrade
-   ```
-
-5. **Start the development server**
-   ```bash
-   make dev
-   ```
-
-#### Manual Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
-   cd <your-repo-name>
-   ```
-
-2. **Install dependencies**
-   ```bash
-   make install
-   ```
-
-3. **Configure environment**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Run database migrations**
-   ```bash
-   make db-upgrade
-   ```
-
-5. **Start the development server**
-   ```bash
-   make dev
-   ```
-
-6. **Visit the API documentation**
-   - Swagger UI: http://localhost:8000/docs
-   - ReDoc: http://localhost:8000/redoc
-
-## Nix Development Environment
-
-This project includes comprehensive Nix support for reproducible development environments:
-
-### Nix Quick Start
-
+1. Clone the repository:
 ```bash
-# Clone project
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
-
-# Install Nix and direnv (one-time setup)
-make install-nix
-
-# Enter development environment
-nix develop  # or nix-shell
-
-# Install dependencies and start services
-make install
-services_start
-make dev
+git clone https://github.com/forkrul/collaborationBridge.git
+cd collaborationBridge
 ```
 
-**Alternative manual Nix installation:**
+2. Install dependencies using uv:
 ```bash
-# Install Nix manually
-sh <(curl -L https://nixos.org/nix/install) --daemon
+uv sync
 ```
 
-### Nix Features
-
-- **🔒 Reproducible**: Exact same environment for all developers
-- **🚀 Fast Setup**: One command gets everything working
-- **🗄️ Integrated Services**: PostgreSQL and Redis included
-- **🛠️ Complete Toolchain**: Python, databases, docs, testing tools
-- **🔄 Automatic**: Works with direnv for seamless development
-
-### Nix Commands
-
+3. Set up environment variables:
 ```bash
-# Service management (in nix-shell)
-services_start     # Start PostgreSQL and Redis
-services_stop      # Stop all services
-services_status    # Check service status
-
-# Or via scripts
-make nix-services-start
-make nix-services-stop
-make nix-services-status
+cp .env.example .env
+# Edit .env with your configuration
 ```
 
-## Development
-
-### Using Make Commands
-
+4. Run database migrations:
 ```bash
-# Install dependencies
-make install
-
-# Run development server
-make dev
-
-# Run tests
-make test
-make test-unit
-make test-integration
-make test-e2e
-
-# Run linting and formatting
-make lint
-make format
-
-# Database operations
-make db-migrate msg="Add new table"
-make db-upgrade
-make db-downgrade
-
-# Documentation
-make docs
-make docs-serve
-
-# Docker operations
-make docker-up
-make docker-down
+uv run alembic upgrade head
 ```
 
-### Using Docker
-
+5. Start the development server:
 ```bash
-# Start all services
-docker-compose -f docker/docker-compose.yml up -d
-
-# View logs
-docker-compose -f docker/docker-compose.yml logs -f
-
-# Stop services
-docker-compose -f docker/docker-compose.yml down
+uv run uvicorn src.collaboration_bridge.main:app --reload
 ```
 
-## Project Structure
+The API will be available at `http://localhost:8000` with interactive documentation at `http://localhost:8000/docs`.
+
+## 📊 Science-Backed Rapport Techniques
+
+The application includes a curated library of evidence-based rapport-building techniques:
+
+### Communication Studies
+- **Active Listening**: Demonstrating genuine attention and understanding
+- **Mirroring**: Subtly matching communication style and pace
+- **Verbal Affirmations**: Strategic use of agreement and validation
+
+### Social Psychology
+- **Finding Common Ground**: Identifying shared interests, values, or experiences
+- **Reciprocity**: Strategic sharing and mutual exchange
+- **Social Proof**: Leveraging shared connections and experiences
+
+### Persuasion and Influence
+- **Genuine Praise**: Specific, authentic recognition and appreciation
+- **Consistency Principle**: Aligning with stated values and commitments
+- **Authority Recognition**: Acknowledging expertise and experience
+
+## 🏗️ Project Structure
 
 ```
-<your-repo-name>/               # Project root
-├── .github/workflows/          # GitHub Actions CI/CD
-├── src/project_name/           # Main application code
-│   ├── api/                    # API routes and endpoints
-│   ├── core/                   # Core configuration and utilities
-│   ├── models/                 # SQLAlchemy models
-│   ├── schemas/                # Pydantic schemas
-│   ├── services/               # Business logic
-│   └── utils/                  # Utility functions
-├── tests/                      # Test suite
-│   ├── unit/                   # Unit tests
-│   ├── integration/            # Integration tests
-│   └── e2e/                    # End-to-end tests
-├── docs/                       # Documentation
-├── docker/                     # Docker configuration
-├── alembic/                    # Database migrations
-└── scripts/                    # Utility scripts
+src/
+├── collaboration_bridge/   # Main application package
+│   ├── api/               # API routes and endpoints
+│   │   └── v1/           # API version 1
+│   │       ├── contacts.py      # Contact management endpoints
+│   │       ├── interactions.py  # Interaction logging endpoints
+│   │       └── rapport.py       # Rapport technique endpoints
+│   ├── core/              # Core functionality and configuration
+│   │   ├── config.py      # Application configuration
+│   │   ├── database.py    # Database setup and connection
+│   │   └── mixins.py      # Enhanced database mixins
+│   ├── models/            # SQLAlchemy models
+│   │   ├── user.py        # User authentication model
+│   │   ├── contact.py     # Manager/contact model
+│   │   ├── interaction.py # Interaction logging model
+│   │   └── rapport.py     # Rapport technique models
+│   ├── schemas/           # Pydantic schemas for API
+│   ├── services/          # Enhanced business logic layer
+│   ├── crud/              # Database operations
+│   └── main.py            # FastAPI application entry point
+tests/                     # Comprehensive test suite
+├── unit/                  # Unit tests
+├── integration/           # Integration tests
+├── features/              # BDD feature tests
+└── e2e/                   # End-to-end tests
 ```
 
-## Testing
+## 🔄 Usage Examples
 
-The template includes comprehensive testing setup:
+### Logging an Interaction
 
-- **Unit Tests**: Test individual components in isolation
-- **Integration Tests**: Test component interactions
-- **E2E Tests**: Test complete user workflows with BDD
+```python
+# Create an interaction with rapport techniques
+interaction_data = {
+    "interaction": {
+        "contact_id": "uuid-of-manager",
+        "interaction_datetime": "2024-01-15T14:30:00+00:00",
+        "medium": "In-person",
+        "topic": "Quarterly Review Discussion",
+        "rapport_score_post": 8,
+        "observed_non_verbal": "Open posture, maintained eye contact, genuine smile",
+        "user_notes": "Great discussion about career development goals"
+    },
+    "tactic_logs": [
+        {
+            "tactic_id": "uuid-of-active-listening",
+            "effectiveness_score": 5,
+            "notes": "Asked clarifying questions, paraphrased key points"
+        },
+        {
+            "tactic_id": "uuid-of-common-ground",
+            "effectiveness_score": 4,
+            "notes": "Discussed shared interest in data analytics"
+        }
+    ]
+}
+```
+
+### Managing Contacts
+
+```python
+# Add a new manager contact
+contact_data = {
+    "name": "Sarah Johnson",
+    "title": "Engineering Director",
+    "level": "Skip-Level Manager",
+    "common_ground_notes": "Both interested in machine learning, similar educational background",
+    "communication_style_notes": "Prefers data-driven discussions, appreciates direct communication"
+}
+```
+
+## 🧪 Development
+
+### Running Tests
 
 ```bash
 # Run all tests
-make test
+uv run pytest
 
 # Run with coverage
-make test-cov
+uv run pytest --cov=src --cov-report=html
+
+# Run BDD feature tests
+uv run behave tests/features/
 
 # Run specific test types
-make test-unit
-make test-integration
-make test-e2e
+uv run pytest tests/unit/
+uv run pytest tests/integration/
 ```
 
-## Database
+### Code Quality
 
-### Migrations
+```bash
+# Format code (PEP 8)
+uv run ruff format
+
+# Lint code
+uv run ruff check
+
+# Type checking (PEP 484)
+uv run mypy src/
+
+# Check docstrings (PEP 257)
+uv run ruff check --select D
+```
+
+### Database Operations
 
 ```bash
 # Create a new migration
-make db-migrate msg="Add user table"
+uv run alembic revision --autogenerate -m "Add new feature"
 
 # Apply migrations
-make db-upgrade
+uv run alembic upgrade head
 
 # Rollback migration
-make db-downgrade
+uv run alembic downgrade -1
 ```
 
-### Models
+## 🚀 Deployment
 
-All models inherit from `BaseModel` which provides:
-- Automatic timestamps (`created_at`, `updated_at`)
-- Soft delete functionality (`deleted_at`, `is_deleted`)
-- Standard primary key (`id`)
-
-## API Documentation
-
-The API documentation is automatically generated and available at:
-- **Swagger UI**: `/docs`
-- **ReDoc**: `/redoc`
-- **OpenAPI JSON**: `/openapi.json`
-
-## Security
-
-- JWT-based authentication
-- Password hashing with bcrypt
-- CORS configuration
-- Rate limiting
-- Input validation with Pydantic
-
-## Documentation
-
-The project includes comprehensive documentation built with Sphinx:
-
-- **Local Documentation**: `make docs` then `make docs-serve`
-- **GitHub Pages**: Deploy with `make docs-deploy`
-- **Live Documentation**: https://<your-username>.github.io/<your-repo-name>/
-
-### Documentation Workflow
+### Environment Configuration
 
 ```bash
-# 1. Setup GitHub Pages (one-time)
-make setup-github-pages
-
-# 2. Build documentation locally
-make docs
-
-# 3. Preview documentation
-make docs-serve
-
-# 4. Deploy to GitHub Pages
-make docs-deploy
+# Production environment variables
+ENVIRONMENT=production
+DATABASE_URL_PROD=postgresql+asyncpg://user:password@host/db
+SECRET_KEY=your-secret-key
 ```
 
-### GitHub Pages API Management
-
-GitHub Pages can be configured programmatically:
+### Docker Deployment
 
 ```bash
-# Enable GitHub Pages via script
-./scripts/setup-github-pages.sh
+# Build image
+docker build -f docker/Dockerfile -t collaboration-bridge .
 
-# Or manually via API
-curl -X POST \
-  -H "Authorization: Bearer YOUR_TOKEN" \
-  https://api.github.com/repos/OWNER/REPO/pages \
-  -d '{"source": {"branch": "gh-pages", "path": "/"}}'
+# Run container
+docker run -p 8000:8000 collaboration-bridge
 ```
 
-## Deployment
+## 📈 Monitoring and Analytics
 
-### Production Docker
+The application provides comprehensive tracking capabilities:
 
-```bash
-# Build production image
-docker build -f docker/Dockerfile -t <your-repo-name>:latest .
+- **Interaction Frequency**: Track meeting cadence with different managers
+- **Rapport Effectiveness**: Analyze which techniques work best with specific individuals
+- **Relationship Progression**: Monitor rapport scores over time
+- **Communication Patterns**: Identify successful interaction patterns
 
-# Run production container
-docker run -p 8000:8000 <your-repo-name>:latest
-```
-
-### Environment Variables
-
-Key environment variables (see `.env.example`):
-
-- `DATABASE_URL`: PostgreSQL connection string
-- `REDIS_URL`: Redis connection string
-- `SECRET_KEY`: Application secret key
-- `JWT_SECRET_KEY`: JWT signing key
-- `ENVIRONMENT`: Environment (development/testing/production)
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes following PEP 8, 257, and 484 standards
+4. Add comprehensive tests (TDD/BDD approach)
+5. Ensure all tests pass and code quality checks succeed
+6. Submit a pull request
 
-## License
+## 📚 Research Foundation
 
-This project is licensed under the MIT License.
+This application is built on validated research from:
+
+- **Communication Studies**: Active listening, mirroring, and verbal affirmation techniques
+- **Social Psychology**: Similarity-attraction principle, reciprocity, and social proof
+- **Influence Research**: Cialdini's principles of persuasion and compliance
+- **Organizational Behavior**: Manager-employee relationship dynamics
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Research contributions from communication studies and social psychology
+- FastAPI and SQLAlchemy communities for excellent frameworks
+- The Python community for maintaining high standards (PEP 8, 257, 484)

@@ -10,8 +10,10 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from alembic import context
 
 # Import your models here to ensure they are registered with SQLAlchemy
-from src.project_name.models.base import Base
-from src.project_name.core.config import settings
+from src.collaboration_bridge.core.database import Base
+from src.collaboration_bridge.core.config import settings
+# Import all models to ensure they are registered
+from src.collaboration_bridge.models import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -34,7 +36,7 @@ target_metadata = Base.metadata
 
 def get_url():
     """Get database URL from settings."""
-    return settings.database_url
+    return settings.async_database_url
 
 
 def run_migrations_offline() -> None:

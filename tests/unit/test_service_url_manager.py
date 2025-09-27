@@ -5,7 +5,7 @@ from unittest.mock import mock_open, patch
 
 import pytest
 
-from src.project_name.utils.service_url_manager import (
+from src.collaboration_bridge.utils.service_url_manager import (
     ServiceURLManager,
     get_api_endpoint,
     get_service_url,

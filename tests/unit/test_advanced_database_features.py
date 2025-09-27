@@ -19,13 +19,13 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import relationship
 
-from src.project_name.core.soft_delete_config import (
+from src.collaboration_bridge.core.soft_delete_config import (
     SoftDeleteConfig,
     get_soft_delete_config,
 )
-from src.project_name.models.base import BaseModel
-from src.project_name.services.base_service import BaseService
-from src.project_name.utils.database_utils import (
+from src.collaboration_bridge.models.base import BaseModel
+from src.collaboration_bridge.services.base_service import BaseService
+from src.collaboration_bridge.utils.database_utils import (
     CascadingSoftDeleteManager,
     DatabaseHealthChecker,
 )
