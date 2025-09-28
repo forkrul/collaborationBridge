@@ -21,3 +21,6 @@ class User(Base, TimestampMixin, SoftDeleteMixin):
     # Relationships
     contacts: Mapped[List["Contact"]] = relationship(back_populates="user")
     interactions: Mapped[List["Interaction"]] = relationship(back_populates="user")
+    interaction_drafts: Mapped[List["InteractionDraft"]] = relationship(
+        back_populates="user"
+    )

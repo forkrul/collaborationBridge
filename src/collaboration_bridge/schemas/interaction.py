@@ -1,11 +1,12 @@
 import uuid
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import Field, field_validator
 
 from src.collaboration_bridge.models.interaction import InteractionMedium
 from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+from src.collaboration_bridge.schemas.rapport import InteractionTacticLogRead
 
 
 class InteractionBase(BaseSchema):
@@ -31,5 +32,9 @@ class InteractionCreate(InteractionBase):
         return v
 
 class InteractionRead(InteractionBase, CoreRead):
-    """Schema for reading Interaction data."""
+    """Schema for reading Interaction data, including associated tactic logs."""
     contact_id: uuid.UUID
+    tactic_logs: List[InteractionTacticLogRead] = []
+
+    class Config:
+        from_attributes = True

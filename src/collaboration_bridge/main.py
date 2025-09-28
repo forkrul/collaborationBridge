@@ -6,6 +6,9 @@ from sqlalchemy import select
 
 # Import the routers
 from src.collaboration_bridge.api.v1.contacts import router as contacts_v1_router
+from src.collaboration_bridge.api.v1.guided_interactions import (
+    router as guided_interactions_v1_router,
+)
 from src.collaboration_bridge.api.v1.interactions import (
     router as interactions_v1_router,
 )
@@ -43,6 +46,11 @@ app = FastAPI(
 
 # Setup the main API router structure
 api_v1_router = APIRouter(prefix="/api/v1")
+api_v1_router.include_router(
+    guided_interactions_v1_router,
+    prefix="/guided-interactions",
+    tags=["Guided Interactions"],
+)
 api_v1_router.include_router(contacts_v1_router, prefix="/contacts", tags=["Contacts"])
 api_v1_router.include_router(interactions_v1_router, prefix="/interactions", tags=["Interactions"])
 api_v1_router.include_router(rapport_v1_router, prefix="/rapport", tags=["Rapport"])

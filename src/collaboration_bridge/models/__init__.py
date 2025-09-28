@@ -5,7 +5,8 @@ of all tables before any operations are performed, which prevents circular
 import and mapper configuration errors.
 """
 
-from .contact import Contact
+from .contact import Contact, ContactLevel
 from .interaction import Interaction
-from .rapport import InteractionTacticLog, RapportTactic
+from .interaction_draft import InteractionDraft, InteractionTacticLogDraft
+from .rapport import InteractionTacticLog, RapportTactic, ScientificDomain
 from .user import User
