@@ -1,43 +1,51 @@
-# Complete Test Environment Setup for AI Agents
+# Agent Testing Guide
 
-## Quick Start
+## Prerequisites
+- uv >= 0.4.0
+- Node >= 20.0.0
+- PostgreSQL >= 14 (for integration tests)
+
+## Quick Start & Environment Setup
 ```bash
-# One-time setup
+# One-time setup for all dependencies
 make test-env
 
-# Run all tests
+# Run the full test suite
 make test-all
 
-# Quick unit tests only
+# Run only the fast unit tests
 make test-unit
 ```
 
 ## Adding New Features
-1. Create tests first: `tests/test_<feature>.py`
-2. Use existing factories: `from tests.factories import UserFactory`
-3. Run tests: `uv run pytest tests/test_<feature>.py -v`
+1.  Create your test file first (e.g., `tests/unit/test_new_feature.py`).
+2.  Use existing factories for test data: `from tests.factories import UserFactory`.
+3.  Run your new test specifically: `uv run pytest tests/unit/test_new_feature.py -v`.
 
 ## Database Testing
-- Unit tests use SQLite (fast, no setup)
-- Integration tests use PostgreSQL (production-like)
-- Both use same models via SQLAlchemy
+-   Unit tests use an in-memory SQLite database for speed (`make test-unit`).
+-   Integration tests use a real PostgreSQL database via Docker for production parity (`make test-integration`).
+-   The same data models are used for both, thanks to SQLAlchemy.
 
 ## Debugging Failed Tests
 ```bash
-# Run single test with output
+# Run a single test with verbose output
 uv run pytest tests/test_file.py::test_name -vvs
 
-# Check test database state
+# Inspect the SQLite database state after a run
 TEST_DB=sqlite:///test.db uv run python
 >>> from src.collaboration_bridge.models import *
->>> # inspect data
+>>> # Now you can query your models, e.g., session.query(User).all()
 ```
 
 ## CI/CD Integration
-GitHub Actions automatically runs:
-1. `make validate-env` - Check environment
-2. `make test-all` - Full test suite
-3. Reports coverage and test results
+GitHub Actions automatically performs the following checks on every push:
+1.  `make validate-env` - Validates the environment configuration.
+2.  `make test-all` - Runs the complete test suite.
+3.  Reports test coverage and results.
 
 ## Troubleshooting
-- If tests fail, run: `make clean-test && make test-env`
+-   If tests are failing unexpectedly, clean the environment and rebuild it:
+    ```bash
+    make clean-test && make test-env
+    ```
