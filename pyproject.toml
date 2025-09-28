@@ -21,16 +21,17 @@ classifiers = [
 ]
 
 dependencies = [
-    "fastapi>=0.115.6",
+    "fastapi>=0.104.0,<0.105.0",
     "uvicorn[standard]>=0.32.1",
     "pydantic>=2.10.4",
     "pydantic-settings>=2.7.0",
-    "sqlalchemy>=2.0.0",
-    "alembic>=1.13.0",
+    "sqlalchemy>=2.0.0,<2.1.0",
+    "alembic>=1.13.0,<1.14.0",
+    "psycopg2-binary>=2.9.0,<3.0.0",
     "asyncpg>=0.29.0",
     "aiosqlite>=0.19.0",
     "redis>=5.0.0",
-    "httpx>=0.26.0",
+    "httpx>=0.25.0,<0.26.0",
     "python-jose[cryptography]>=3.3.0",
     "passlib[bcrypt]>=1.7.4",
     "python-multipart>=0.0.6",
@@ -48,23 +49,24 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "ruff>=0.8.0",
+    "ruff>=0.1.0",
     "mypy>=1.8.0",
     "pre-commit>=3.6.0",
-    "ipython>=8.20.0",
     "rich>=13.7.0",
 ]
 test = [
-    "pytest>=8.0.0",
-    "pytest-asyncio>=0.23.0",
+    "pytest>=7.4.0,<8.0.0",
+    "pytest-asyncio>=0.21.0,<0.22.0",
     "pytest-cov>=4.1.0",
     "pytest-env>=1.1.0",
-    "factory-boy>=3.3.0",
+    "factory-boy>=3.3.0,<4.0.0",
     "faker>=22.0.0",
-    "httpx>=0.26.0",
+    "httpx>=0.25.0,<0.26.0",
     "behave>=1.2.6",
     "playwright>=1.41.0",
     "pytest-playwright>=0.4.0",
+    "pytest-timeout>=2.2.0,<3.0.0",
+    "pytest-xdist>=3.5.0,<4.0.0",
 ]
 docs = [
     "sphinx>=7.2.0",
@@ -77,6 +79,11 @@ docs = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "ipython>=8.0.0",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/collaboration_bridge"]

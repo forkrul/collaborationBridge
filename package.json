@@ -1,0 +1,17 @@
+{
+  "name": "collaboration-bridge-e2e",
+  "version": "1.0.0",
+  "description": "E2E tests for collaboration-bridge",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.41.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.41.0"
+  }
+}
