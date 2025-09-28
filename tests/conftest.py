@@ -6,7 +6,8 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from src.collaboration_bridge.main import app
-from src.collaboration_bridge.core.database import Base, get_db_session
+from src.collaboration_bridge.api.deps import get_db
+from src.collaboration_bridge.core.database import Base
 from src.collaboration_bridge.core.config import settings
 
 # Ensure we use the test database URL
@@ -48,7 +49,7 @@ async def client(db_session: AsyncSession) -> AsyncGenerator[AsyncClient, None]:
     async def override_get_db():
         yield db_session
 
-    app.dependency_overrides[get_db_session] = override_get_db
+    app.dependency_overrides[get_db] = override_get_db
 
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as c:
