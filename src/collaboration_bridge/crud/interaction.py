@@ -48,6 +48,30 @@ class CRUDInteraction(CRUDBase[Interaction, InteractionCreate, None]):
         await db.refresh(interaction)
         return interaction
 
+    async def get_multi_by_user(
+        self,
+        db: AsyncSession,
+        *,
+        user_id: uuid.UUID,
+        skip: int = 0,
+        limit: int = 100
+    ) -> List[Interaction]:
+        """Get all active interactions for a specific user."""
+        query = (
+            select(self.model)
+            .where(
+                and_(
+                    self.model.user_id == user_id,
+                    self._get_active_filter()
+                )
+            )
+            .order_by(self.model.interaction_datetime.desc())
+            .offset(skip)
+            .limit(limit)
+        )
+        result = await db.execute(query)
+        return result.scalars().all()
+
     async def get_multi_by_user_and_contact(
         self,
         db: AsyncSession,

@@ -5,7 +5,6 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.collaboration_bridge.core.database import Base
 from src.collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
-from src.collaboration_bridge.schemas.onboarding import OnboardingStatus
 
 
 class User(Base, TimestampMixin, SoftDeleteMixin):
@@ -18,13 +17,10 @@ class User(Base, TimestampMixin, SoftDeleteMixin):
     full_name: Mapped[str] = mapped_column(sa.String(255), nullable=False)
     hashed_password: Mapped[str] = mapped_column(sa.String(255), nullable=False)
     is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
-    onboarding_status: Mapped[OnboardingStatus] = mapped_column(
-        sa.String(50),
-        nullable=False,
-        default=OnboardingStatus.NOT_STARTED,
-        server_default=OnboardingStatus.NOT_STARTED.value,
-    )
 
     # Relationships
     contacts: Mapped[List["Contact"]] = relationship(back_populates="user")
     interactions: Mapped[List["Interaction"]] = relationship(back_populates="user")
+    onboarding_progress: Mapped["Onboarding"] = relationship(
+        back_populates="user", uselist=False, cascade="all, delete-orphan"
+    )

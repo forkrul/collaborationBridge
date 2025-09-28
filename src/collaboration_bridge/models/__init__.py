@@ -7,5 +7,6 @@ import and mapper configuration errors.
 
 from .contact import Contact
 from .interaction import Interaction
+from .onboarding import Onboarding
 from .rapport import InteractionTacticLog, RapportTactic
 from .user import User

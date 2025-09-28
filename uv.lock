@@ -339,7 +339,6 @@ dependencies = [
     { name = "email-validator" },
     { name = "fastapi" },
     { name = "flufl-i18n" },
-    { name = "httpx" },
     { name = "langdetect" },
     { name = "passlib", extra = ["bcrypt"] },
     { name = "pycountry" },
@@ -384,6 +383,16 @@ test = [
     { name = "pytest-playwright" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+test = [
+    { name = "httpx" },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "aiosqlite", specifier = ">=0.19.0" },
@@ -396,7 +405,6 @@ requires-dist = [
     { name = "faker", marker = "extra == 'test'", specifier = ">=22.0.0" },
     { name = "fastapi", specifier = ">=0.115.6" },
     { name = "flufl-i18n", specifier = ">=4.1.1" },
-    { name = "httpx", specifier = ">=0.26.0" },
     { name = "httpx", marker = "extra == 'test'", specifier = ">=0.26.0" },
     { name = "ipython", marker = "extra == 'dev'", specifier = ">=8.20.0" },
     { name = "langdetect", specifier = ">=1.0.9" },
@@ -430,6 +438,14 @@ requires-dist = [
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.32.1" },
 ]
 provides-extras = ["dev", "test", "docs"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.12.9" }]
+test = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "pytest-asyncio", specifier = ">=1.1.0" },
+]
 
 [[package]]
 name = "colorama"

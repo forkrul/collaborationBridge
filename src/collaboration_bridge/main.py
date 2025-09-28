@@ -11,7 +11,6 @@ from src.collaboration_bridge.api.v1.interactions import (
 )
 from src.collaboration_bridge.api.v1.onboarding import router as onboarding_v1_router
 from src.collaboration_bridge.api.v1.rapport import router as rapport_v1_router
-from src.collaboration_bridge.api.v1.users import router as users_v1_router
 from src.collaboration_bridge.core.config import settings
 from src.collaboration_bridge.core.database import AsyncSessionLocal
 from src.collaboration_bridge.core.seed_data import SEED_TACTICS
@@ -45,10 +44,7 @@ app = FastAPI(
 
 # Setup the main API router structure
 api_v1_router = APIRouter(prefix="/api/v1")
-api_v1_router.include_router(users_v1_router, prefix="/users", tags=["Users"])
-api_v1_router.include_router(
-    onboarding_v1_router, prefix="/onboarding", tags=["Onboarding"]
-)
+api_v1_router.include_router(onboarding_v1_router, prefix="/onboarding", tags=["Onboarding"])
 api_v1_router.include_router(contacts_v1_router, prefix="/contacts", tags=["Contacts"])
 api_v1_router.include_router(interactions_v1_router, prefix="/interactions", tags=["Interactions"])
 api_v1_router.include_router(rapport_v1_router, prefix="/rapport", tags=["Rapport"])

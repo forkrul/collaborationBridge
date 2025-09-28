@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.collaboration_bridge.api import deps
+from src.collaboration_bridge.core.database import get_db_session
 from src.collaboration_bridge.crud.contact import contact_crud
 from src.collaboration_bridge.crud.interaction import interaction_crud
 from src.collaboration_bridge.models.user import User
@@ -13,7 +14,6 @@ from src.collaboration_bridge.schemas.interaction import (
     InteractionCreate,
     InteractionRead,
 )
-from src.collaboration_bridge.schemas.onboarding import OnboardingStatus
 from src.collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
 
 router = APIRouter()
@@ -29,13 +29,12 @@ class InteractionWithTacticsCreate(BaseModel):
 @router.post("/", response_model=InteractionRead, status_code=status.HTTP_201_CREATED)
 async def create_interaction_with_tactics(
     *,
-    db: AsyncSession = Depends(deps.get_db),
+    db: AsyncSession = Depends(get_db_session),
     interaction_in: InteractionWithTacticsCreate,
     current_user: User = Depends(deps.get_current_user),
 ) -> InteractionRead:
     """
     Log a new interaction with a contact, including the rapport-building tactics used.
-    This also advances the user's onboarding status if it's their first interaction.
     """
     # First, verify that the contact exists and belongs to the current user.
     contact = await contact_crud.get_by_user(
@@ -54,20 +53,12 @@ async def create_interaction_with_tactics(
         user_id=current_user.id,
         tactic_logs_in=interaction_in.tactic_logs
     )
-
-    # Advance onboarding status if this is the first interaction logged
-    if current_user.onboarding_status == OnboardingStatus.FIRST_CONTACT_ADDED:
-        current_user.onboarding_status = OnboardingStatus.FIRST_INTERACTION_LOGGED
-        db.add(current_user)
-        await db.commit()
-        await db.refresh(current_user)
-
     return interaction
 
 @router.get("/", response_model=List[InteractionRead])
 async def read_interactions_for_contact(
     contact_id: uuid.UUID,
-    db: AsyncSession = Depends(deps.get_db),
+    db: AsyncSession = Depends(get_db_session),
     skip: int = 0,
     limit: int = 100,
     current_user: User = Depends(deps.get_current_user),

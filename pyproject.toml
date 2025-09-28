@@ -30,7 +30,6 @@ dependencies = [
     "asyncpg>=0.29.0",
     "aiosqlite>=0.19.0",
     "redis>=5.0.0",
-    "httpx>=0.26.0",
     "python-jose[cryptography]>=3.3.0",
     "passlib[bcrypt]>=1.7.4",
     "python-multipart>=0.0.6",
@@ -145,4 +144,13 @@ asyncio_mode = "auto"
 source = ["src"]
 omit = ["*/tests/*", "*/migrations/*"]
 
+[dependency-groups]
+dev = [
+    "ruff>=0.12.9",
+]
+test = [
+    "httpx>=0.28.1",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+]
 
