@@ -2,8 +2,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from passlib.context import CryptContext
 
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas.user import UserCreate
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas.user import UserCreate
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

@@ -6,8 +6,8 @@ from sqlalchemy import and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.mixins import SoftDeleteMixin
+from collaboration_bridge.core.database import Base
+from collaboration_bridge.core.mixins import SoftDeleteMixin
 
 ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)

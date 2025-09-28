@@ -5,16 +5,16 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.collaboration_bridge.api import deps
-from src.collaboration_bridge.crud.contact import contact_crud
-from src.collaboration_bridge.crud.interaction import interaction_crud
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas.interaction import (
+from collaboration_bridge.api import deps
+from collaboration_bridge.crud.contact import contact_crud
+from collaboration_bridge.crud.interaction import interaction_crud
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas.interaction import (
     InteractionCreate,
     InteractionRead,
 )
-from src.collaboration_bridge.schemas.onboarding import OnboardingStatus
-from src.collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
+from collaboration_bridge.schemas.onboarding import OnboardingStatus
+from collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
 
 router = APIRouter()
 

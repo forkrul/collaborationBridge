@@ -5,7 +5,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
-from src.collaboration_bridge.core.config import settings
+from collaboration_bridge.core.config import settings
 
 # Create the async engine
 engine = create_async_engine(settings.async_database_url)

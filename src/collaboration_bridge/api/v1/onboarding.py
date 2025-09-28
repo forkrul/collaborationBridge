@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from src.collaboration_bridge.api import deps
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas.onboarding import OnboardingStep
-from src.collaboration_bridge.services.onboarding import OnboardingService
+from collaboration_bridge.api import deps
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas.onboarding import OnboardingStep
+from collaboration_bridge.services.onboarding import OnboardingService
 
 router = APIRouter()
 

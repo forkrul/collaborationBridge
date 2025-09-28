@@ -5,9 +5,9 @@ from sqlalchemy import and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from src.collaboration_bridge.crud.base import CRUDBase
-from src.collaboration_bridge.models.contact import Contact
-from src.collaboration_bridge.schemas.contact import ContactCreate, ContactUpdate
+from collaboration_bridge.crud.base import CRUDBase
+from collaboration_bridge.models.contact import Contact
+from collaboration_bridge.schemas.contact import ContactCreate, ContactUpdate
 
 
 class CRUDContact(CRUDBase[Contact, ContactCreate, ContactUpdate]):

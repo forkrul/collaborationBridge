@@ -3,9 +3,9 @@ from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from src.collaboration_bridge.crud.base import CRUDBase
-from src.collaboration_bridge.models.rapport import InteractionTacticLog, RapportTactic
-from src.collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
+from collaboration_bridge.crud.base import CRUDBase
+from collaboration_bridge.models.rapport import InteractionTacticLog, RapportTactic
+from collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
 
 
 class CRUDRapportTactic(CRUDBase[RapportTactic, None, None]):
