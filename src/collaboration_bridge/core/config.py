@@ -28,6 +28,11 @@ class Settings(BaseSettings):
             # Development environment
             return self.DATABASE_URL_DEV
 
+    # Security settings
+    SECRET_KEY: str = "a_very_secret_key_that_should_be_in_env"  # Default for development
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
 
 settings = Settings()

@@ -145,14 +145,4 @@ asyncio_mode = "auto"
 source = ["src"]
 omit = ["*/tests/*", "*/migrations/*"]
 
-[dependency-groups]
-dev = [
-    "ruff>=0.12.9",
-]
-test = [
-    "httpx>=0.28.1",
-    "pytest>=8.4.1",
-    "pytest-asyncio>=1.1.0",
-]
-
 

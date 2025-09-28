@@ -5,7 +5,6 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.collaboration_bridge.api import deps
-from src.collaboration_bridge.core.database import get_db_session
 from src.collaboration_bridge.crud.contact import contact_crud
 from src.collaboration_bridge.models.user import User
 from src.collaboration_bridge.schemas.contact import (
@@ -13,25 +12,37 @@ from src.collaboration_bridge.schemas.contact import (
     ContactRead,
     ContactUpdate,
 )
+from src.collaboration_bridge.schemas.onboarding import OnboardingStatus
 
 router = APIRouter()
 
 @router.post("/", response_model=ContactRead, status_code=status.HTTP_201_CREATED)
 async def create_contact(
     *,
-    db: AsyncSession = Depends(get_db_session),
+    db: AsyncSession = Depends(deps.get_db),
     contact_in: ContactCreate,
     current_user: User = Depends(deps.get_current_user),
 ) -> ContactRead:
-    """Create a new contact for the current user."""
+    """
+    Create a new contact for the current user.
+    This also advances the user's onboarding status if it's their first contact.
+    """
     contact = await contact_crud.create_with_owner(
         db=db, obj_in=contact_in, user_id=current_user.id
     )
+
+    # Advance onboarding status if this is the first contact added
+    if current_user.onboarding_status == OnboardingStatus.NOT_STARTED:
+        current_user.onboarding_status = OnboardingStatus.FIRST_CONTACT_ADDED
+        db.add(current_user)
+        await db.commit()
+        await db.refresh(current_user)
+
     return contact
 
 @router.get("/", response_model=List[ContactRead])
 async def read_contacts(
-    db: AsyncSession = Depends(get_db_session),
+    db: AsyncSession = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
     current_user: User = Depends(deps.get_current_user),
@@ -46,7 +57,7 @@ async def read_contacts(
 async def read_contact(
     *,
     contact_id: uuid.UUID,
-    db: AsyncSession = Depends(get_db_session),
+    db: AsyncSession = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_user),
 ) -> ContactRead:
     """Get a specific contact by ID."""
@@ -66,7 +77,7 @@ async def update_contact(
     *,
     contact_id: uuid.UUID,
     contact_in: ContactUpdate,
-    db: AsyncSession = Depends(get_db_session),
+    db: AsyncSession = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_user),
 ) -> ContactRead:
     """Update a contact (Partial Update)."""
@@ -86,7 +97,7 @@ async def update_contact(
 async def delete_contact(
     *,
     contact_id: uuid.UUID,
-    db: AsyncSession = Depends(get_db_session),
+    db: AsyncSession = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_user),
 ) -> None:
     """Soft delete a contact."""
