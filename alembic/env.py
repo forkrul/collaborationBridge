@@ -10,10 +10,10 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from alembic import context
 
 # Import your models here to ensure they are registered with SQLAlchemy
-from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.config import settings
+from collaboration_bridge.core.database import Base
+from collaboration_bridge.core.config import settings
 # Import all models to ensure they are registered
-from src.collaboration_bridge.models import *
+from collaboration_bridge.models import *
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

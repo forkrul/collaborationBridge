@@ -2,8 +2,8 @@ from typing import Optional
 
 from pydantic import Field
 
-from src.collaboration_bridge.models.contact import ContactLevel
-from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+from collaboration_bridge.models.contact import ContactLevel
+from collaboration_bridge.schemas.base import BaseSchema, CoreRead
 
 
 class ContactBase(BaseSchema):

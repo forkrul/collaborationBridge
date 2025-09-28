@@ -4,10 +4,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.collaboration_bridge.api.deps import get_db
-from src.collaboration_bridge.core.config import settings
-from src.collaboration_bridge.crud import user as user_crud
-from src.collaboration_bridge.schemas import user as user_schema
+from collaboration_bridge.api.deps import get_db
+from collaboration_bridge.core.config import settings
+from collaboration_bridge.crud import user as user_crud
+from collaboration_bridge.schemas import user as user_schema
 from jose import jwt, JWTError
 
 router = APIRouter()

@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas.onboarding import OnboardingStatus, OnboardingStep
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas.onboarding import OnboardingStatus, OnboardingStep
 
 
 class OnboardingService:

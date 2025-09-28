@@ -5,11 +5,11 @@ from sqlalchemy import and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from src.collaboration_bridge.crud.base import CRUDBase
-from src.collaboration_bridge.models.interaction import Interaction
-from src.collaboration_bridge.models.rapport import InteractionTacticLog
-from src.collaboration_bridge.schemas.interaction import InteractionCreate
-from src.collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
+from collaboration_bridge.crud.base import CRUDBase
+from collaboration_bridge.models.interaction import Interaction
+from collaboration_bridge.models.rapport import InteractionTacticLog
+from collaboration_bridge.schemas.interaction import InteractionCreate
+from collaboration_bridge.schemas.rapport import InteractionTacticLogCreate
 
 
 class CRUDInteraction(CRUDBase[Interaction, InteractionCreate, None]):

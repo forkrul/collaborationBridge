@@ -4,8 +4,8 @@ from typing import Optional
 
 from pydantic import Field, field_validator
 
-from src.collaboration_bridge.models.interaction import InteractionMedium
-from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+from collaboration_bridge.models.interaction import InteractionMedium
+from collaboration_bridge.schemas.base import BaseSchema, CoreRead
 
 
 class InteractionBase(BaseSchema):

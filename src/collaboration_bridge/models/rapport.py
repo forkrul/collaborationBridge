@@ -6,8 +6,8 @@ import sqlalchemy as sa
 from sqlalchemy import UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.mixins import TimestampMixin
+from collaboration_bridge.core.database import Base
+from collaboration_bridge.core.mixins import TimestampMixin
 
 
 class ScientificDomain(str, Enum):

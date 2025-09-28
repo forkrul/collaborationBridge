@@ -6,11 +6,11 @@ from typing import TYPE_CHECKING, List
 import sqlalchemy as sa
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.collaboration_bridge.core.database import Base
-from src.collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
+from collaboration_bridge.core.database import Base
+from collaboration_bridge.core.mixins import SoftDeleteMixin, TimestampMixin
 
 if TYPE_CHECKING:
-    from src.collaboration_bridge.models.rapport import InteractionTacticLog
+    from collaboration_bridge.models.rapport import InteractionTacticLog
 
 class InteractionMedium(str, Enum):
     """The medium through which the interaction took place."""

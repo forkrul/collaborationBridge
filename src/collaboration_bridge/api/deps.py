@@ -3,11 +3,11 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.collaboration_bridge.core.config import settings
-from src.collaboration_bridge.core.database import AsyncSessionLocal
-from src.collaboration_bridge.crud import user as user_crud
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas import user as user_schema
+from collaboration_bridge.core.config import settings
+from collaboration_bridge.core.database import AsyncSessionLocal
+from collaboration_bridge.crud import user as user_crud
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas import user as user_schema
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/users/token")
 

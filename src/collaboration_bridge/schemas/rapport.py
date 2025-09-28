@@ -3,8 +3,8 @@ from typing import Optional
 
 from pydantic import Field
 
-from src.collaboration_bridge.models.rapport import ScientificDomain
-from src.collaboration_bridge.schemas.base import BaseSchema, CoreRead
+from collaboration_bridge.models.rapport import ScientificDomain
+from collaboration_bridge.schemas.base import BaseSchema, CoreRead
 
 
 # Schemas for RapportTactic

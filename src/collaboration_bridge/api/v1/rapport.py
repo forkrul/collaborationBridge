@@ -3,10 +3,10 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.collaboration_bridge.api import deps
-from src.collaboration_bridge.crud.rapport import rapport_tactic_crud
-from src.collaboration_bridge.models.user import User
-from src.collaboration_bridge.schemas.rapport import RapportTacticRead
+from collaboration_bridge.api import deps
+from collaboration_bridge.crud.rapport import rapport_tactic_crud
+from collaboration_bridge.models.user import User
+from collaboration_bridge.schemas.rapport import RapportTacticRead
 
 router = APIRouter()
 

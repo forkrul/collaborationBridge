@@ -1,4 +1,4 @@
-from src.collaboration_bridge.models.rapport import ScientificDomain
+from collaboration_bridge.models.rapport import ScientificDomain
 
 # Data based on established psychological and communication research, with citations.
 SEED_TACTICS = [
